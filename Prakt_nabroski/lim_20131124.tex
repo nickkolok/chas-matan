@@ -1,0 +1,61 @@
+\documentclass[a4paper,16pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % любая желаемая кодировка
+\usepackage[russian,english]{babel}
+\usepackage[pdftex,unicode]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+
+\begin{document} % начало документа
+
+\[
+\lim_{x \to -1}\frac{x^3-3x-2}{x^3+2x^2-x-2}=
+\lim_{x \to -1}\frac{(x^2-x-2)(x+1)}{x(x+1)(x-1)+2(x+1)(x-1)}=
+\]
+\[=
+\lim_{x \to -1}\frac{(x^2-x-2)}{(x+2)(x-1)}=0
+\]
+
+\[
+\lim_{x \to \infty}\left({ \sqrt[3]{(x+1)^2}-\sqrt[3]{(x-1)^2} }\right)=
+\]
+\[=
+\lim_{x \to \infty}\frac{\left(\sqrt[3]{(x+1)^2}-\sqrt[3]{(x-1)^2}\right)  \left(\sqrt[3]{(x+1)^4}+\sqrt[3]{(x+1)^2 (x-1)^2}+\sqrt[3]{(x-1)^4}\right)}{\left(\sqrt[3]{(x+1)^4}+\sqrt[3]{(x+1)^2 (x-1)^2}+\sqrt[3]{(x-1)^4}\right)}=
+\]
+\[=
+\lim_{x \to \infty}\frac{(x+1)^2-(x-1)^2}{\left(\sqrt[3]{(x+1)^4}+\sqrt[3]{(x+1)^2 (x-1)^2}+\sqrt[3]{(x-1)^4}\right)}=
+\]
+\[=
+\lim_{x \to \infty}\frac{4x}{\left(\sqrt[3]{(x+1)^4}+\sqrt[3]{(x+1)^2 (x-1)^2}+\sqrt[3]{(x-1)^4}\right)}=
+\]
+\[=
+\lim_{x \to \infty}\frac{4}{\left(\sqrt[3]{\frac{(x+1)^4}{x^3}}+\sqrt[3]{\frac{(x+1)^2 (x-1)^2}{x^3}}+\sqrt[3]{\frac{(x-1)^4}{x^3}}\right)}=0
+\]
+
+
+\[
+\lim_{x \to 2}\frac{\sin 7 \pi x}{\tg 8 \pi x}=
+\]
+
+Делаем замену $y=x-2$, тогда $x=y+2$
+
+\[
+=
+\lim_{y \to 0}\frac{\sin (7 \pi y + 2 \pi)}{\tg (8 \pi y+ 2 \pi)}=
+\lim_{y \to 0}\frac{\sin 7 \pi y }{\tg 8 \pi y}=
+\lim_{y \to 0}\frac{7 \pi y }{8 \pi y}=
+\frac{7}{8}
+\]
+
+\[
+\lim_{x \to 0}\sqrt[x^2]{2-\cos x}=\lim_{x \to 0}(1+1-cosx)^{\frac{1}{x^2}}=
+e^{\lim_{x \to 0} \frac{1-cos x}{x^2}}=
+\]
+\[=
+e^{\lim_{x \to 0} \frac{1-cos \left(2\frac{x}{2}\right)}{x^2}}=
+e^{\lim_{x \to 0} \frac{1-\left(1-2 \sin^2\frac{x}{2}\right)}{x^2}}=
+\]
+ \[=
+e^{\lim_{x \to 0} \frac{2 \sin^2\frac{x}{2}}{2 \cdot 2 \cdot \left(\frac{x}{2}\right)^2}}=e^{\frac{1}{2}}
+ \]
+
+\end{document} % конец документа

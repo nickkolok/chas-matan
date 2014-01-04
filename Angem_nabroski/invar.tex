@@ -1,0 +1,102 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % любая желаемая кодировка
+\usepackage[russian,english]{babel}
+\usepackage[pdftex,unicode]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+
+\begin{document} % начало документа
+
+$ 2a' \cdot 2c' - 4b' = $
+
+(подставляя значения $2a'$ и $2c'$)
+
+$ ((a+c)-(2b \sin 2 \varphi + (c-a) \cos 2 \varphi))
+\cdot
+((a+c)+(2b \sin 2 \varphi + (c-a) \cos 2 \varphi))-$
+
+$-(2b')^2 = $
+
+(первое слагаемое - разность квадратов)
+
+$ (a+c)^2-(2b \sin 2 \varphi + (c-a) \cos 2 \varphi)^2 - (2b')^2 = $
+
+(немного преобразуем знаки во второй скобке)
+
+$(a+c)^2-(2b \sin 2 \varphi - (a-c) \cos 2 \varphi)^2 - (2b')^2 =
+$
+
+(и ещё чуть-чуть)
+
+$(a+c)^2-((a-c) \cos 2 \varphi - 2b \sin 2 \varphi)^2 -(2b')^2 =
+$
+
+(теперь подставляем $2b'$)
+
+$(a+c)^2-((a-c) \cos 2 \varphi - 2b \sin 2 \varphi)^2 - $
+
+$-((a-c) \sin 2 \varphi + 2b \cos 2 \varphi)^2 =
+$
+
+(деваться некуда, раскрываем второе и третье слагаемое по формулам квадрата суммы и разности соответственно)
+
+$
+(a+c)^2-
+$
+
+$
+-(
+(a-c)^2 \cos ^2 2 \varphi
+- 4 b (a-c) \sin 2 \varphi \cos 2 \varphi
++ 4b^2 \sin ^2 2 \varphi
+)-
+$
+
+$
+-(
+(a-c)^2 \sin ^2 2 \varphi
++ 4 b (a-c) \sin 2 \varphi \cos 2 \varphi
++ 4b^2 \cos ^2 2 \varphi
+)=
+$
+
+(частично раскрываем скобки)
+
+$(a+c)^2
+-(a-c)^2 \cos ^2 2 \varphi
++ 4 b (a-c) \sin 2 \varphi \cos 2 \varphi
+- 4b^2 \sin ^2 2 \varphi -$
+
+$-(a-c)^2 \sin ^2 2 \varphi
+- 4 b (a-c) \sin 2 \varphi \cos 2 \varphi
+- 4b^2 \cos ^2 2 \varphi
+=$
+
+(приводим подобные слагаемые)
+
+$(a+c)^2
+-(a-c)^2 (\cos ^2 2 \varphi + \sin ^2 2 \varphi)
+- 4b^2 (\sin ^2 2 \varphi + \cos ^2 2 \varphi)
+=$
+
+(используем основное тригонометрическое тождество)
+
+$(a+c)^2 - (a-c)^2 - 4b^2 =$
+
+(раскрываем оставшиеся скобки по формулам квадрата суммы и разности соответственно)
+
+$a^2 + 2ac + c^2 - (a^2 - 2ac + c^2) - 4b^2 =$
+
+(и последние скобки)
+
+$a^2 + 2ac + c^2 - a^2 + 2ac - c^2 - 4b^2 =$
+
+(приводим подобные)
+
+$4ac - 4b^2 $
+
+Вуаля!
+
+
+
+\end{document} % конец документа

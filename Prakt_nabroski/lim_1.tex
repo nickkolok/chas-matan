@@ -1,0 +1,33 @@
+\documentclass[a4paper,16pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} % любая желаемая кодировка
+\usepackage[russian,english]{babel}
+\usepackage[pdftex,unicode]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+
+\begin{document} % начало документа
+
+\[
+\lim_{x \to 0}\frac{
+\ln(1-7x)
+}{
+\sin(\pi(x+7))
+}=
+\lim_{x \to 0} \frac{\frac{\ln(1+(-7x))}{-7x}\cdot (-7x) }{\sin(\pi x+7 \pi)}=
+\lim_{x \to 0} \frac{-7x}{-\sin(\pi x)}=
+\lim_{x \to 0} \frac{-7x}{-\pi x}=
+\frac{7}{\pi}
+\]
+
+\[
+\lim_{x \to 16}\frac{\sqrt[4]{x}-2}{\sqrt{x}-4}=
+\lim_{x \to 16}\frac{\sqrt[4]{x}-2}{(\sqrt[4]{x}-2)(\sqrt[4]{x}+2)}=
+\lim_{x \to 16}\frac{1}{\sqrt[4]{x}+2}=\frac{1}{4}
+\]
+
+\[
+\lim_{x \to -1}\frac{2x^2+x-1}{x^3-3x-2}=
+\lim_{x \to -1}\frac{(2x-1)(x+1)}{(x+1)(x^2-x-2)}=
+\lim_{x \to -1}\frac{2x-1}{x^2-x-2}=\infty
+\]
+\end{document} % конец документа
