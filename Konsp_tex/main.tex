@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel} %используем русский и английский языки с переносами
 \usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float} %подключаем нужные пакеты расширений
-\usepackage[pdftex,unicode]{hyperref}
+\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage{indentfirst} % включить отступ у первого абзаца
 \usepackage[dvips]{graphicx} %хотим вставлять рисунки?
 \graphicspath{{illustr/}}%путь к рисункам
@@ -31,10 +31,12 @@
 \newcommand{\dokvo}{\paragraph{Доказательство.}}
 \newcommand{\neobh}{\paragraph{Необходимость.}}
 \newcommand{\dost }{\paragraph{Достаточность.}}
+\newcommand{\opred}{\paragraph{Определение.}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
+\renewcommand{\epsilon}{\varepsilon}
 
 \tableofcontents % это оглавление, которое генерируется автоматически
 
