@@ -1,0 +1,19 @@
+Согласно определению непрерывности,
+$f:X \to R$ непрерывна, если 
+$\forall(x_0 \in X) \forall(\epsilon >0) \exists(\delta>0)[0<|x-x_0|<\delta \Rightarrow |f(x)-f(x_0)|<\epsilon] $
+
+В общем случае $\delta$ зависит от $\epsilon$ и $x_0$, т. е. $\delta=\delta(\epsilon,x_0)$.
+Однако иногда $\delta$ зависит только от $\epsilon$ и не зависит от $x_0$, т. е. $\delta=\delta(\epsilon)$.
+
+\opred
+$f(x)$ равномерно непрерывна на $X$, если
+$$ \forall(\epsilon >0) \exists(\delta>0) \forall(x_0 \in X) [0<|x-x_0|<\delta \Rightarrow |f(x)-f(x_0)|<\epsilon] $$
+
+\subsubsection{Замечание 1.}
+Если $f(x)$ равномерно непрерывна на $X$, то $f(x)$ непрерывна на $X$.
+(Т.~к. квантор общности $\forall$ можно переносить вправо.)
+
+\subsubsection{Замечание 2.}
+Не всякая функция $f$, непрерывная на $X$, равномерно непрерывна на $X$.
+(Например: $f(x)=x^2, f:\R \to \R$.)
+
