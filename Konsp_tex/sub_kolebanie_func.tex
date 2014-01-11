@@ -1,0 +1,38 @@
+\opred
+
+\fXR, $E \subset X$, $\alpha_E=\inf_E f(x)$, $\beta_E=\sup_E f(x)$.
+Тогда разность $\alpha_E-\beta_E$ называется колебанием функции $f$ на множестве $E$:
+
+$$
+\omega(f,E)=\alpha_E-\beta_E=\sup_E f(x) - \inf_E f(x)
+$$
+
+Или, что то же самое, 
+
+$$
+\omega(f,E)=\sup_{a,b \in E}(f(a)-f(b))
+$$
+
+\subsubsection{Примеры.}
+
+$\omega(x^2,[-2;4])=16$
+
+$\omega(\sgn x,[0;4])=1$
+
+$\omega(\sgn x,(0;4])=0$
+
+$\omega(\sgn x,[-1;4])=2$
+
+\opred
+
+\fXRx.
+Величина $\lim_{\delta \to 0+}\omega(f,U_{\delta}(x_0))$ называется колебанием функции $f$ в точке $x_0$:
+
+$$
+\omega(f,x_0)=\lim_{\delta \to 0+}\omega(f,U_{\delta}(x_0))
+$$
+
+\subsubsection{Теорема.}
+
+Пусть $f:X\to\R$.
+Функция $f$ непрерывна в точке $x_0\in X$ тогда и только тогда, когда $\omega(f,x_0)=0$.
