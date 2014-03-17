@@ -1,0 +1,1 @@
+pdflatex zadachi.tex && evince zadachi.pdf
