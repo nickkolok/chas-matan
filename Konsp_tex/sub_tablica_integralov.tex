@@ -1,0 +1,149 @@
+Все приведённые равенства устанавливаются дифференцировнаием правой части и верны на общей области определения правой и левой частей.
+
+Формулы, являющиеся следствием таблицы производных:
+
+\newcounter{N1} % для создания списков, маркированных со стилями, нужен счётчик
+\begin{list}{\arabic{N1}.}{\usecounter{N1}}
+
+\item
+$$
+\int x^\alpha dx= \frac{x^{\alpha+1}}{\alpha+1}+C, \alpha \neq -1
+$$
+
+\item
+$$
+\int \frac{dx}{x}= \ln|x|+C, x\neq 0
+$$
+
+\item
+$$
+\int a^x dx= \frac{a^x}{\ln a}+C
+$$
+
+В частности,
+
+$$
+\int e^x dx= e^x +C
+$$
+
+\item
+$$
+\int \sin x dx= -\cos x+C
+$$
+
+\item
+$$
+\int \cos x dx= \sin x+C
+$$
+
+\item
+$$
+\int \frac{dx}{\cos^2 x}= \tg x +C
+$$
+
+\item
+$$
+\int \frac{dx}{\sin^2 x}= -\ctg x +C
+$$
+
+\item
+$$
+\int \frac{dx}{\sqrt{1-x^2}}= \arcsin x+C
+$$
+
+Обобщение:
+
+$$
+\int \frac{dx}{\sqrt{a^2-x^2}}= \arcsin \frac{x}{a}+C
+$$
+
+\item
+$$
+\int \frac{dx}{1+x^2}= \arctg x+C
+$$
+
+Обобщение:
+
+$$
+\int \frac{dx}{a^2+x^2}= \frac{1}{a} \arctg \frac{x}{a}+C
+$$
+
+
+\item
+
+``Логарифм длинный''
+$$
+\int \frac{dx}{\sqrt{x^2 \pm 1}}= \ln|x+\sqrt{x^2 \pm 1}|+C
+$$
+
+Обобщение:
+
+$$
+\int \frac{dx}{\sqrt{x^2 \pm a^2}}= \ln|x+\sqrt{x^2 \pm a^2}|+C
+$$
+
+\item
+
+``Логарифм высокий''
+
+$$
+\int \frac{dx}{1-x^2}= \frac{1}{2} \ln \left| \frac{1+x}{1-x}\right|+C
+$$
+
+Обобщение:
+$$
+\int \frac{dx}{a^2-x^2}= \frac{1}{2a} \ln \left| \frac{a+x}{a-x}\right|+C
+$$
+
+\end{list}
+
+Напомним теперь читателю определение гиперболических функций.
+Вопрос об их интегрировании целесообразно рассмотреть ввиду того, что при интегрировании других функций часто используется т. наз. гиперболическая замена.
+
+\opred
+
+Гиперболический синус $$\sh x=\frac{e^x - e^{-x}}{2}$$
+
+\opred
+
+Гиперболический косинус $$\ch x=\frac{e^x + e^{-x}}{2}$$
+
+\opred
+
+Гиперболический тангенс $$\th x=\frac{\sh x}{\ch x}$$
+
+\opred
+
+Гиперболический котангенс $$\cth x=\frac{\ch x}{\sh x}$$
+
+Продолжим таблицу интегралов:
+
+\begin{list}{\arabic{N1}.}{\usecounter{N1}}
+
+\item
+$$
+\int \sh x dx= \ch x+C
+$$
+
+\item
+$$
+\int \ch x dx= \sh x+C
+$$
+
+\item
+$$
+\int \frac{dx}{\ch^2 x}= \th x+C
+$$
+
+\item
+$$
+\int \frac{dx}{\sh^2 x}= -\cth x+C
+$$
+
+\end{list}
+
+\subsubsection{Замечание}
+
+При записи результатов интегрирования произвольные аддитивные постоянные объединяют:
+$$\int(x^2 + \sin x + 2)dx=\frac{x^3}{3}-\cos x + 2x +C$$
+
