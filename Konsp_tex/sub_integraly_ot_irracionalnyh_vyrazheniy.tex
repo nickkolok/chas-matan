@@ -1,0 +1,37 @@
+Рассмотрим интегралы вида
+$$\int R(x,y(x))dx$$
+Чтобы свести такой интеграл к интегралу от рациональной функции, нужно найти подстановку $x=x(t)$ такую, чтобы $x(t)$ (а, значит, и $x'(t)$) и $y(x(t))$ были рациональными функциями от $t$:
+
+$$\int R(x,y(x))dx=\int R(x(t),y(x(t)))x'(t)dt=\int R_1(t)dt$$
+
+Рассмотрим сначала случай $y=\sqrt[n]{\frac{\alpha x+ \beta}{\gamma x+ \delta}}$. Пусть
+$$t^n=\frac{\alpha x+ \beta}{\gamma x+ \delta}$$
+Тогда $$(\gamma x + \delta)t^n=\alpha x + \beta$$
+Отсюда $$ (\gamma t^n - \alpha)x = \beta - \delta t^n$$
+Т. е. $$x = \frac{\beta - \delta t^n}{\gamma t^n - \alpha}=R_x(t)$$
+
+Интеграл рационализирован.
+
+\subsubsection{Пример.}
+
+$$\int\frac{\sqrt{x}}{1+x}dx\begin{zamena}t=\sqrt{x}\\x=t^2\\dx=2tdt\end{zamena}2\int\frac{t^2 dt}{1+t^2}=$$$$=
+2\int\left(1-\frac{1}{1+t^2}\right)dt=2t-2\arctg t+C=2\sqrt{x}-2 \arctg\sqrt{x}+C$$
+
+Обобщим теперь наш опыт на случай интеграла
+
+$$\int R\left( x, \left(\frac{\alpha x + \beta}{\gamma x + \delta}\right)^{r_1},...,\left(\frac{\alpha x + \beta}{\gamma x + \delta}\right)^{r_k}\right)dx,$$
+
+где $r_1,...,r_n \in \Q$. Тогда $r_i = \frac{p_i}{q_i}$. Пусть $m$ - наименьшее общее кратное чисел $q_1,...,q_n$. Введём замену
+$$t^m=\frac{\alpha x+ \beta}{\gamma x+ \delta}$$
+Легко видеть, что в этом случае интеграл рационализируется.
+
+\subsubsection{Пример.}
+
+$$\int\frac{dx}{\sqrt{x}+\sqrt[3]{x}}=\int\frac{dx}{x^\frac{3}{6}+x^\frac{2}{6}}
+\begin{zamena}x=t^6,~~t=x^\frac{1}{6}\\dx=6t^5 dt\end{zamena}6\int\frac{t^5 dt}{t^3+t^2}=$$$$=
+6\int\frac{t^3}{t+1}dt=6\left(\int\frac{t^3+1}{t+1}dt-\int\frac{1}{t+1}dt\right)=$$$$=
+6\left(\int(t^2-t+1)dt-\ln|t+1|\right)=2t^3-3t^2+6t-\ln|t+1|+C=$$$$=
+2\sqrt{x}-3\sqrt[3]{x}+6\sqrt[6]{x}-\ln|\sqrt[6]{x}+1|+C
+$$
+
+
