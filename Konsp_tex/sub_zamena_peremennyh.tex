@@ -1,0 +1,77 @@
+\subsubsection{Теорема.}
+Пусть $F$ -- первообразная для $f$ -- непрерывной функции на промежутке $T$, т. е.
+$$\int f(t)dt=F(t)+C$$
+и на промежутке $X$ задано $\varphi:X\to T$ -- непрерывное дифференцируемое отображение.
+
+Тогда на промежутке $X$
+$$\int f(\varphi(x))\cdot \varphi '(x) dx=F(\varphi(x))+C$$
+Т. е.
+$$\int f(\varphi(x))\cdot d\varphi(x)=F(\varphi(x))+C$$
+
+\dokvo
+$$(F(\varphi(x))+C)'=f(\varphi(x))\cdot \varphi'(x)$$
+\dokno
+
+\subsubsection{Пример.}
+
+$$\int x e^{x^2} dx = 
+\left<\begin{array}{c}
+t=x^2 \\
+dt=2xdx
+\end{array}\right>= %$$ $$=
+\frac{1}{2}\int e^t dt = \frac{1}{2} e^t +C = \frac{1}{2}e^{x^2}+C
+$$
+
+\subsubsection{Пример.}
+
+$$\int \cos^2 x \sin x dx = 
+\left<\begin{array}{c}
+t=\sin x \\
+dt=-\cos x
+\end{array}\right>=$$ $$=
+-\int t^2 dt = -\frac{t^3}{3}+C = -\frac{\cos^3 x}{3} +C
+$$
+
+\subsubsection{Следствие.}
+Если $F'(x)=f(x)$ и $\{a;b\}\in\R$, то
+$$\int f(ax+b)dx=\frac{1}{a}F(ax+b)+C$$
+
+\subsubsection{Пример.}
+
+$$\int\cos(7x+3)dx=-\frac{1}{7}\sin(7x+3)+C$$
+
+\subsubsection{Замечание 1.}
+Полезно помнить следующие интегралы:
+
+$$\int \frac{g'(x)}{g(x)} dx = 
+\left<\begin{array}{c}
+t=g(x) \\
+dt=g'(x)dx
+\end{array}\right>=$$ $$=
+\int \frac{dt}{t}=\ln|g(x)|+C
+$$
+
+$$\int \frac{g'(x)}{\sqrt{g(x)}} dx = 
+\left<\begin{array}{c}
+t=g(x) \\
+dt=g'(x)dx
+\end{array}\right>=$$ $$=
+\int \frac{dt}{\sqrt{t}}=2\sqrt{g(x)}+C
+$$
+
+\subsubsection{Замечание 2.}
+Замену переменной под знаком неопределённого интеграла часто производят иначе: вместо того, чтобы принимать за новую переменную $t$ некоторую функцию $f(x)$, рассматривают $x$ как дифференцируемую функцию от $z$, т. е. $x=\psi(z)$. Тогда
+$$\int f(x)dx=\int f(\psi(x))\psi'(z)dz$$
+Однако при применении этого метода нужно убедиться, что существует обратная функция $\psi^{-1}(x)=z$, позволяющая вернуться от $z$ к исходной переменной $x$.
+
+\subsubsection{Пример.}
+$$\int \sqrt{1-x^2}dx =
+\left<\begin{array}{c}
+t=\sin z \\
+|x|\leq 1; |z|\leq \frac{\pi}{2}
+dx=\cos z dz
+\end{array}\right>=$$ $$=
+\int\sqrt{1-\sin^2 z} \cos z dz=$$$$=
+\int\frac{1+\cos 2z}{2}=\frac{1}{2}\int dz +\frac{1}{2}\cdot \frac{1}{2} \sin 2z +C=$$$$=
+\frac{\arcsin x}{2}+\frac{\sin(2\arcsin x)}{4}+C=\frac{\arcsin x + x\sqrt{1-x^2}}{2}+C
+$$
