@@ -1,1 +1,1 @@
-pdflatex main.tex && evince main.pdf
+pdflatex main.tex && pdflatex main.tex && evince main.pdf
