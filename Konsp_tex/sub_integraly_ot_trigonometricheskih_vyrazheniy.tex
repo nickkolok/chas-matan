@@ -1,0 +1,44 @@
+Рассмотрим интегралы вида 
+$$\int R(\sin x,\cos x)dx$$
+
+\subsubsection{Универсальная тригонометрическая подстановка.}
+Пусть $t=\tg\frac{x}{2}$, тогда 
+$$x=2\arctg t, dx=\frac{2dt}{1+t^2}$$
+$$\sin x=\frac{2t}{1+t^2}$$
+$$\cos x=\frac{1-t^2}{1+t^2}$$
+
+Таким образом, эта подстановка (известная читателю ещё из курса средней школы, где она применялась для решения тригонометрических уравнений) позволяет гарантированно рационализировать искомый интеграл:
+
+$$\int R(\sin x,\cos x)dx=\int R(\frac{2t}{1+t^2},\frac{1-t^2}{1+t^2})\cdot \frac{2dt}{1+t^2}=\int R_1(t)dt$$
+
+\subsubsection{Пример.}
+
+$$\int \frac{dt}{3+\cos x}=
+\left<\begin{array}{c}
+t=\tg\frac{x}{2}
+\end{array}\right>=
+\int\left(\frac{2dt}{1+t^2}\cdot\frac{1}{3+\frac{1-t^2}{1+t^2}}\right)=$$
+$$=2\int\frac{dt}{3t^2+3+1-t^2}=\int\frac{dt}{t^2+2}=
+\frac{1}{\sqrt{2}}\arctg\frac{t}{\sqrt{2}}+C=$$$$=
+\frac{1}{\sqrt{2}}\arctg\left(\frac{1}{\sqrt{2}}\cdot \tg\frac{x}{2}\right)+C$$
+
+Однако неудобство этого метода заключается в том, что степень знаменателя рациональной функции $R_1$ получается сравнительно большой, поэтому применяются и другие, менее универсальные приёмы.
+
+\subsubsection{Приём.}
+$$\int R(\sin x)\cdot \cos x dx \begin{zamena}t=\sin x\\dt=\cos x dx\end{zamena}\int R_1(t)dt$$
+Для $\int R(\cos x) \cdot \sin x dx$ - аналогично.
+
+\subsubsection{Приём.}
+$$\int R(\sin^2 x, \cos^2 x) dx \begin{zamena}t=\tg x\\x=\arctg t, dx=\frac{dt}{1+t^2}\\cos^2 x=\frac{1}{1+t^2}\\cos^2 x=\frac{t^2}{1+t^2}\end{zamena}\int R_1(t^2)dt$$
+
+\subsubsection{Приём.}
+$$\int R(\sin^2 x, \cos^2 x) dx =\int R(\frac{1-\cos 2x}{2},\frac{1+\cos 2x}{2})dx=\int R_1(\cos 2x)dx$$
+
+\subsubsection{Замечание.}
+Кроме того, при интегрировании произведения тригонометрических функций от линейной функции от $x$ удобно применить представление произведения тригонометрических функций в виде полусуммы.
+
+\subsubsection{Пример.}
+$$\int \sin (2x+3) \cdot \cos(3x+2) dx=\frac{1}{2}\int(\sin(2x+3+3x+2) \cdot \sin(2x+3-(3x+2))dx=...$$
+
+
+
