@@ -1,0 +1,85 @@
+Рассмотрим вопрос об интегрировании четырёх типов дробей, называемых элементарными.
+
+\opred
+Элементарной дробью I типа называется дробь вида
+\begin{equation}\label{elem_drob_I}
+\frac{a}{x+p}
+\end{equation}
+
+Такая дробь интегрируется очевидным образом:
+$$
+\int\frac{a}{x+p}dx=a\int\frac{d(x+p)}{x+p}=a\ln|x+p|+C
+$$
+
+\opred
+Элементарной дробью II типа называется дробь вида
+\begin{equation}\label{elem_drob_II}
+\frac{a}{(x+p)^n},~n\geq 2
+\end{equation}
+
+Такая дробь тоже легко интегрируется:
+$$
+\int\frac{a}{(x+p)^k}dx=a\int\frac{d(x+p)}{(x+p)^k}=\frac{a}{1-k}(x+p)^{-k+1}+C
+$$
+
+\opred
+Элементарной дробью III типа называется дробь вида
+\begin{equation}\label{elem_drob_III}
+\frac{ax+b}{x^2+px+q},~ D=p^2-4q<0
+\end{equation}
+
+Такая дробь интегрируется с помощью замены
+\begin{equation}
+t=x+\frac{p}{2},~ dt=dx, ~ \alpha^2=\frac{-D}{4}, ~\beta=b-\frac{ap}{2}
+\end{equation}
+Имеем:
+$$
+\int \frac{ax+b}{x^2+px+q}=\int\frac{a\left(x+\frac{p}{2}\right)+b-\frac{ap}{2}}{x^2+2\frac{p}{2}+\frac{p^2}{4}+q-\frac{p^2}{4}}dx=$$$$=
+\int\frac{at+\beta}{t^2+\alpha^2}dt=\frac{a}{2}\int\frac{d(t^2)}{t^2+\alpha^2}+\beta\int\frac{dt}{t^2+\alpha^2}=$$$$=\frac{a}{2}\ln|t^2+\alpha^2|+\frac{\beta}{\alpha}\arctg\frac{t}{\alpha}+C
+$$
+Возвращение к исходным переменной и параметрам предоставляем читателю.
+\opred
+Элементарной дробью IV типа называется дробь вида
+\begin{equation}\label{elem_drob_III}
+\frac{ax+b}{(x^2+px+q)^k},~ D=p^2-4q<0,~k\geq 2
+\end{equation}
+
+Такая дробь тоже интегрируется с помощью замены (которая, вообще говоря, часто применяется при интегрировании выражений. содержащих квадратный трёхчлен)
+\begin{equation}
+t=x+\frac{p}{2},~ dt=dx, ~ \alpha^2=\frac{-D}{4}, ~\beta=b-\frac{ap}{2}
+\end{equation}
+Имеем:
+$$
+\int \frac{ax+b}{(x^2+px+q)^k}=
+\int
+	\frac	{a\left(x+\frac{p}{2}\right)+b-\frac{ap}{2}}
+		{\left(x^2+2\frac{p}{2}+\frac{p^2}{4}+q-\frac{p^2}{4}\right)^k}
+dx=
+$$$$=
+\int\frac{at+\beta}{(t^2+\alpha^2)^k}dt=
+\frac{a}{2}\int\frac{d(t^2)}{(t^2+\alpha^2)^k}+\beta\int\frac{dt}{(t^2+\alpha^2)^k}=
+$$$$=
+\frac{a}{2(1-k)}(t^2+\alpha^2)^{1-k}+\beta\int\frac{dt}{(t^2+\alpha^2)^k}
+$$
+
+Рассмотрим теперь интеграл
+$$J_k=\int\frac{dt}{(t^2+\alpha^2)^k}$$
+Преобразуем его:
+$$J_k=\frac{1}{\alpha}\int\frac{t^2+\alpha^2-t^2}{(t^2+\alpha^2)^k}dt=
+$$$$=
+\frac{1}{\alpha}\int\frac{dt}{(t^2+\alpha^2)^{k-1}}-\frac{1}{\alpha}\int\frac{t^2}{(t^2+\alpha^2)^k}dt=
+\frac{1}{\alpha}J_{k-1}-\frac{1}{\alpha}\int\frac{t^2}{(t^2+\alpha^2)^k}dt
+$$
+Первое слагаемое вычисляется рекуррентно (помним, что $J_1$ -- интеграл от элементарной дроби III типа), займёмся вторым слагаемым:
+$$
+\int\frac{t^2}{(t^2+\alpha^2)^k}dt=
+$$$$
+\begin{zamena}[c|c]
+u=t & du = dt\\
+dv=\frac{t dt}{(t^2+\alpha^2)^k} & v=\int \frac{tdt}{(t^2+\alpha^2)^k}=\frac{1}{2}\int\frac{d(t^2)}{(t^2+\alpha^2)^k}=\frac{1}{2}\cdot\frac{1}{1-k}(t^2+\alpha^2)^{1-k}
+\end{zamena}
+$$$$
+\frac{t}{2}\cdot\frac{1}{1-k}(t^2+\alpha^2)^{1-k}-\int \frac{1}{2}\cdot\frac{1}{1-k}\cdot\frac{tdt}{(t^2+\alpha^2)^{k-1}}
+$$
+Как вычисляется последний интеграл, мы уже знаем.
+Таким образом, интегрирование элементарной дроби IV типа со знаменателем степени $k$ рекуррентно сводится к интегрированию элементарной дроби IV типа со знаменателем степени $k-1$, а, значит, на некотором шаге к интегрированию элементарной дроби III типа.
