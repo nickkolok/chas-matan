@@ -19,7 +19,7 @@ $$
 
 Такая дробь тоже легко интегрируется:
 $$
-\int\frac{a}{(x+p)^k}dx=a\int\frac{d(x+p)}{(x+p)^k}=\frac{a}{1-k}(x+p)^{-k+1}+C
+\int\frac{a}{(x+p)^n}dx=a\int\frac{d(x+p)}{(x+p)^n}=\frac{a}{1-n}(x+p)^{-n+1}+C
 $$
 
 \opred
@@ -44,7 +44,7 @@ $$
 \frac{ax+b}{(x^2+px+q)^k},~ D=p^2-4q<0,~k\geq 2
 \end{equation}
 
-Такая дробь тоже интегрируется с помощью замены (которая, вообще говоря, часто применяется при интегрировании выражений. содержащих квадратный трёхчлен)
+Такая дробь тоже интегрируется с помощью замены (которая, вообще говоря, часто применяется при интегрировании выражений, содержащих квадратный трёхчлен)
 \begin{equation}
 t=x+\frac{p}{2},~ dt=dx, ~ \alpha^2=\frac{-D}{4}, ~\beta=b-\frac{ap}{2}
 \end{equation}
@@ -65,10 +65,10 @@ $$
 Рассмотрим теперь интеграл
 $$J_k=\int\frac{dt}{(t^2+\alpha^2)^k}$$
 Преобразуем его:
-$$J_k=\frac{1}{\alpha}\int\frac{t^2+\alpha^2-t^2}{(t^2+\alpha^2)^k}dt=
+$$J_k=\frac{1}{\alpha^2}\int\frac{t^2+\alpha^2-t^2}{(t^2+\alpha^2)^k}dt=
 $$$$=
-\frac{1}{\alpha}\int\frac{dt}{(t^2+\alpha^2)^{k-1}}-\frac{1}{\alpha}\int\frac{t^2}{(t^2+\alpha^2)^k}dt=
-\frac{1}{\alpha}J_{k-1}-\frac{1}{\alpha}\int\frac{t^2}{(t^2+\alpha^2)^k}dt
+\frac{1}{\alpha^2}\int\frac{dt}{(t^2+\alpha^2)^{k-1}}-\frac{1}{\alpha^2}\int\frac{t^2}{(t^2+\alpha^2)^k}dt=
+\frac{1}{\alpha^2}J_{k-1}-\frac{1}{\alpha^2}\int\frac{t^2}{(t^2+\alpha^2)^k}dt
 $$
 Первое слагаемое вычисляется рекуррентно (помним, что $J_1$ -- интеграл от элементарной дроби III типа), займёмся вторым слагаемым:
 $$

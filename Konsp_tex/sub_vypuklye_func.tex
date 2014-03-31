@@ -64,7 +64,7 @@ $$
 \begin{multline}\label{vypukl_Lagranzh}
 (f(x_0+h)-f(x_0))+(f(x_0-h)-f(x_0))=
 f'(x_0+\theta_1 h)h+f'(x_0-\theta_2 h)(-h)=\\=
-h^2\left(  \frac{f'(x_0+\theta_1 h)-f'(x_0)}{\theta_1 h} + \frac{f'(x_0-\theta_2 h)-f(x_0)}{-\theta_2 h} \right)  \geq 0
+h^2\left(  \frac{f'(x_0+\theta_1 h)-f'(x_0)}{\theta_1 h} + \frac{f'(x_0-\theta_2 h)-f'(x_0)}{-\theta_2 h} \right)  \geq 0
 \end{multline}
 
 Напомним, что в теореме Лагранжа $\theta_1,\theta_2 \in [0;1]$.
@@ -73,7 +73,7 @@ $$
 \exists(h\in(a;b))\left[
 \frac{f'(x_0+\theta_1 h)-f'(x_0)}{\theta_1 h}<0
 ~\cap~
-\frac{f'(x_0+\theta_1 h)-f'(x_0)}{\theta_1 h}<0
+\frac{f'(x_0-\theta_2 h)-f'(x_0)}{-\theta_2 h}<0
 \right]
 $$
 
@@ -85,10 +85,10 @@ $$
 Тогда $\exists(\alpha\in[0;1])[x=(1-\alpha)x_1+\alpha x_2]$.
 Применим формулу Тейлора с остаточным членом в форме Лагранжа к точкам $x_1$ и $x_2$:
 $$
-f(x_1)=f(x)+f'(x)(x_1-x)+\frac{f''(c_1}{2!}(x_1-x)^2
+f(x_1)=f(x)+f'(x)(x_1-x)+\frac{f''(c_1)}{2!}(x_1-x)^2
 $$
 $$
-f(x_2)=f(x)+f'(x)(x_2-x)+\frac{f''(c_2}{2!}(x_2-x)^2
+f(x_2)=f(x)+f'(x)(x_2-x)+\frac{f''(c_2)}{2!}(x_2-x)^2
 $$
 Здесь, напомним, $c_1\in[x_1;x],~c_2\in[x;x_2]$. Умножив первое равенство на $(1-\alpha)$, а второе на $\alpha$ и сложив, имеем:
 $$
@@ -111,7 +111,7 @@ $$
 \dokno
 
 \begin{teorema}\label{vypukl_th_2}
-Пусть $\forall(x\in(a;b))\exists(f''(x))$. Для выпуклости вниз необходимо, а в случае непрерывности $f''(x)$ и достаточно, чтобы график функции $f$ лежал не ниже касательной к графику функции $f$, проведённой в точке $(x_0;f(x_0)$ для $\forall (x_0\in(a;b))$.
+Пусть $\forall(x\in(a;b))\exists(f''(x))$. Для выпуклости вниз необходимо, а в случае непрерывности $f''(x)$ и достаточно, чтобы график функции $f$ лежал не ниже касательной к графику функции $f$, проведённой в точке $(x_0;f(x_0))$ для $\forall (x_0\in(a;b))$.
 \end{teorema}
 
 \dokvo
