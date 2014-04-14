@@ -2,7 +2,7 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel} %используем русский и английский языки с переносами
-\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float} %подключаем нужные пакеты расширений
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float,amsthm} %подключаем нужные пакеты расширений
 \usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage{indentfirst} % включить отступ у первого абзаца
 \usepackage[dvips]{graphicx} %хотим вставлять рисунки?
@@ -10,7 +10,7 @@
 
 \makeatletter
 \renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
-\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+\makeatother %Смысл этих трёх amsthmстрочек мне непонятен, но поверим "Запискам дебианщика"
 
 \usepackage{geometry} % Меняем поля страницы. 
 \geometry{left=1cm}% левое поле
