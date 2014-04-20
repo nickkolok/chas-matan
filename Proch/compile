@@ -1,0 +1,1 @@
+pdflatex matlogika_def_2s1.tex && evince matlogika_def_2s1.pdf
