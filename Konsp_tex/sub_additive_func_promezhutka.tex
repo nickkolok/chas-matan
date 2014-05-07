@@ -1,0 +1,63 @@
+\begin{opred}
+Пусть $F:[a;b]^2 \to \R$. $F$ называется аддитивной, если
+\begin{equation}\label{opr_additive}
+\forall(\{\alpha,\beta,\gamma\}\subset[a;b])[F(\alpha,\beta)=F(\alpha,\gamma)+F(\gamma,\beta)]
+\end{equation}
+\end{opred}
+Заметим, что аддитивной функцией промежутка такую функцию называют потому, что часто удобно считать $(\alpha,\beta)$ промежутком.
+
+\begin{zamech}
+$f(\alpha,\alpha)=0$, так как $F(\alpha,\beta)=F(\alpha,\alpha)+F(\alpha,\beta)$.
+Аналогично доказывается, что $F(\beta,\alpha)=-F(\alpha,\beta)$.
+\end{zamech}
+
+Покажем теперь, что с аддитивной функцией можно связать некоторую обычную функцию.
+Это сделать очень легко -- достаточно зафиксировать $\alpha=a$:
+$$
+f(x)=F(a,x)
+$$
+Тогда приращение $f(\beta)-f(\alpha)$ запишется в виде:
+$$
+f(\beta)-f(\alpha)=F(a,\beta)-F(a,\alpha)=F(\alpha,\beta)
+$$
+
+Найденная связь обратима: аддитивную функцию можно определить через разность приращений.
+
+\begin{primer}
+Пусть $F(x)=\intl_a^x f(t)dt, f\in R[a;b]$ и 
+$$
+\forall(\{\alpha,\beta\}\subset[a;b])[\Phi(\alpha,\beta)=F(\beta)-F(\alpha)]
+$$.
+Тогда $\Phi(\alpha,\beta)=\intl_a^\beta f(t)dt-\intl_a^\alpha f(t)dt=\intl_\alpha^\beta f(t)dt$
+\end{primer}
+
+\begin{teorema}
+Пусть дана аддитивная функция промежутка $[a;b]$ $F(\alpha,\beta)$, $\{\alpha,\beta\}\subset[a;b]$,
+и функция $f\in R[a;b]$ такая, что
+\begin{equation}\label{usl_teorema_ob_additive}
+\forall(\{\alpha,\beta\}\subset[a,b]:\alpha<\beta)
+[(\beta-\alpha)\inf\limits_{[\alpha;\beta]}f(x)\leq F(\alpha,\beta)\leq(\beta-\alpha)\sup\limits_{[\alpha;\beta]}f(x)]
+\end{equation}
+Тогда $F(\alpha,\beta)=\intl_\alpha^\beta f(t)dt$
+\end{teorema}
+\dokvo
+Возьмём разбиение $T$ отрезка $[a;b]$ и обозначим $m_i=\inf\limits_{\Delta_i}f(x)$, $M_i=\sup\limits_{\Delta_i}f(x)$
+Тогда из (\ref{usl_teorema_ob_additive}) следует, что
+$$
+m_i\Delta x_i\leq F(x_{i-1},x_i)\leq M_i\Delta x_i
+$$
+Суммируем:
+$$
+\sum_{i=1}^n m_i\Delta x_i\leq \sum_{i=1}^n F(x_{i-1},x_i)\leq \sum_{i=1}^n M_i\Delta x_i
+$$
+Слева и справа в этом равенстве -- нижняя и верхняя суммы Дарбу соответственно.
+Так как $F$ -- аддитивная функция промежутка, то 
+$$
+\sum_{i=1}^n F(x_{i-1},x_i)=F(\alpha,\beta)
+$$
+Отсюда немедленно следует, что 
+$$
+F(\alpha,\beta)=\intl_\alpha^\beta f(t)dt
+$$
+\dokno
+
