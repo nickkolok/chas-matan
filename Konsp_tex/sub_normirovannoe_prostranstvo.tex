@@ -1,0 +1,103 @@
+\begin{opr}
+\Rn -- нормировано, если каждому вектору $x\in\R^n$ сопоставлено вещественное число $\|x\|$, так, что:
+
+\begin{equation}\label{aks1normy}
+\|x\|=0 \Leftrightarrow x=0
+\end{equation}
+
+\begin{equation}\label{aks2normy}
+\forall(\lambda\in\R)[\|\lambda x\|=|\lambda|\|x\|]
+\end{equation}
+
+\begin{equation}\label{aks3normy}
+\forall(y\in\R^n)[\|x+y\|\leq\|x\|+\|y\|]
+\end{equation}
+
+\end{opr}
+
+Эти три формулы называют аксиомами нормы.
+Заметим, что неотрицательность нормы нет необходимости вводить как аксиому:
+$$
+2\|x\|=\|x\|+|-1|\|x\|=\|x\|+\|-x\|\geq\|x+(-x)\|=\|0\|=0
+$$
+
+Норма, вообще говоря, является скалярной функцией векторного аргумента, но определение такой функции будет дано далее.
+
+\begin{opr}
+Евклидовой нормой называют норму, ведённую равенством
+\begin{equation}
+|x|=\sqrt{\sum_{i=1}^n (x^i)^2}
+\end{equation}
+\end{opr}
+
+Евклидову норму обозначают не двойными вертикальными чертами, а одинарными.
+Пространство \Rn, в котором введена евклидова норма, называт евклидовым.
+В $\R^1$ евклидова норма -- не что иное, как модуль.
+
+Аксиома (\ref{aks3normy}) приводит к неравенству Буняковского-Шварца:
+\begin{equation}\label{nervoBunSchvarz}
+\sum_{i=1}^n|a^i b^i|\leq\sqrt{\sum(a^i)^2}+\sqrt{\sum(b^i)^2}
+\end{equation}
+
+Заметим, однако, что это неравенство возможно доказать и без применения методов математического анализа или линейной алгебры.
+
+Другим следствием аксиомы (\ref{aks3normy}) является неравенство Коши - Миньковского:
+\begin{equation}\label{nervoKoshiMink}
+\sqrt{\sum_{i=1}^n(x^i+y^i)^2}\leq\sqrt{\sum_{i=1}^n(x^i)^2}+\sqrt{\sum_{i=1}^n(y^i)^2}
+\end{equation}
+
+Заметим, что можно вводить и неевклидовы нормы, например:
+\begin{equation}
+\|x^1,...,x^n\|=\max\limits_{1...n} x^i
+\end{equation}
+
+\begin{equation}
+\|x^1,...,x^n\|=\sum_{i=1}^n x^i
+\end{equation}
+
+\begin{opr}
+Две нормы $\|x\|_1$ и $\|x\|_2$ в \Rn называются эквивалентными, если
+\begin{equation}\label{opred_eqiv_norm}
+\exists(c_1>0, c_2>0)\forall(x\in\R^n)[c_1\|x\|_1\leq\|x\|_2\leq c_2\|x\|_1]
+\end{equation}
+\end{opr}
+
+Примем пока без доказательств утверждение, что в конечномерных \Rn любые две нормы эквивалентны.
+Позже оно будет доказано.
+
+\begin{opr}
+Множество $G\subset\R^n$ -- ограниченно, если
+\begin{equation}\label{opr_pgran_mn}
+\exists(c>0)\forall(x\in G)[\|x\|\leq c]
+\end{equation}
+\end{opr}
+
+\begin{opr}
+Функция $\rho(x,y)$, где $x\in\R^n$, $y\in\R^n$, называется метрикой, если выполнены следующие аксиомы (аксиомы метрики):
+\begin{equation}\label{aks1metr}
+\rho(x,y)=0 \Leftrightarrow x=y
+\end{equation}
+
+\begin{equation}\label{aks2metr}
+\rho(x,y)=\rho(y.x)
+\end{equation}
+
+\begin{equation}\label{aks3metr}
+\rho(x,y)\leq\rho(x,z)+\rho(z,y)
+\end{equation}
+
+\end{opr}
+
+Заметим, что неотрицательность метрики следует из третьей аксиомы метрики при $y=x$.
+
+\begin{opr}
+
+Евклидово пространство, в котором введена метрика 
+\begin{equation}\label{evkl_metrika}
+\rho(x,y)=\|x-y\|
+\end{equation}
+называют метрическим.
+
+\end{opr}
+
+Заметим вскользь, что метрику можно ввести и без использования понятия нормы.
