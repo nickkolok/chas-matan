@@ -1,0 +1,65 @@
+\begin{teorema}
+Пусть $\{f,\varphi\}\subset R[a;b]$, $\varphi$ сохраняет знак на $[a;b]$, $m=\inf\limits_{[a;b]}f(x)$, $M=\sup\limits_{[a;b]}f(x)$.
+Тогда 
+$$
+\exists(\mu\in[m;M])\left[
+\intl_a^b f(x)\varphi(x) dx=\mu\intl_a^b \varphi(x) dx
+\right]
+$$
+\end{teorema}
+
+\dokvo
+Не теряя общности, будем доказывать для случая, когда $\varphi(x)$ положительна на $[a;b]$.
+(В проиивном случае -- просто вынести минус единицу за знак интеграла.)
+
+Так как
+$$
+\forall(x\in[a;b])[m\leq f(x)\leq M]
+$$
+
+умножив на $\varphi(x)$, имеем
+
+$$
+m\varphi(x)\leq f(x)\varphi(x) \leq M\varphi(x)
+$$
+
+Интегрируем (помним свойства интеграла Римана!)
+
+$$
+\intl_a^b m\varphi(x) dx \leq \intl_a^b f(x)\varphi(x) dx \leq \intl_a^b M\varphi(x)
+$$
+
+Если $\intl_a^b\varphi(x) dx =0$, то $\varphi(x)\equiv 0$ на $[a;b]$, следовательно, $\intl_a^b\varphi(x)f(x) dx=0$ и $\mu$ можно брать любым.
+
+В противном случае на $\intl_a^b\varphi(x)f(x)dx$ можно разделить:
+$$
+m\leq\frac{\intl_a^b\varphi(x)dx }{\intl_a^b\varphi(x)f(x)dx }\leq M
+$$
+
+Условию теоремы удовлетворяет
+$$
+\mu=\frac{\intl_a^b\varphi(x)dx}{\intl_a^b\varphi(x)f(x)dx}
+$$
+
+\dokno
+
+Как следствие, если $f$ непрерывна на $[a;b]$, то, в силу теоремы о промежуточном значении, 
+$$
+\exists(\xi\in[a;b])[f(\xi)=\mu]
+$$
+то есть 
+
+$$
+\exists(\xi\in[a;b])\left[
+\intl_a^b f(x)\varphi(x) dx=f(\xi)\intl_a^b \varphi(x) dx
+\right]
+$$
+
+Если пойти дальше и положить $\varphi(x)\equiv 1$, получим
+
+$$
+\exists(\xi\in[a;b])\left[
+\intl_a^b f(x) dx=f(\xi)(b-a)
+\right]
+$$
+
