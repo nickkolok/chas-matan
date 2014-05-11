@@ -98,7 +98,7 @@ M\omega(f,\Delta_i)+M\omega(g,\Delta_i)
 
 Значит,
 $$
-\sum_{i=1}^n M\omega(fg,\Delta_i) \leq M \sum_{i=1}^n \left( \omega(f,\Delta_i) + \omega(g,\Delta_i) \right)
+\sum_{i=1}^n M\omega(fg,\Delta_i) \Delta x_i \leq M \sum_{i=1}^n \left( \omega(f,\Delta_i) + \omega(g,\Delta_i) \right)\Delta x_i 
 $$
 
 Но выражение справа сколь угодно мало по необходимому и достаточному условию интегрируемости, значит, и выражение слева сколь угодно мало (сумма колебаний неотрицательна), значит, снова применив необходимое и достаточное условие интегрируемости, получим, что $(f\cdot g)\in R[a;b]$.
@@ -149,8 +149,8 @@ $$
 Заметим, что колебание неотрицательной (неположительной) части функции на некотором отрезке не превосходит колебания самой функции на данном отрезке.
 Пусть $T$ - разбиение отрезка $[a;b]$ и ${\sum\limits_{i=1}^n \omega(f,\Delta_i)<\epsilon}$.
 Тогда
-$$\sum\limits_{i=1}^n \omega(f_+,\Delta_i)<\sum\limits_{i=1}^n \omega(f,\Delta_i)<\epsilon$$
-$$\sum\limits_{i=1}^n \omega(f_-,\Delta_i)<\sum\limits_{i=1}^n \omega(f,\Delta_i)<\epsilon$$
+$$\sum\limits_{i=1}^n \omega(f_+,\Delta_i)\Delta x_i <\sum\limits_{i=1}^n \omega(f,\Delta_i)\Delta x_i <\epsilon$$
+$$\sum\limits_{i=1}^n \omega(f_-,\Delta_i)\Delta x_i <\sum\limits_{i=1}^n \omega(f,\Delta_i)\Delta x_i <\epsilon$$
 
 Применив необходимое у достаточное условие интегрируемости функции, получим, что $\{f_+,f_-\}\in R[a;b]$
 
@@ -160,7 +160,7 @@ f \in R[a;b] \Rightarrow |f| \in R[a;b]
 $$
 
 Обратное, однако, неверно.
-Пример -- функция $f(x)=\frac{1}{2}D(x)$, где $D(x)$ -- функция Дирихле.
+Пример -- функция $f(x)=\frac{1}{2}-D(x)$, где $D(x)$ -- функция Дирихле.
 
 Наконец, докажем следующее свойство:
 $$
