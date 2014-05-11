@@ -1,0 +1,68 @@
+\begin{teorema}
+$f\in R[a;b] \Leftrightarrow $
+\begin{multline}\label{krit_Koshi_opr_int}
+\forall(\epsilon>0)\exists(\delta>0)\forall((T',\xi'),(T'',\xi''))[d(T')<\delta, d(T'')<\delta \Rightarrow
+\\ \Rightarrow
+ |S(f,(T',\xi'))-S(T'',\xi'')|<\epsilon]
+\end{multline}
+\end{teorema}
+
+\dokvo
+\neobh
+Идея доказательства: просто применить определение интеграла и свойства модуля.
+
+Действительно, по определению определённого интеграла
+$$
+\exists(J\in \R)\forall(\epsilon>0)\exists(\delta>0)\forall((T',\xi'):d(T')<\delta)[|S(f,(T',\xi'))-J|<\frac\epsilon{2}]
+$$
+$$
+\exists(J\in \R)\forall(\epsilon>0)\exists(\delta>0)\forall((T'',\xi''):d(T'')<\delta)[|S(f,(T'',\xi''))-J|<\frac\epsilon{2}]
+$$
+
+Значит, 
+\begin{multline*}
+|S(f,(T',\xi'))-S(T'',\xi'')|= |S(f,(T',\xi'))-J+J-S(T'',\xi'')|\leq
+\\ \leq
+|S(f,(T',\xi'))-J|+|S(T'',\xi'')-J|<\frac\epsilon{2}+\frac\epsilon{2}=\epsilon
+\end{multline*}
+\dokno
+
+\dost
+
+Рассмотрим неограниченно измельчающуюся последовательность разбиений $\left\{\left(T_n,\xi^{(n)}\right)\right\}$.
+Так как $d(T)\to 0$, то
+$$
+\forall(\epsilon>0)\exists(n_0\in\N)\forall(n\geq n_0)[d(T_n)<\delta]
+$$
+
+В силу условия (\ref{krit_Koshi_opr_int})
+$$
+\forall(n,p\geq n_0)\left[\left|S\left(f,\left(T_n,\xi^{(n)}\right)\right)-S\left(f,\left(T_p,\xi^{(p)}\right)\right)\right|<\epsilon\right]
+$$
+
+Таким образом, последовательность интегральных сумм $\left\{S\left(f,\left(T_n,\xi^{(n)}\right)\right)\right\}$ -- фундаментальная числовая последовательность и имеет некоторый предел, обозначим его $J$.
+
+Казалось бы, на этом можно остановиться и считать критерий доказанным, но что, если различные последовательности разбиений дадут разные пределы?
+Докажем, что такого не произойдёт.
+
+Нужно доказать, что
+$$
+\forall(\epsilon>0)\exists(\delta>0)\forall((T,\xi))[d(T)<\delta \Rightarrow |s(f,(T,\xi))-J|<\epsilon]
+$$
+
+Зафиксируем $\epsilon$.
+Найдём по нему $\delta$ из (\ref{krit_Koshi_opr_int}).
+Возьмём любое разбиение $T$, не принадлежащее выбранной последовательности, такое, что $d(T)<\delta$.
+При достаточно большом $n$ (то есть $n\geq n_0$) $d(T_n)<\delta$.
+Применяем условие (\ref{krit_Koshi_opr_int}):
+$$
+\left|S\left(f,\left(T_n,\xi^{(n)}\right)\right)-S\left(f,\left(T,\xi\right)\right)\right|<\frac\epsilon{2}
+$$
+
+При достаточно большом $n$ эти суммы отличаются на сколь угодно малую величину.
+
+\dokno
+
+
+
+
