@@ -1,0 +1,33 @@
+Зачастую бывает, что интеграл \ref{nesobstv_integr_po_neogr_promezh_raven_sum} расходится, так как расходятся оба его ``слагаемых''.
+Тем не менее, например, для $f(x)=\sin x$ и других нечётных функций, идеологически было бы верно каким-либо образом связать интеграл \ref{nesobstv_integr_infty_infty} с каким-либо числом.
+
+\begin{opr}
+Пусть $f:\R\to\R$, $\forall(\xi\in\R,\eta\in\R)\bigl[f\in R[\xi;\eta]\bigr]$.
+Пусть существует предел
+\begin{equation}\label{predel_glavn_znach_v_smysle_Koshi}
+\lim_{\xi\to+\infty} \intl_{-\xi}^\xi f(x) dx
+\end{equation}
+Тогда этот предел называют главным значением интеграла по числовой прямой в смысле Коши:
+\begin{equation}
+\lim_{\xi\to+\infty} \intl_{-\xi}^\xi f(x) dx = v.p.\intl^{+\infty}_{-\infty} f(x) dx
+\end{equation}
+\end{opr}
+\begin{zamech}
+Мы потребовали существования предела \ref{predel_glavn_znach_v_smysle_Koshi}, и поэтому нам не нужно делать оговорок о мнемоничности формулы, как в случае с формулами \ref{nesobstv_integr_a_infty_raven_lim} и \ref{nesobstv_integr_infty_a_raven_lim}.
+\end{zamech}
+\begin{zamech}
+Сокращение ``v. p.'' происходит от французских слов ``valeur principale'', что и означает ``главное значение'' (но прилагательное стоит после существительного).
+\end{zamech}
+\begin{zamech}
+Из определения \ref{opr_nesobstv_integr_infty_infty} при $a=0$ вытекает, что если интеграл
+$$
+\intl^{+\infty}_{-\infty} f(x) dx
+$$
+сходится, то 
+$$
+v.p.\intl^{+\infty}_{-\infty} f(x) dx = \intl^{+\infty}_{-\infty} f(x) dx
+$$
+Обратно неверно (контрпример уже упоминался выше: $f(x)=\sin x$).
+\end{zamech}
+%TODO:пример с синусом
+

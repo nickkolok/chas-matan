@@ -1,0 +1,33 @@
+\begin{teorema}[(Критерий Коши для несобственного интеграла)]
+Интеграл
+$$
+\intl_a^{+\infty} f(x) dx
+$$
+сходится тогда и только тогда, когда
+$$
+\forall(\varepsilon>0)\exists(\xi_0>a)\forall(\xi_1,\xi_2:\xi_1>\xi_0; \xi_2>\xi_0)\Bigl[\Bigl|
+\intl_{\xi_1}^{\xi_2} f(x) dx
+\Bigr|<\varepsilon\Bigr]
+$$
+\end{teorema}
+\dokvo
+Пусть $F(\xi)=\intl_a^\xi f(x) dx$.
+Тогда $F$ --- скалярная функция скалярного аргумента.
+Применяя для неё критерий Коши, имеем следующую цепочку эквивалентных преобразований:
+\begin{multline}
+\intl_a^{+\infty} f(x) dx~\mbox{~сходится}
+\Leftrightarrow \\
+\exists\Bigl(\lim_{\xi\to+\infty}\intl_a^\xi f(x) dx\neq\pm\infty\Bigr) 
+\Leftrightarrow \\
+\exists\Bigl(\lim_{\xi\to+\infty}F(\xi)\neq\pm\infty\Bigr) 
+\Leftrightarrow \\
+\forall(\varepsilon>0)\exists(\xi_0>a)\forall(\xi_1,\xi_2:\xi_1>\xi_0; \xi_2>\xi_0)\bigl[\bigl|
+F(\xi_1)-F(\xi_2)\bigr|<\varepsilon\bigr]
+\Leftrightarrow \\
+\forall(\varepsilon>0)\exists(\xi_0>a)\forall(\xi_1,\xi_2:\xi_1>\xi_0; \xi_2>\xi_0)\Bigl[\bigl|
+\intl_{a}^{\xi_1} f(x) dx-\intl_{a}^{\xi_2} f(x) dx\bigr|<\varepsilon\Bigr]
+\Leftrightarrow \\
+\forall(\varepsilon>0)\exists(\xi_0>a)\forall(\xi_1,\xi_2:\xi_1>\xi_0; \xi_2>\xi_0)\Bigl[\bigl|
+\intl_{\xi_1}^{\xi_2} f(x) dx\bigr|<\varepsilon\Bigr]
+\end{multline}
+\dokno

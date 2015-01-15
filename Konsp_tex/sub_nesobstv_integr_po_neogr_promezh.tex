@@ -1,0 +1,76 @@
+Ранее мы рассматривали определённые интегралы от некоторой функции на некотором отрезке.
+Обобщим теперь понятие определённого интеграла на случай, когда один или оба из его пределов не конечны, т. е. равны $\pm\infty$.
+
+\begin{opr}
+Пусть $f:[a;+\infty)\to\R$, $\forall(\xi\geq a)\bigl[f\in R[a;\xi]\bigr]$.
+Тогда запись
+\begin{equation}\label{nesobstv_integr_a_infty}
+\intl_a^{+\infty} f(x) dx
+\end{equation}
+означает 
+\begin{equation}\label{nesobstv_integr_a_infty_lim}
+\lim_{\xi\to+\infty} \intl_a^\xi f(x) dx
+\end{equation}
+и называется несобственным интегралом от функции $f$ на промежутке $[a;+\infty)$.
+Упрощённо говоря,
+\begin{equation}\label{nesobstv_integr_a_infty_raven_lim}
+\intl_a^{+\infty} f(x) dx
+=
+\lim_{\xi\to+\infty} \intl_a^\xi f(x) dx
+\end{equation}
+\end{opr}
+\begin{opr}
+Если предел \ref{nesobstv_integr_a_infty_lim} существует и конечен, то говорят, что интеграл \ref{nesobstv_integr_a_infty} сходится и называют данный предел значением данного интеграла, иначе (если предел \ref{nesobstv_integr_a_infty_lim} не существует или бесконечен) говорят, что этот интеграл расходится.
+\end{opr}
+\begin{zamech}
+Равенство \ref{nesobstv_integr_a_infty_raven_lim} не является строгим определением и имеет смысл лишь тогда, когда $\forall(\xi\geq a)\bigl[f\in R[a;\xi]\bigr]$.
+Более того, знак равенства в этой формуле может соединять несуществующий предел и расходящийся интеграл.
+С учётом этих обстоятельств формула \ref{nesobstv_integr_a_infty_raven_lim} носит большей частью мнемонический характер.
+\end{zamech}
+%TODO:пример
+Аналогично даётся определение интеграла по промежутку, неограниченному слева.
+
+\begin{opr}
+Пусть $f:(-\infty;a]\to\R$, $\forall(\xi\leq a)\bigl[f\in R[\xi;a]\bigr]$.
+Тогда запись
+\begin{equation}\label{nesobstv_integr_infty_a}
+\intl^a_{-\infty} f(x) dx
+\end{equation}
+означает 
+\begin{equation}\label{nesobstv_integr_infty_a_lim}
+\lim_{\xi\to-\infty} \intl^a_\xi f(x) dx
+\end{equation}
+и называется несобственным интегралом от функции $f$ на промежутке $(-\infty;a]$.
+Упрощённо говоря,
+\begin{equation}\label{nesobstv_integr_infty_a_raven_lim}
+\intl^a_{+\infty} f(x) dx
+=
+\lim_{\xi\to-\infty} \intl^a_\xi f(x) dx
+\end{equation}
+\end{opr}
+\begin{opr}
+Если предел \ref{nesobstv_integr_infty_a_lim} существует и конечен, то говорят, что интеграл \ref{nesobstv_integr_infty_a} сходится и называют данный предел значением данного интеграла, иначе (если предел \ref{nesobstv_integr_infty_a_lim} не существует или бесконечен) говорят, что этот интеграл расходится.
+\end{opr}
+
+Дадим теперь определение интеграла по всей числовой прямой:
+\begin{opr}\label{opr_nesobstv_integr_infty_infty}
+Пусть $f:\R\to\R$, $\forall(\xi\in\R,\eta\in\R)\bigl[f\in R[\xi;\eta]\bigr]$.
+Тогда интеграл
+\begin{equation}\label{nesobstv_integr_infty_infty}
+	\intl^{+\infty}_{-\infty} f(x) dx
+\end{equation}
+называют несобственным интегралом по всей числовой прямой.
+\end{opr}
+
+\begin{opr}
+Если $\exists(a\in\R)$ такое, что оба интеграла \ref{nesobstv_integr_infty_a} и \ref{nesobstv_integr_a_infty} для данной функции сходятся, то интеграл \ref{nesobstv_integr_infty_infty} называют сходящимся и вычисляют по формуле
+\begin{equation}\label{nesobstv_integr_po_neogr_promezh_raven_sum}
+\intl^{+\infty}_{-\infty} f(x) dx = \intl^a_{-\infty} f(x) dx + \intl^{+\infty}_a f(x) dx
+\end{equation}
+В противном случае, т. е. если хотя бы один из интегралов \ref{nesobstv_integr_infty_a} и \ref{nesobstv_integr_a_infty} для данной функции расходится, интеграл \ref{nesobstv_integr_infty_infty} называют расходящимся.
+\end{opr}
+
+\begin{zamech}
+Предоставляем читателю доказать тот несложный факт, что корректность данных выше определения и формулы не зависит от выбора $a$.
+\end{zamech}
+

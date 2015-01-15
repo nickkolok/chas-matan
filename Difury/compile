@@ -1,0 +1,1 @@
+pdflatex difury-ust.tex && evince difury-ust.pdf
