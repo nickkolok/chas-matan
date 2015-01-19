@@ -1,0 +1,34 @@
+Продолжая перенос результатов, полученных при изучении векторной функции скалярного аргумента, на случай векторной функции векторного аргумента, рассмотрим теорему Лагранжа.
+
+\begin{teorema}
+Пусть $G\subset\R^n$, $G$ открыто, $f:G\to\R$, $f$ - дифференцируема на $G$.
+Тогда
+\begin{equation}
+\forall([x;;y]\subset G)\exists(\xi\in(x;;y))[f(x)-f(y)=f'(\xi)(x-y)]
+\end{equation}
+\end{teorema}
+
+Покажем, что в форме равенства теорему Лагранжа перенести на случай $f:\R^n\to\R^m$ нельзя.
+Рассмотрим $f(x)=(\sin x; \cos x)$. 
+Тогда $f'(x)=(\cos x; -\sin x)$.
+Выпишем опровергаемое утверждение для отрезка $[0;\frac{\pi}{2}]$:
+\begin{equation}\label{teorema_Lagranzha_vect_f_vect_arg_kontr}
+(\sin 0; \cos 0)-(\sin \frac{\pi}{2}; \cos \frac{\pi}{2}) = (\cos \xi; -\sin \xi)\cdot\frac{\pi}{2}
+\end{equation}
+Распишем покоординатно:
+$$
+\sin 0-\sin \frac{\pi}{2} = \cos \xi \cdot\frac{\pi}{2}
+$$
+$$
+\cos 0-\cos \frac{\pi}{2} = -\sin \xi\cdot\frac{\pi}{2}
+$$
+То есть:
+$$
+0-1 = \cos \xi \cdot\frac{\pi}{2}
+$$
+$$
+1-0 = -\sin \xi\cdot\frac{\pi}{2}
+$$
+Отсюда имеем $\cos \xi = \sin \xi = - \frac{2}{\pi}$, то есть $\cos^2 \xi + \sin^2 \xi \neq 1$, что невозможно.
+Следовательно, ни при каком $\xi$ равенство \ref{teorema_Lagranzha_vect_f_vect_arg_kontr} выполнено быть не может.
+
