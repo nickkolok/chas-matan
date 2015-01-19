@@ -1,0 +1,45 @@
+Перед тем, как познакомить читателя с понятием производной векторной функции векторного аргумента, не лишним будет напомнить ему некоторые базовые сведения о линейных отображениях, изученные ранее в курсе алгебры.
+
+\begin{opr}
+	Отображение $L:\R^n\to\R^m$ назывется линейным, если:
+	\begin{equation}\label{additivnost_lin_otobr}
+		\forall(x,y\in\R^n)[L(x+y)=L(x)+L(y)]
+	\end{equation}
+	\begin{equation}\label{odnorodnost_lin_otobr}
+		\forall(x\in\R^n)\forall(\lambda\in\R)[L(\lambda x)=\lambda L(x)]
+	\end{equation}
+\end{opr}
+
+Свойства \ref{additivnost_lin_otobr}, называемое аддитивностью, и \ref{odnorodnost_lin_otobr}, называемое однородностью, иногда объединяют в свойство, называемое линейностью:
+
+\begin{equation}\label{lineynost_otobr}
+	\forall(x,y\in\R^n)\forall(\lambda,\mu\in\R)[L(\lambda x + \mu y)=\lambda L(x)+\mu L(y)]
+\end{equation}
+
+По индукции легко установить, что для линейного отображения $L$ верно следующее:
+
+\begin{equation}\label{lineynost_otobr}
+	\forall(x_1, ... , x_n \in\R^n)\forall(\lambda_1, ... , \lambda_n \in\R)\left[L\left( \sum_{i=1}^n \lambda_i x_i\right)=\sum_{i=1}^n L(\lambda_i x_i)\right]
+\end{equation}
+
+Отдельно обратим внимание читателя на следующие утверждения:
+\begin{utverzhd}
+	Линейное отображение является непрерывным.
+\end{utverzhd}
+\begin{utverzhd}
+	Если $L_1$ и $L_2$ --- линейные отображения из $\R^n$ в $\R^m$, то отображение $L:\R^n\to\R^m$,
+	задаваемое формулой $L(x)=\lambda_1 L_1 (x)+\lambda_2 L_2 (x)$, где $\{\lambda_1, \lambda_2\}\subset\R$, также является линейным. 
+\end{utverzhd}
+\begin{utverzhd}
+	Суперпозиция линейных отображений есть линейное отображение.
+\end{utverzhd}
+
+Напомним, что в курсе алгебры вводилось понятие матрицы линейного отображения.
+Излагая дальнейший материал, будем считать, что в пространстве \Rn задан стандартный базис.
+Учитывая это, условимся сокращать для линейного отображения запись $L(x)$ до $Lx$.
+
+\begin{utverzhd}
+	Матрица суперпозиции линейных отображений есть произведение матриц соответствующих линейных отображений, притом матрица внешнего отображения ставится слева (напомним, что произведение матриц некоммутативно).
+\end{utverzhd}
+
+
