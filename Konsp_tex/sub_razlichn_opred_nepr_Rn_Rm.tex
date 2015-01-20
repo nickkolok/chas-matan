@@ -1,0 +1,69 @@
+Здесь и далее мы будем иногда без особого предупреждения использовать различные нормы в $\R^n$.
+Внимательному читателю не составит труда вспомнить, что все они эквивалентны в силу конечномерности $\R^n$ (а невнимательному мы только что напомнили).
+
+Дадим классическое определение непрерывности по Коши:
+\begin{opr}
+Пусть $f:A\subset\R^n\to\R^m$.
+$f$ непрерывно в точке $x_0\in A$, если
+$$
+\forall(\varepsilon>0)\exists(\delta>0)\forall(x:0<|x-x_0|<\delta)[|f(x_0)-f(x)|<\varepsilon]
+$$
+\end{opr}
+
+\begin{utverzhd}
+Определение через непрерывность координатных функций (определение \ref{opred_predela_Rn_Rm_nepr}) и приведённое выше определения эквивалентны.
+\end{utverzhd}
+
+\dokvo
+Положим для $y=(y^1, ... , y^m) |y|=\max\limits_{i}|y^i|$. 
+Тогда
+\begin{multline*}
+\forall(\varepsilon>0)\exists(\delta>0)\forall(x:0<|x-x_0|<\delta)[|f(x_0)-f(x)|<\varepsilon]
+\\\Leftrightarrow
+\forall(\varepsilon>0)\exists(\delta>0)\forall(x:0<|x-x_0|<\delta)[\max\limits_{i}|f^i(x_0)-f^i(x)|<\varepsilon]
+\Leftrightarrow\\
+\forall(i\in\{1,...,m\})\forall(\varepsilon>0)\exists(\delta>0)\forall(x:0<|x-x_0|<\delta)[|f^i(x_0)-f^i(x)|<\varepsilon]
+\end{multline*}
+Предыдущая строка и означает непрерывность координатных функций.
+\dokno
+
+Теперь, следуя порядку изложения предыдущих разделов, дадим определения через окрестности:
+
+\begin{opr}
+Пусть $f:A\subset\R^n\to\R^m$.
+$f$ непрерывно в точке $x_0\in A$, если
+$$
+\forall(\varepsilon>0)\exists(\delta>0)[x\in\mathring{U}_\delta(x_0)\cap A \Rightarrow f(x)\in U_\varepsilon(f(x_0))]
+$$
+\end{opr}
+
+\begin{opr}
+Пусть $f:A\subset\R^n\to\R^m$.
+$f$ непрерывно в точке $x_0\in A$, если
+$$
+\forall(V(f(x_0))\exists(\mathring{U}(x_0))[f(\mathring{U}(x_0)\cap A)\in V(f(x_0))]
+$$
+\end{opr}
+
+Наконец, перепишем то же самое в предельной форме:
+
+\begin{opr}
+Пусть $f:A\subset\R^n\to\R^m$.
+$f$ непрерывно в точке $x_0\in A$, если
+$$
+\lim\limits_{x\to x_0, x\in A} f(x) = f(x_0)
+$$
+\end{opr}
+
+Теперь сформулируем определение непрерывности по Гейне:
+
+\begin{opr}
+Пусть $f:A\subset\R^n\to\R^m$.
+$f$ непрерывно в точке $x_0\in A$, если
+$$
+\forall(\{x_k\}\subset A\\\{x_0\}:\{x_k\}\to x_0)[\{f(x_k)\}\to f(x_0)]
+$$
+\end{opr}
+
+Его эквивалентность определению \ref{opred_predela_Rn_Rm_nepr} доказывается аналогично --- через переход к координатным функциям.
+
