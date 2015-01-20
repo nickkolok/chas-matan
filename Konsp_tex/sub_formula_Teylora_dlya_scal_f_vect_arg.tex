@@ -1,9 +1,13 @@
 \begin{teorema}
-Пусть $f:E\to\R^n$, $E\subset\R^n$, $E$ - открыто, $f$ дифференцируема на $E$ до $(k+1)$-го порядка включительно.
+Пусть $f:E\to\R$, $E\subset\R^n$, $E$ открыто, $f$ дифференцируема на $E$ до $(k+1)$-го порядка включительно.
 Тогда
 \begin{multline}
-\forall(x\in E)
+\forall(x\in E)\exists(r>0)\forall(h\in\R^n:\|h\|<r)\exists(\theta=\theta(x,h), 0<\theta<1)
+\\
+\left[
+	f(x+h)=f(x)+df(x,h)+\frac{1}{2!}d^2 f(x,h)+ ... + \right. \\  +\frac{1}{k!}d^k f(x,h)+\frac{1}{(k+1)!}d^{k+1} f(x+\theta h,h) = \\ \left.=
+	f(x)+\sum_{i=1}^k\frac{1}{i!} d^i f(x,h) + \frac{1}{(k+1)!} d^{k+1} f(x+\theta h,h)
+\right] 
 \end{multline}
 \end{teorema}
-\dokvo
-\dokno
+
