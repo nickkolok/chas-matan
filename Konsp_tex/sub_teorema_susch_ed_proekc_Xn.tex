@@ -1,0 +1,19 @@
+\begin{teorema}
+Пусть $X_n=\{x_k\}$ --- произвольная ортонормированная система в линейном пространстве $X$.
+Тогда $\forall(y\in X)\forall(n\in\N)$ существует единственная проекция $x_0^n$ элемента $y$ на подпространство $X_n$.
+\end{teorema}
+
+%TODO: доказательство
+
+\begin{sledstvie}[Неравенство Бесселя]
+$$
+\forall(y\in X)\left[ \sum_{k=1}^\infty \left< y; x_k \right>^2 \leq \|y\|^2 \right]
+$$
+\end{sledstvie}
+
+\begin{sledstvie}
+$$
+\left\|y-\sum_{k=1}^n \left<y; x_k\right> x_k \right\|^2 = \left\|y\right\|^2-\sum_{k=1}^n \left<y; x_k\right>^2
+$$
+\end{sledstvie}
+
