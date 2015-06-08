@@ -1,1 +1,1 @@
-pdflatex matlogika_def_2s1.tex && evince matlogika_def_2s1.pdf
+pdflatex sct-2.tex && evince sct-2.pdf
