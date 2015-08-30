@@ -1,14 +1,5 @@
-\documentclass[a4paper,14pt]{article}
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc} % любая желаемая кодировка
-\usepackage[russian,english]{babel}
-\usepackage[pdftex,unicode]{hyperref}
-\usepackage{indentfirst} % включить отступ у первого абзаца
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsmath}
-
-
+%\documentclass[a4paper,14pt]{article}
+\input{../lib/packs}
 \input{../lib/macro}
 \linespread{1.468}
 \begin{document} % начало документа
@@ -188,12 +179,15 @@
 	Известно, что $(2mn)^2+(m^2-n^2)^2=(m^2+n^2)^2$.
 	Заметим, что $2^{2k+1} = 2 \cdot 2^{2k-p} \cdot 2^p$, где $p$ --- целое число от $0$ до $k-1$.
 	Таким образом, мы получили представление числа $2^{2k+1}$ в виде $2mn$ $k$ способами.
-	Рассмотрим теперь множество точек $S=\{O=(0;0),B_\pm=(0;\pm 2^{2k+1}),A_{\pm p}(\pm 2^{2(2k-p)}-2^{2p};0)\}$.
+	Рассмотрим теперь множество точек
+	$$
+		S=\{O=(0;0),B_\pm=(0;\pm 2^{2k+1}),A_{\pm p}(\pm 2^{2(2k-p)}-2^{2p};0)\}
+	$$
 	Покажем, что $S$ --- СЦТ.
 	Понятно, что $|O-B_\pm|\in\Z$, $|O-A_{\pm p}|\in\Z$.
 	Убедимся, что $|B_\pm-A_{\pm p}|\in\Z$.
 	Действительно, $|B_\pm-A_{\pm p}|=|(0;\pm 2^{2k+1}) - (\pm 2^{2(2k-p)}-2^{2p};0)| = \sqrt{(2^{2k+1})^2+(2^{2(2k-p)}-2^{2p})^2}=
-	\sqrt{2^{4k+2}+2^{4(2k-p)}-2\cdot 2^{4k}+2^4p}=\sqrt{2^{4(2k-p)}+2\cdot 2^{4k}+2^4p}=2^{2(2k-p)}+2^{2p}\in\Z$
+	\sqrt{2^{4k+2}+2^{4(2k-p)}-2\cdot 2^{4k}+2^{4p}}=\sqrt{2^{4(2k-p)}+2\cdot 2^{4k}+2^{4p}}=2^{2(2k-p)}+2^{2p}\in\Z$
 	Мощность СЦТ $S$ равна в точности $2k+3$.
 	Построим круг с центром в $O$ радиуса $2^{4k}$.
 	Заметим, что $|O-B_\pm|=2^{2k+1}<2^{4k}$, $|O-A_{\pm p}| = 2^{2(2k-p)}-2^{2p} < 2^{4k}$.
