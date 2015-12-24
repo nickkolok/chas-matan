@@ -59,9 +59,9 @@ T \left( \lim_{x\to+\infty} F_\xi(x) - F_\xi(T-)\right) = T P\{\xi\geq T\}
 \section{Неравенство Чебышева}
 Пусть $\xi\in l_2(\Omega,\calF,P)$, $\varepsilon>0$.
 Тогда
-$$
+\begin{equation}\label{neraventvo_Chebysheva}
 P\{|\xi-M\xi|\geq\varepsilon\}\leq\frac{D\xi}{\varepsilon^2}
-$$
+\end{equation}
 
 \dokvo
 \begin{multline*}
@@ -91,8 +91,8 @@ $$
 \exists(C>0)\forall(k\in\N)\left[ D\xi_k \leq C \right]
 $$
 
-Обозначим $\bar{\xi}_n := \frac{1}{n}\sum_{k=1}^n \xi_k$,
-$\bar{\mu}_n := \frac{1}{n}\sum_{k=1}^n M\xi_k$
+Обозначим $\bar{\xi}_n := \frac{1}{n}\suml_{k=1}^n \xi_k$,
+$\bar{\mu}_n := \frac{1}{n}\suml_{k=1}^n M\xi_k$
 
 
 Тогда 
@@ -100,4 +100,22 @@ $\bar{\mu}_n := \frac{1}{n}\sum_{k=1}^n M\xi_k$
 	\forall(\varepsilon>0)\left[P(|\bar{\xi}_n - \bar{\mu}_n| \geq \varepsilon) \xrightarrow[n\to\infty]{} 0\right]
 \end{equation*}
 \end{teorema}
+
+\dokvo
+\begin{multline*}
+	P\{|\bar{\xi}_n-\bar{\mu}_n |\geq \varepsilon\} =
+	\\ \mbox{(т. к. $\bar{\mu}_n=M\bar{\xi}_n$)} \\
+	=P\{|\bar\xi_n - M\bar\xi_n|\geq \varepsilon\}\leq
+	\\\mbox{(применяем неравенство Чебышева (\ref{neraventvo_Chebysheva}))}\\
+	\leq \frac{D\bar\xi_n}{\varepsilon^2}
+	=\frac{D\left(\frac{1}{n}\suml_{k=1}^n \xi_k\right)}{\varepsilon^2}
+	=\frac{\frac{1}{n^2}D\left(\suml_{k=1}^n \xi_k\right)}{\varepsilon^2}
+	=\\\mbox{(в силу стохастической независимости дисперсия аддитивна)}\\
+	=\frac{\frac{1}{n^2}\left(\suml_{k=1}^n D\xi_k\right)}{\varepsilon^2}
+	\leq \frac{\frac{1}{n^2}\left(\suml_{k=1}^n C\right)}{\varepsilon^2}
+	= \frac{nC}{n^2 \varepsilon^2}
+	= \frac{C}{n \varepsilon^2}
+	\xrightarrow[n\to\infty]{} 0
+\end{multline*}
+\dokno
 
