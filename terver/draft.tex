@@ -24,7 +24,7 @@ $$
 \left<\Omega,\calF,P\right> \stackrel{\xI}{\to} \left<\R^n, \calB_{\R^n}, P_\xI\right>
 $$
 и рассматривать в нём непосредственно заданный случайный вектор $\vec{\eta}(\vec{x})=\vec{x}$.
-Легко видеть, что в таком случае $\forall(B\in\calB_{\R^n})[P_{\vec{\eta}}(B)=P_\xI(B)]$.
+Легко видеть, что в таком случае $\forall(B\in\calB_{\R^n})\left[P_{\vec{\eta}}(B)=P_\xI(B)\right]$.
 %TODO: примеры
 
 
@@ -36,9 +36,9 @@ $$
 \section{Неравенство Маркова}
 Пусть $\xi \in L_1(\Omega,\calF,P)$ и $P\{\xi \geq 0\}=1$, $T>0$.
 Тогда 
-$$
-P\{\xi \geq T\} \leq \frac{M\xi}{T}
-$$
+\begin{equation}\label{neravenstvo Markova}
+	P\{\xi \geq T\} \leq \frac{M\xi}{T}
+\end{equation}
 
 \dokvo
 \begin{multline*}
@@ -55,14 +55,49 @@ T \left( \lim_{x\to+\infty} F_\xi(x) - F_\xi(T-)\right) = T P\{\xi\geq T\}
 \end{multline*}
 
 \dokno
-%TODO: доказательство
 
 \section{Неравенство Чебышева}
 Пусть $\xi\in l_2(\Omega,\calF,P)$, $\varepsilon>0$.
 Тогда
 $$
-P\{|\xi-M\xi|\geq\varepsilon)\leq\frac{D\xi}{\varepsilon^2}
+P\{|\xi-M\xi|\geq\varepsilon\}\leq\frac{D\xi}{\varepsilon^2}
 $$
 
+\dokvo
+\begin{multline*}
+	P\{|\xi-M\xi|\geq\varepsilon\}=
+	P\{|\xi-M\xi|^2\geq\varepsilon^2\}=
+	\\\mbox{(положив в неравенстве Маркова (\ref{neravenstvo Markova}) $T=\varepsilon^2$)}\\
+	=\frac{M\left((\xi-M\xi)^2\right)}{\varepsilon^2}
+	=\frac{D\xi}{\varepsilon^2}
+\end{multline*}
+
+
+\dokno
+
 \section{Закон больших чисел}
+
+\paragraph{Идеология.}
+Обычно случайная величина <<размазана>> по числовой оси.
+Если случайные величины складывать, то <<размазанность>> будет <<расползаться>>.
+Но оказывается, что при определённых условиях среднее арифметическое величин <<расползаться>> не будет.
+
+\begin{teorema}
+Пусть $\left\{\xi_k\right\}_{k=1}^\infty$ --- последовательность стохастически независимых интегрируемых с квадратом случайных величин, дисперсия которых ограничена в совокупности, т. е.
+$$
+\forall(k\in\N)\left[\xi_k\in L_2(\Omega,\calF,P)\right]
+$$
+$$
+\exists(C>0)\forall(k\in\N)\left[ D\xi_k \leq C \right]
+$$
+
+Обозначим $\bar{\xi}_n := \frac{1}{n}\sum_{k=1}^n \xi_k$,
+$\bar{\mu}_n := \frac{1}{n}\sum_{k=1}^n M\xi_k$
+
+
+Тогда 
+\begin{equation*}
+	\forall(\varepsilon>0)\left[P(|\bar{\xi}_n - \bar{\mu}_n| \geq \varepsilon) \xrightarrow[n\to\infty]{} 0\right]
+\end{equation*}
+\end{teorema}
 
