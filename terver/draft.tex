@@ -291,3 +291,50 @@ M(\xi^2)-(M\xi)^2 =
 \alpha x_0^2\left(\frac{\alpha^2-2\alpha + 1}{(\alpha-2)(\alpha-1)^2} - \frac{\alpha^2-2\alpha}{(\alpha-2)(\alpha-1)^2}\right) = 
 \frac{\alpha x_0^2}{(\alpha-2)(\alpha-1)^2}
 \end{multline}
+
+\section{Геометрическое распределение}
+\subsection{Определение}
+$P\{\xi=k\} = (1-p)^{k-1} p$, $k\in\N$.
+\subsection{Математическое ожидание}
+\begin{multline}\label{matozhidanie_geom}
+M\xi =
+\suml_{k=1}^\infty k (1-p)^{k-1} p =
+p\suml_{k=1}^\infty k (1-p)^{k-1} =
+p\suml_{k=1}^\infty \frac{d}{dp}(-(1-p)^{k}) =
+\\=
+p\frac{d}{dp} \suml_{k=1}^\infty (-(1-p)^{k}) =
+-p\frac{d}{dp} \frac{1-p}{1-(1-p)} = 
+-p\frac{d}{dp} \frac{1-p}{p} =
+\\=
+-p\frac{d}{dp} \left(\frac{1}{p}-1\right) = 
+-p\left(-\frac{1}{p^2}\right) =
+\frac{1}{p}
+\end{multline}
+
+\subsection{Дисперсия}
+И снова будем применять почленное дифференцирование рядов.
+\begin{multline}
+D\xi = 
+M(\xi^2) - (M\xi)^2 =
+M(\xi^2) - \frac{1}{p^2} =
+\suml_{k=1}^\infty k^2 (1-p)^{k-1} p  - \frac{1}{p^2}=
+\\=
+p\suml_{k=1}^\infty (k^2 + k - k) (1-p)^{k-1}  - \frac{1}{p^2}=
+\\=
+p\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - p\suml_{k=1}^\infty k (1-p)^{k-1}  - \frac{1}{p^2}=
+\\ \mbox{(значение второй суммы мы уже находили в (\ref{matozhidanie_geom}))} \\=
+p\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - \frac{1}{p}  - \frac{1}{p^2}=
+p\suml_{k=1}^\infty \frac{d^2}{dp^2}(1-p)^{k+1} - \frac{1}{p}  - \frac{1}{p^2}=
+\\=
+p\frac{d^2}{dp^2}\suml_{k=1}^\infty(1-p)^{k+1} - \frac{1}{p}  - \frac{1}{p^2}=
+p\frac{d^2}{dp^2}\left((1-p)\suml_{k=1}^\infty(1-p)^{k}\right) - \frac{1}{p}  - \frac{1}{p^2}=
+\\=
+p\frac{d^2}{dp^2}\left((1-p)\frac{1-p}{p}\right) - \frac{1}{p}  - \frac{1}{p^2}=
+p\frac{d^2}{dp^2}\left(\frac{1-2p+p^2}{p}\right) - \frac{1}{p}  - \frac{1}{p^2}=
+\\=
+p\frac{d^2}{dp^2}\left(\frac{1}{p}-2+p\right) - \frac{1}{p}  - \frac{1}{p^2}=
+p\frac{2}{p^3} - \frac{1}{p}  - \frac{1}{p^2}=
+\\=
+\frac{2}{p^2} - \frac{p}{p^2}  - \frac{1}{p^2}=
+\frac{1-p}{p^2}
+\end{multline}
