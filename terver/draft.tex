@@ -313,7 +313,7 @@ p\frac{d}{dp} \suml_{k=1}^\infty (-(1-p)^{k}) =
 
 \subsection{Дисперсия}
 И снова будем применять почленное дифференцирование рядов.
-\begin{multline}
+\begin{multline}\label{dispersia_geom}
 D\xi = 
 M(\xi^2) - (M\xi)^2 =
 M(\xi^2) - \frac{1}{p^2} =
@@ -384,3 +384,48 @@ M\xi=
 \frac{Mn}{N}
 \end{multline}
 
+\subsection{Дисперсия}
+Здесь мы снова применим приём, знакомый по формуле (\ref{dispersia_geom}), а именно --- разбитие суммы с квадратом на две.
+Считаем второй начальный момент:
+\begin{multline}
+M(\xi^k) =
+\suml_{k=1}^\infty k^2\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}=
+\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} =
+\\ \mbox{(вторую сумму мы считали парой строк выше, чем и воспользуемся)} \\=
+\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
+\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
+\\=
+\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} \cdot \frac{M-1}{k-1} C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
+\\ \mbox{(сокращаем множители k(k-1))} \\=
+\suml_{k=1}^\infty \frac{M (M-1) C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
+\\ \mbox{(выносим за скобки некоторые множители, не содержащие k)} \\=
+\frac{M (M-1) n (n-1)}{N(N-1)}\suml_{k=1}^\infty \frac{ C_{M-2}^{k-2} C_{N-M}^{n-k}}{ C_{N-2}^{n-2}} + \frac{Mn}{N} \stackrel{\ref{summa_gipergeom_1}}{=}
+\\=
+\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N}
+\end{multline}
+
+Теперь считаем дисперсию --- исключительно алгебраическое времяпровождение:
+\begin{multline}
+D\xi =
+M(\xi^2)-(M\xi)^2 = 
+\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N} - \frac{M^2 n^2}{N^2} =
+\\=
+\frac{Mn}{N} \left(  \frac{(M-1)(n-1)}{N-1} + 1 - \frac{M n}{N}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{Mn-M-n+1}{N-1} + 1 - \frac{M n}{N}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{MnN-MN-nN+N}{N(N-1)} + 1 - \frac{M nN - Mn}{N(N-1)}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{MnN - MN - nN + N - MnN + Mn}{N(N-1)} + 1 \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn}{N(N-1)} + 1 \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn + N^2 - N }{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + Mn + N^2 }{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{n(M-N) -N (M-N)}{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{(n-N)(M-N)}{N(N-1)} \right) =
+\frac{Mn(n-N)(M-N)}{N^2(N-1)}
+\end{multline}
