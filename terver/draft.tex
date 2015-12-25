@@ -252,7 +252,7 @@ M\xi=
 \end{multline}
 Последний интеграл, как мы знаем из курса математического анализа, сходится при $\alpha>1$.
 Следовательно, при $\alpha>1$ из формулы (\ref{matozhidanie_Pareto}) имеем
-\begin{multline}
+\begin{multline}\label{matozhidanie_Pareto_itog}
 M\xi = 
 \alpha x_0^\alpha \intl_{x_0}^{+\infty} \frac{1}{x^\alpha} dx =
 \alpha x_0^\alpha \left.\left(\frac{1}{1-\alpha}\frac{1}{x^{\alpha-1}}\right)\right|_{x=x_0}^{x=+\infty} dx =
@@ -264,3 +264,30 @@ M\xi =
 \frac{\alpha x_0}{\alpha-1}
 \end{multline}
 
+\subsection{Прочие моменты}
+Как известно, начальный момент существует или не существует одновременно с центральным.
+Для начального момента порядка $k$ рассуждениями, аналогичными (\ref{matozhidanie_Pareto}), имеем
+\begin{equation}\label{momenty_Pareto}
+M(\xi^k)= \alpha x_0^\alpha \intl_{x_0}^{+\infty} \frac{1}{x^{\alpha-k+1}} dx
+\end{equation}
+
+А такой интеграл сходится при $\alpha-k+1 > 1$, т.е. при $\alpha > k$.
+Следовательно, у распределения Парето с параметрами $x_0$ и $\alpha$ существуют $k$-ые центральный и начальный моменты тогда и только тогда, когда $\alpha > k$.
+
+\subsection{Дисперсия}
+Вооружившись формулами (\ref{matozhidanie_Pareto_itog}) и (\ref{momenty_Pareto}), посчитаем дисперсию этого распределения при $\alpha>2$:
+\begin{multline}
+D\xi=
+M(\xi^2)-(M\xi)^2 =
+\alpha x_0^\alpha \intl_{x_0}^{+\infty} \frac{1}{x^{\alpha-1}} dx - \left(\frac{\alpha x_0}{\alpha-1}\right)^2 =
+\\=
+\alpha x_0^\alpha \frac{1}{\alpha-2}\cdot\frac{1}{x_0^{\alpha-2}} - \frac{\alpha^2 x_0^2}{(\alpha-1)^2} = 
+\frac{\alpha x_0^2}{\alpha-2} - \frac{\alpha^2 x_0^2}{(\alpha-1)^2} = 
+\\=
+\alpha x_0^2\left(\frac{1}{\alpha-2} - \frac{\alpha}{(\alpha-1)^2}\right) = 
+\\=
+\alpha x_0^2\left(\frac{(\alpha-1)^2}{(\alpha-2)(\alpha-1)^2} - \frac{\alpha^2-2\alpha}{(\alpha-2)(\alpha-1)^2}\right) =
+\\= 
+\alpha x_0^2\left(\frac{\alpha^2-2\alpha + 1}{(\alpha-2)(\alpha-1)^2} - \frac{\alpha^2-2\alpha}{(\alpha-2)(\alpha-1)^2}\right) = 
+\frac{\alpha x_0^2}{(\alpha-2)(\alpha-1)^2}
+\end{multline}
