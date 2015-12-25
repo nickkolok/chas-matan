@@ -338,3 +338,49 @@ p\frac{2}{p^3} - \frac{1}{p}  - \frac{1}{p^2}=
 \frac{2}{p^2} - \frac{p}{p^2}  - \frac{1}{p^2}=
 \frac{1-p}{p^2}
 \end{multline}
+
+\section{Гипергеометрическое распределение}
+\subsection{Определение}
+$P\{\xi=k\}=\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}$,
+где $N$ - общеее количество элементов,
+$n$ - выбираемое без возвращения количество элементов,
+$k$ - требуемое количество успешных элементов.
+
+\subsection{Математическое ожидание}
+Будем, как обычно, полагать, что при $a>b$, или $a<0$, или $b<0$ $C_b^a=0$.
+Это позволит нам не следить за пределами суммирования.
+
+Далее, подготовим плацдарм в виде нескольких формул.
+Во-первых, сумма вероятностей всех исходов равна 1:
+\begin{equation}
+\suml_{k=1}^\infty \frac{C_M^k C_{N-M}^{n-k}}{C_N^n} = 1
+\end{equation}
+
+Заменив $n$ на $n-1$; $k$ на $k-1$; $M$ на $M-1$; $N$ на $N-1$, имеем:
+\begin{equation}\label{summa_gipergeom_1}
+\suml_{k=1}^\infty \frac{C_{M-1}^{k-1} C_{N-M}^{n-k}}{C_{N-1}^{n-1}} = 1
+\end{equation}
+
+Заметим также, что
+\begin{equation}\label{ponizhenie_C}
+C_b^a =
+\frac{b!}{a!(a-b)!}=
+\frac{b(b-1)!}{a(a-1)!((a-1)-(b-1))!}=
+\frac{b}{a}C_{b-1}^{a-1}
+\end{equation}
+
+Теперь приступаем непосредственно к штурму первого момента.
+
+\begin{multline}
+M\xi=
+\suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} \stackrel{(\ref{ponizhenie_C})}{=}
+\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}}=
+\\=
+\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{\frac{N}{n}C_{N-1}^{n-1}}=
+\\ \mbox{(выносим за знак суммы некоторые множители, не зависящие от $k$)} \\=
+\frac{Mn}{N}\suml_{k=1}^\infty k\frac{\frac{1}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}=
+\\=
+\frac{Mn}{N}\suml_{k=1}^\infty \frac{ C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}\stackrel{(\ref{summa_gipergeom_1})}{=}
+\frac{Mn}{N}
+\end{multline}
+
