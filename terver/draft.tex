@@ -223,6 +223,31 @@ $$
 \end{teorema}
 Для доказательства этой теоремы достаточно вспомнить числовые характеристики биномиального распределения.
 
+\section{Применение теоремы Муавра-Лапласа}
+Сначала заметим, что по теореме Муавра-Лапласа при достаточно большом $n$ для $\xi \sim Bi(n,p)$ имеет место приближенное равенство
+\begin{equation}
+P\{\xi<b\} \approx \Phi\left( \frac{b-p}{\sqrt{np(1-p)}} \right)
+\end{equation}
+
+Легко понять, что тогда
+\begin{equation}\label{raznost_teorema_Muavra_Laplasa}
+P\{a<\xi<b\} \approx \Phi\left( \frac{b-p}{\sqrt{np(1-p)}} \right) - \Phi\left( \frac{a-p}{\sqrt{np(1-p)}} \right)
+\end{equation}
+
+\begin{primer}
+Пусть среди новорождённых частота появления мальчиков составляет $0,515$ и мы хотим узнать, с каком вероятностью среди $10000$ новорождённых мальчиков будет меньше, чем девочек.
+Рассмотрим количество мальчиков --- случайную величину $\xi \sim Bi(10000; 0,515)$.
+Применяем теорему Муавра-Лапласа, а именно формулу (\ref{raznost_teorema_Muavra_Laplasa}):
+\begin{multline*}
+P\{\xi\in[0; 10000]\} \approx
+\\ \approx
+\Phi\left( \frac{5000-5150}{\sqrt{10^4 \cdot 0,515 \cdot 0,485 }} \right) - \Phi\left( \frac{-5150}{\sqrt{10^4 \cdot 0,515 \cdot 0,485 }} \right) \approx
+\\ \approx
+\Phi(-3) - \Phi(-103) \approx 0
+\end{multline*}
+
+\end{primer}
+
 \chapter{Типовые распределения}
 \section{Распределение Парето}
 \subsection{Определение}
