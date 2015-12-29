@@ -454,3 +454,98 @@ M(\xi^2)-(M\xi)^2 =
 \frac{Mn}{N} \left(  \frac{(n-N)(M-N)}{N(N-1)} \right) =
 \frac{Mn(n-N)(M-N)}{N^2(N-1)}
 \end{multline}
+
+\section{Гамма-распределение}
+
+\subsection{Определение}
+
+Говорят, что $\xi \sim \Gamma(\lambda,\nu)$, если 
+\begin{equation}\label{opred_Gamma_raspr}
+f_\xi( x) =\frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1} \cdot \one{[0; +\infty)}(x)
+\end{equation}
+
+\subsection{Матожидание}
+
+\begin{multline}
+M\xi=
+\intl_{- \infty  }^{+ \infty  } x  f_\xi( x)   dx =
+\intl_{0 }^{+ \infty  } x  \frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1}   dx =
+\\\mbox{( т. к. $\Gamma(\nu +1) =\nu\Gamma( \nu)) $}\\=
+\intl_{0 }^{+ \infty  } x  \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu-1}   dx =
+\intl_{0 }^{+ \infty  } \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu+1-1}   dx =
+\\=
+\frac{\nu}{\lambda }\intl_{0 }^{+ \infty  } \frac{\lambda ^{\nu+1}}{ \Gamma( \nu+1) } e^{ -\lambda x }x^{( \nu+1) -1}   dx =
+\\=
+\frac{\nu}{\lambda }\intl_{- \infty  }^{+ \infty  } \frac{\lambda ^{\nu+1}}{ \Gamma( \nu+1) } e^{ -\lambda x }x^{( \nu+1) -1} \cdot \one{[0; +\infty)}(x)  dx =
+\\  \mbox{( но это - интеграл по всему пространству от плотности }\\\mbox{ распределения $\Gamma( \lambda ,\nu+1) $(\ref{opred_Gamma_raspr}), который равен 1 )}\\=
+\frac{\nu}{\lambda }
+\end{multline}
+
+\subsection{Дисперсия}
+
+Считаем матожидание квадрата:
+\begin{multline}
+M(\xi^2)=
+\intl_{- \infty  }^{+ \infty  } x^2  f_\xi( x)   dx =
+\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1}   dx =
+\\\mbox{( т. к. $\Gamma(\nu +1) =\nu\Gamma( \nu)) $}\\=
+\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu-1}   dx =
+\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu+2}\nu(\nu+1)}{\lambda^2 \Gamma( \nu+2) } e^{ -\lambda x }x^{\nu-1}   dx =
+\\=
+\intl_{0 }^{+ \infty  }  \frac{\lambda ^{\nu+2}\nu(\nu+1)}{\lambda^2 \Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1}   dx =
+\\=
+\frac{\nu(\nu+1)}{\lambda^2}\intl_{0 }^{+ \infty  }  \frac{\lambda ^{\nu+2}}{\Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1}   dx =
+\\=
+\frac{\nu(\nu+1)}{\lambda^2}\intl_{-\infty }^{+ \infty  }  \frac{\lambda ^{\nu+2}}{\Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1} \cdot \one{[0; +\infty)}(x)   dx =
+\\  \mbox{( но это --- интеграл по всему пространству от плотности }\\\mbox{ распределения $\Gamma( \lambda ,\nu+1) $(\ref{opred_Gamma_raspr}), который равен 1 )}\\=
+\frac{\nu(\nu+1)}{\lambda^2}
+\end{multline}
+
+Тогда
+\begin{multline}
+D\xi=M( \xi^{2}) -( M\xi) ^{2}=
+\frac{\nu(\nu+1)}{\lambda^2}  -   \left( \frac{\nu}{\lambda } \right)  ^{2}=
+\frac{\nu^{2}-\nu-\nu^{2}}{\lambda ^{2}}=
+\frac{\nu}{\lambda ^{2}}
+\end{multline}
+
+\section{распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
