@@ -574,13 +574,51 @@ D\xi = M\left((\xi-M\xi)^2\right) =
 \sigma^2
 \end{multline}
 
-\section{распределение}
+\section{Равномерное распределение}
 
 \subsection{Определение}
-
+\begin{equation}
+	f_\xi(x) = \frac{1}{b-a} \one{[a;b]}(x)
+\end{equation}
 \subsection{Матожидание}
 
+\begin{multline}
+M\xi =  \intl_{-\infty }^{\infty } xf_\xi(x) dx =
+\intl_{a }^{b } x \frac{1}{b-a} dx =
+\\=
+\frac{1}{b-a} \left.  \left( \frac{x^2}{2} \right)   \right|_{ x=a}^{ x=b}=
+\frac{b^2-a^2}{2(b-a)}=
+\frac{(b-a)(b+a)}{2(b-a)}=
+\frac{a+b}{2}
+\end{multline}
+
 \subsection{Дисперсия}
+\begin{multline}
+    M( \xi ^2) = 
+    \intl_{-\infty }^{\infty } x^2 \frac{1}{b-a}dx =
+    \frac{1}{b-a} \intl_{-\infty }^{\infty } x^2 dx =
+    \\=
+    \frac{1}{b-a}\left. \left( \frac{x^3}{3} \right)  \right|_{ x=a}^{ x=b} = 
+    \frac{1}{b-a} \left( \frac{b^3}{3} - \frac{a^3}{3}\right) =
+    \\=
+    \frac{1}{b-a} \left( \frac{b^3 - a^3}{3} \right) = 
+    \frac{1}{b-a} \left( \frac{(b-a)(a^2+ab+b^2)}{3} \right) = 
+    \frac{a^2+ab+b^2}{3}
+\end{multline}
+
+\begin{multline}
+	D\xi =
+	M(\xi^2)-(M\xi)^2 = 
+	\frac{a^2+ab+b^2}{3} - \left( \frac{a+b}{2} \right)^2  =
+	\\=
+	\frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} =  
+	\frac{4a^2+4ab+4b^2}{12} - \frac{3a^2+6ab+3b^2}{12} = 
+	\\= 
+	\frac{4a^2+4ab+4b^2-3a^2-6ab-3b^2}{12}=  
+	\frac{a^2 -2ab + b^2 }{12}=  
+	\frac{(a-b)^2}{12}  
+\end{multline}
+
 
 \section{распределение}
 
