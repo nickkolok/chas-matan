@@ -1,20 +1,21 @@
 \section{Геометрическое распределение}
 \subsection{Определение}
-$P\{\xi=k\} = (1-p)^{k-1} p$, $k\in\N$.
+$P\{\xi=k\} = (1-p)^{k} p$, $k\in\N_0$.
 \subsection{Математическое ожидание}
 \begin{multline}\label{matozhidanie_geom}
 M\xi =
-\suml_{k=1}^\infty k (1-p)^{k-1} p =
-p\suml_{k=1}^\infty k (1-p)^{k-1} =
-p\suml_{k=1}^\infty \frac{d}{dp}(-(1-p)^{k}) =
+\suml_{k=1}^\infty k (1-p)^{k} p =
+p(1-p)\suml_{k=1}^\infty k (1-p)^{k-1} =
 \\=
-p\frac{d}{dp} \suml_{k=1}^\infty (-(1-p)^{k}) =
--p\frac{d}{dp} \frac{1-p}{1-(1-p)} = 
--p\frac{d}{dp} \frac{1-p}{p} =
+p(1-p)\suml_{k=1}^\infty \frac{d}{dp}(-(1-p)^{k}) =
+p(1-p)\frac{d}{dp} \suml_{k=1}^\infty (-(1-p)^{k}) =
 \\=
--p\frac{d}{dp} \left(\frac{1}{p}-1\right) = 
--p\left(-\frac{1}{p^2}\right) =
-\frac{1}{p}
+-p(1-p)\frac{d}{dp} \frac{1-p}{1-(1-p)} = 
+-p(1-p)\frac{d}{dp} \frac{1-p}{p} =
+\\=
+-p(1-p)\frac{d}{dp} \left(\frac{1}{p}-1\right) = 
+-p(1-p)\left(-\frac{1}{p^2}\right) =
+\frac{1-p}{p}
 \end{multline}
 
 \subsection{Дисперсия}
@@ -22,26 +23,32 @@ p\frac{d}{dp} \suml_{k=1}^\infty (-(1-p)^{k}) =
 \begin{multline}\label{dispersia_geom}
 D\xi = 
 M(\xi^2) - (M\xi)^2 =
-M(\xi^2) - \frac{1}{p^2} =
-\suml_{k=1}^\infty k^2 (1-p)^{k-1} p  - \frac{1}{p^2}=
+M(\xi^2) - \frac{(1-p)^2}{p^2} =
 \\=
-p\suml_{k=1}^\infty (k^2 + k - k) (1-p)^{k-1}  - \frac{1}{p^2}=
+\suml_{k=1}^\infty k^2 (1-p)^{k} p  - \frac{(1-p)^2}{p^2}=
 \\=
-p\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - p\suml_{k=1}^\infty k (1-p)^{k-1}  - \frac{1}{p^2}=
+p(1-p)\suml_{k=1}^\infty (k^2 + k - k) (1-p)^{k-1}  - \frac{(1-p)^2}{p^2}=
+\\=
+p(1-p)\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - p(1-p)\suml_{k=1}^\infty k (1-p)^{k-1}  - \frac{(1-p)^2}{p^2}=
 \\ \mbox{(значение второй суммы мы уже находили в (\ref{matozhidanie_geom}))} \\=
-p\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - \frac{1}{p}  - \frac{1}{p^2}=
-p\suml_{k=1}^\infty \frac{d^2}{dp^2}(1-p)^{k+1} - \frac{1}{p}  - \frac{1}{p^2}=
+(1-p)p\suml_{k=1}^\infty k(k+1)(1-p)^{k-1} - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
 \\=
-p\frac{d^2}{dp^2}\suml_{k=1}^\infty(1-p)^{k+1} - \frac{1}{p}  - \frac{1}{p^2}=
-p\frac{d^2}{dp^2}\left((1-p)\suml_{k=1}^\infty(1-p)^{k}\right) - \frac{1}{p}  - \frac{1}{p^2}=
+(1-p)p\suml_{k=1}^\infty \frac{d^2}{dp^2}(1-p)^{k+1} - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
 \\=
-p\frac{d^2}{dp^2}\left((1-p)\frac{1-p}{p}\right) - \frac{1}{p}  - \frac{1}{p^2}=
-p\frac{d^2}{dp^2}\left(\frac{1-2p+p^2}{p}\right) - \frac{1}{p}  - \frac{1}{p^2}=
+(1-p)p\frac{d^2}{dp^2}\suml_{k=1}^\infty(1-p)^{k+1} - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
 \\=
-p\frac{d^2}{dp^2}\left(\frac{1}{p}-2+p\right) - \frac{1}{p}  - \frac{1}{p^2}=
-p\frac{2}{p^3} - \frac{1}{p}  - \frac{1}{p^2}=
+(1-p)p\frac{d^2}{dp^2}\left((1-p)\suml_{k=1}^\infty(1-p)^{k}\right) - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
 \\=
-\frac{2}{p^2} - \frac{p}{p^2}  - \frac{1}{p^2}=
+p(1-p)\frac{d^2}{dp^2}\left((1-p)\frac{1-p}{p}\right) - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
+\\=
+p(1-p)\frac{d^2}{dp^2}\left(\frac{1-2p+p^2}{p}\right) - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
+\\=
+p(1-p)\frac{d^2}{dp^2}\left(\frac{1}{p}-2+p\right) - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
+\\=
+p(1-p)\frac{2}{p^3} - \frac{1-p}{p}  - \frac{(1-p)^2}{p^2}=
+\\=
+\frac{2(1-p)}{p^2} - \frac{p(1-p)}{p^2}  - \frac{(1-p)^2}{p^2}=
+\frac{1-p}{p^2}(2 - p  - (1-p))=
 \frac{1-p}{p^2}
 \end{multline}
 

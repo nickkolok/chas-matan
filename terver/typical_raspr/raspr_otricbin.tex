@@ -1,0 +1,61 @@
+\section{Отрицательное биномиальное распределение}
+
+\subsection{Определение}
+Говорят, что $\xi$ имеет отрицательное биномиальное распределение с параметрами $\nu>0$ и $p\in(0;1)$ и пишут: $\xi\sim\gamma(\nu,p)$, если
+
+$P\{\xi=k\} = \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k$, $k\in\N_0$.
+
+\subsection{Матожидание}
+Как обычно, заметим, что сумма вероятностей равна 1, т.е.
+\begin{equation}\label{summa_veroyatn_otricbin}
+\sum_{ k=0}^{ \infty } \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k = 1
+\end{equation}
+
+\begin{multline}\label{matozhidanie_otricbin}
+ M\xi = 
+ \sum_{ k=0}^{ \infty } k\frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k =  
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} \\=
+ \sum_{ k=1}^{ \infty } k\frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k =  
+ \\ \mbox{( т.к. $\Gamma(\nu+1) = \nu\Gamma(\nu) $)} \\=
+ \sum_{ k=1}^{ \infty } k\frac{\Gamma(\nu+k)}{k(k-1)!\frac{\Gamma(\nu+1)}{\nu}}\frac{p^{\nu+1}}{p} (1-p)^{k-1} (1-p) = 
+ \sum_{ k=1}^{ \infty } \frac{\Gamma(\nu+k)}{(k-1)!\frac{\Gamma(\nu+1)}{\nu}}\frac{p^{\nu+1}}{p} (1-p)^{k-1} (1-p) = 
+ \sum_{ k=1}^{ \infty } \frac{\Gamma(\nu+1+(k-1))}{(k-1)!\frac{\Gamma(\nu+1)}{\nu}}\frac{p^{\nu+1}}{p} (1-p)^{k-1} (1-p) = 
+ \\ \mbox{( выносим за знак суммы некоторые постоянные множители )} \\=
+ \frac{\nu(1-p)}{p}\sum_{ k=1}^{ \infty } \frac{\Gamma(\nu+1+(k-1))}{(k-1)!\Gamma(\nu+1)} p^{\nu+1} (1-p)^{k-1} =
+ \\ \mbox{( положим $l=k-1$, $\mu=\nu+1$ )} \\=
+ \frac{\nu(1-p)}{p}\sum_{ l=0}^{ \infty } \frac{\Gamma(\mu+l)}{l!\Gamma(\mu)} p^{\mu} (1-p)^l =
+ \\ \mbox{( эта сумма есть (\ref{summa_veroyatn_otricbin}) в других обозначениях )} \\=
+ \frac{\nu(1-p)}{p}
+\end{multline}
+
+\subsection{Дисперсия}
+\begin{multline*}
+ D\xi = 
+ M(\xi^2) - (M\xi)^2 = 
+ \sum_{ k=0}^{ \infty } k^2\frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k  - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} \\=
+ \sum_{ k=1}^{ \infty } k^2\frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k  - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\=
+ \sum_{ k=1}^{ \infty } (k^2 - k + k)\frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k  - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\=
+ \sum_{ k=1}^{ \infty } k(k-1) \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k +\sum_{ k=1}^{ \infty } k \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\ \mbox{( но правую сумму мы уже считали в (\ref{matozhidanie_otricbin}) )} \\=
+ \sum_{ k=1}^{ \infty } k(k-1) \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k + \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\ \mbox{( при $k=1$ под суммой всё равно $0$ )} \\=
+ \sum_{ k=2}^{ \infty } k(k-1) \frac{\Gamma(\nu+k)}{k!\Gamma(\nu)}p^\nu (1-p)^k +\\+ \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\=
+ \sum_{ k=2}^{ \infty } k(k-1) \frac{\Gamma(\nu+2+(k-2))}{k(k-1)(k-2)!\frac{\Gamma(\nu+2)}{\nu(\nu+1)}}\frac{p^{\nu+2}}{p^2} (1-p)^{k-2} (1-p)^2 +\\+ \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\=
+ \frac{\nu(\nu+1)(1-p)^2}{p^2} \sum_{ k=2}^{ \infty } \frac{\Gamma(\nu+2+(k-2))}{(k-2)!\Gamma(\nu+2)} p^{\nu+2} (1-p)^{k-2} +\\+ \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2= 
+ \end{multline*}\begin{multline}\label{dispersia_otricbin}
+ \\ \mbox{( положим $l=k-2$, $\mu=\nu+2$ )} \\=
+ \frac{\nu(\nu+1)(1-p)^2}{p^2} \sum_{ l=0}^{ \infty } \frac{\Gamma(\mu+l)}{l!\Gamma(\mu)} p^{\mu} (1-p)^l + \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2=  
+ \\ \mbox{( эта сумма есть (\ref{summa_veroyatn_otricbin}) в других обозначениях )} \\=
+ \frac{\nu(\nu+1)(1-p)^2}{p^2} + \frac{\nu(1-p)}{p} - \left(  \frac{\nu(1-p)}{p} \right)^2 =
+ \\=
+ \frac{(\nu^2 + \nu)(1-p)^2}{p^2} + \frac{\nu(1-p)p}{p^2} - \frac{\nu^2(1-p)^2}{p^2} =
+ \\=
+ \frac{\nu(1-p)^2}{p^2} + \frac{\nu(1-p)p}{p^2} =
+ \frac{\nu(1-p)}{p^2}
+\end{multline}
+

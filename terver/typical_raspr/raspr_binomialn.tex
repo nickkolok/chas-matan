@@ -1,0 +1,68 @@
+\section{Биномиальное распределение}
+
+\subsection{Определение}
+\begin{equation}
+P\{\xi=k\} =  C^{ k}_{ n} p^k (1-p)^{n-k}
+\end{equation}
+
+\subsection{Матожидание}
+
+И снова заметим, что сумма вероятностей равна 1:
+\begin{equation}\label{summa_veroyatn_binomialn}
+\sum_{ l=0}^{m} C^{l}_{m} p^{l} (1-p)^{m-l} = 1
+\end{equation}
+
+\begin{multline}
+M\xi = 
+ \sum_{ k=0}^{ n} k C^{ k}_{ n} p^k (1-p)^{n-k} =
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} \\=
+ \sum_{ k=1}^{ n} k C^{ k}_{ n} p^k (1-p)^{n-k} \stackrel{(\ref{ponizhenie_C})}{=}
+ \sum_{ k=1}^{ n} k \frac{n}{k}C^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} =
+ \\=
+ \sum_{ k=1}^{ n} n C^{ k-1}_{ n-1} p^{k-1} p (1-p)^{(n-1)-(k-1)} =
+ np \sum_{ k=1}^{ n} C^{ k-1}_{ n-1} p^{k-1} (1-p)^{(n-1)-(k-1)} =
+ \\ \mbox{( положив $l=k-1$, $m=n-1$ )} \\=
+ np \sum_{ l=0}^{m} C^{l}_{m} p^{l} (1-p)^{m-l} \stackrel{(\ref{summa_veroyatn_binomialn})}{=}
+ np
+\end{multline}
+
+\subsection{Дисперсия}
+\begin{multline*}
+ D\xi = 
+ M(xi^2)-(M\xi)^2 = 
+ \sum_{ k=0}^{ n} k^2 C^{ k}_{ n} p^k (1-p)^{n-k} - n^2p^2 =
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} - n^2p^2 \\=
+ \sum_{ k=1}^{ n} k^2 C^{ k}_{ n} p^k (1-p)^{n-k} - n^2p^2 \stackrel{(\ref{ponizhenie_C})}{=}
+ \sum_{ k=1}^{ n} k^2 \frac{n}{k}C^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} - n^2p^2 =
+ \\=
+ \sum_{ k=1}^{ n} k nC^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} - n^2p^2 =
+ \\=
+ \sum_{ k=1}^{ n} (k-1+1) nC^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} - n^2p^2 =
+ \\=
+ \sum_{ k=1}^{ n} (k-1) nC^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} +\sum_{ k=1}^{ n} nC^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} - n^2p^2 =
+ \\
+\end{multline*}
+\begin{multline}
+ =
+ n\sum_{ k=1}^{ n} (k-1) C^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} +\\+ n \sum_{ k=1}^{ n} C^{ k-1}_{ n-1} p^k (1-p)^{(n-1)-(k-1)} - n^2p^2 =
+ \\ \mbox{( положив $l=k-1$, $m=n-1$ )} \\=
+ n\sum_{ l=0}^{ m} l C^{l}_{m} p^l \cdot p (1-p)^{m-l} + n \sum_{ l=0}^{ m} C^{l}_{m} p^l \cdot p (1-p)^{m-l} - n^2p^2 =
+ \\=
+ np\sum_{ l=0}^{ m} l C^{l}_{m} p^l (1-p)^{m-l} + np \sum_{ l=0}^{ m} C^{l}_{m} p^l (1-p)^{m-l} - n^2p^2 =
+ \\ \mbox{( но правая сумма соответствует (\ref{summa_veroyatn_binomialn}) )} \\=
+ np\sum_{ l=0}^{ m} l C^{l}_{m} p^l (1-p)^{m-l} + np - n^2p^2 =
+ \\ \mbox{( при $l=0$ под суммой всё равно $0$ )} \\=
+ np\sum_{ l=1}^{ m} l C^{l}_{m} p^l (1-p)^{m-l} + np - n^2p^2 \stackrel{(\ref{ponizhenie_C})}{=}
+ \\=
+ np\sum_{ l=1}^{ m} l \frac{m}{l} C^{l-1}_{m-1} p^l (1-p)^{m-l} + np - n^2p^2 =
+ \\=
+ nmp\sum_{ l=1}^{ m} C^{l-1}_{m-1} p^{l-1} \cdot p (1-p)^{(m-1)-(l-1)} + np - n^2p^2 =
+ \\=
+ n(n-1)p^2\sum_{ l=1}^{ m} C^{l-1}_{m-1} p^{l-1} (1-p)^{(m-1)-(l-1)} + np - n^2p^2 =
+ \\ \mbox{( но такую сумму мы уже считали пи вычислении матожидания )} \\=
+ n(n-1)p^2 + np - n^2p^2 =
+ n^2 p^2 - np^2+ np - n^2 p^2 =
+ - np^2+ np =
+ np(1-p)
+\end{multline}
+
