@@ -1,0 +1,54 @@
+\section{Распределение Пуассона}
+
+\subsection{Определение}
+\begin{equation}
+P\{\xi=k\}=\frac{\lambda^k}{k!}e^{-\lambda } , \mbox{ где } k\in\N_0=\N\cup\{0\}
+\end{equation}
+
+\subsection{Матожидание}
+Заметим, что сумма вероятностей всех исходов равна 1, т.е.
+\begin{equation}\label{summa_veroytn_Puasson}
+\sum_{l=0}^{\infty} \frac{\lambda^l}{l!}e^{-\lambda } = 1 
+\end{equation}
+
+\begin{multline}\label{matozhidanie_Puasson}
+M\xi=
+ \sum_{k=0}^{\infty} k \frac{\lambda^k}{k!}e^{-\lambda } =
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} \\=
+ \sum_{k=1}^{\infty} k \frac{\lambda^k}{k!}e^{-\lambda } =
+ \sum_{k=1}^{\infty} k \frac{\lambda^k}{k\cdot(k-1)!}e^{-\lambda } =
+ \sum_{k=1}^{\infty} \frac{\lambda^k}{(k-1)!}e^{-\lambda } =
+ \\=
+ \lambda \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda } =
+  \\ \mbox{( положив $l=k-1$ )} \\=
+ \lambda \sum_{l=0}^{\infty} \frac{\lambda^l}{l!}e^{-\lambda } \stackrel{(\ref{summa_veroytn_Puasson})}{=}
+ \lambda
+\end{multline}
+
+\subsection{Дисперсия}
+\begin{multline}
+ D\xi = 
+ M(\xi^2) - (M\xi)^2 = 
+ \sum_{k=0}^{\infty} k^2 \frac{\lambda^k}{k!}e^{-\lambda }  - \lambda ^2 =
+ \\ \mbox{( при $k=0$ под суммой всё равно $0$ )} \\=
+ \sum_{k=1}^{\infty} k^2 \frac{\lambda^k}{k!}e^{-\lambda }  - \lambda ^2 =
+ \sum_{k=1}^{\infty} (k^2 - k + k) \frac{\lambda^k}{k!}e^{-\lambda }  - \lambda ^2 =
+ \\=
+ \sum_{k=1}^{\infty} (k^2 - k) \frac{\lambda^k}{k!}e^{-\lambda } + \sum_{k=1}^{\infty} k \frac{\lambda^k}{k!}e^{-\lambda } - \lambda ^2 =
+ \\ \mbox{( но правую сумму мы уже считали выше, в (\ref{matozhidanie_Puasson}) )} \\=
+ \sum_{k=1}^{\infty} (k^2 - k) \frac{\lambda^k}{k!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \sum_{k=1}^{\infty} k(k-1) \frac{\lambda^k}{k!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \\ \mbox{( при $k=1$ под суммой всё равно $0$ )} \\=
+ \sum_{k=2}^{\infty} k(k-1) \frac{\lambda^k}{k!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \sum_{k=2}^{\infty} k(k-1) \frac{\lambda^2 \cdot \lambda^{k-2}}{k!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \\=
+ \sum_{k=2}^{\infty} k(k-1) \frac{\lambda^2 \cdot \lambda^{k-2}}{k(k-1)\cdot(k-2)!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \sum_{k=2}^{\infty} \frac{\lambda^2 \cdot \lambda^{k-2}}{(k-2)!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \\=
+ \lambda^2 \sum_{k=2}^{\infty} \frac{\cdot \lambda^{k-2}}{(k-2)!}e^{-\lambda } + \lambda - \lambda ^2 =
+ \\ \mbox{( положим $l=k-2$ )} \\=
+ \lambda^2 \sum_{l=0}^{\infty} \frac{\cdot \lambda^l}{l!}e^{-\lambda } + \lambda - \lambda ^2 \stackrel{(\ref{summa_veroytn_Puasson})}{=}
+ \lambda^2  + \lambda - \lambda ^2 =
+ \lambda
+\end{multline}
+
