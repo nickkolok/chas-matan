@@ -249,6 +249,7 @@ P\{\xi\in[0; 10000]\} \approx
 \end{primer}
 
 \chapter{Типовые распределения}
+
 \section{Распределение Парето}
 \subsection{Определение}
 \opred
@@ -364,330 +365,81 @@ p\frac{2}{p^3} - \frac{1}{p}  - \frac{1}{p^2}=
 \frac{1-p}{p^2}
 \end{multline}
 
-\section{Гипергеометрическое распределение}
-\subsection{Определение}
-$P\{\xi=k\}=\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}$,
-где $N$ - общеее количество элементов,
-$n$ - выбираемое без возвращения количество элементов,
-$k$ - требуемое количество успешных элементов.
 
-\subsection{Математическое ожидание}
-Будем, как обычно, полагать, что при $a>b$, или $a<0$, или $b<0$ $C_b^a=0$.
-Это позволит нам не следить за пределами суммирования.
+\input{typical_raspr/raspr_hypergeom}
 
-Далее, подготовим плацдарм в виде нескольких формул.
-Во-первых, сумма вероятностей всех исходов равна 1:
-\begin{equation}
-\suml_{k=1}^\infty \frac{C_M^k C_{N-M}^{n-k}}{C_N^n} = 1
-\end{equation}
+\input{typical_raspr/raspr_Gamma}
+\input{typical_raspr/raspr_normal}
+\input{typical_raspr/raspr_ravnom}
+\input{typical_raspr/raspr_Koshi}
 
-Заменив $n$ на $n-1$; $k$ на $k-1$; $M$ на $M-1$; $N$ на $N-1$, имеем:
-\begin{equation}\label{summa_gipergeom_1}
-\suml_{k=1}^\infty \frac{C_{M-1}^{k-1} C_{N-M}^{n-k}}{C_{N-1}^{n-1}} = 1
-\end{equation}
-
-Заметим также, что
-\begin{equation}\label{ponizhenie_C}
-C_b^a =
-\frac{b!}{a!(a-b)!}=
-\frac{b(b-1)!}{a(a-1)!((a-1)-(b-1))!}=
-\frac{b}{a}C_{b-1}^{a-1}
-\end{equation}
-
-Теперь приступаем непосредственно к штурму первого момента.
-
-\begin{multline}
-M\xi=
-\suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} \stackrel{(\ref{ponizhenie_C})}{=}
-\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}}=
-\\=
-\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{\frac{N}{n}C_{N-1}^{n-1}}=
-\\ \mbox{(выносим за знак суммы некоторые множители, не зависящие от $k$)} \\=
-\frac{Mn}{N}\suml_{k=1}^\infty k\frac{\frac{1}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}=
-\\=
-\frac{Mn}{N}\suml_{k=1}^\infty \frac{ C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}\stackrel{(\ref{summa_gipergeom_1})}{=}
-\frac{Mn}{N}
-\end{multline}
-
-\subsection{Дисперсия}
-Здесь мы снова применим приём, знакомый по формуле (\ref{dispersia_geom}), а именно --- разбитие суммы с квадратом на две.
-Считаем второй начальный момент:
-\begin{multline}
-M(\xi^k) =
-\suml_{k=1}^\infty k^2\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}=
-\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} =
-\\ \mbox{(вторую сумму мы считали парой строк выше, чем и воспользуемся)} \\=
-\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
-\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
-\\=
-\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} \cdot \frac{M-1}{k-1} C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
-\\ \mbox{(сокращаем множители k(k-1))} \\=
-\suml_{k=1}^\infty \frac{M (M-1) C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
-\\ \mbox{(выносим за скобки некоторые множители, не содержащие k)} \\=
-\frac{M (M-1) n (n-1)}{N(N-1)}\suml_{k=1}^\infty \frac{ C_{M-2}^{k-2} C_{N-M}^{n-k}}{ C_{N-2}^{n-2}} + \frac{Mn}{N} \stackrel{\ref{summa_gipergeom_1}}{=}
-\\=
-\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N}
-\end{multline}
-
-Теперь считаем дисперсию --- исключительно алгебраическое времяпровождение:
-\begin{multline}
-D\xi =
-M(\xi^2)-(M\xi)^2 = 
-\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N} - \frac{M^2 n^2}{N^2} =
-\\=
-\frac{Mn}{N} \left(  \frac{(M-1)(n-1)}{N-1} + 1 - \frac{M n}{N}  \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{Mn-M-n+1}{N-1} + 1 - \frac{M n}{N}  \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{MnN-MN-nN+N}{N(N-1)} + 1 - \frac{M nN - Mn}{N(N-1)}  \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{MnN - MN - nN + N - MnN + Mn}{N(N-1)} + 1 \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn}{N(N-1)} + 1 \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn + N^2 - N }{N(N-1)} \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{- MN - nN + Mn + N^2 }{N(N-1)} \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{n(M-N) -N (M-N)}{N(N-1)} \right) =
-\\=
-\frac{Mn}{N} \left(  \frac{(n-N)(M-N)}{N(N-1)} \right) =
-\frac{Mn(n-N)(M-N)}{N^2(N-1)}
-\end{multline}
-
-\section{Гамма-распределение}
+\section{Показательное распределение}
 
 \subsection{Определение}
+Говорят, что случайная величина $\xi$ имеет показательное распределение с параметром $\lambda>0$ и пишут: $\xi \sim \Pi(\lambda)$, если $\xi \sim \Gamma(1,\lambda)$.
 
-Говорят, что $\xi \sim \Gamma(\nu,\lambda)$, если 
-\begin{equation}\label{opred_Gamma_raspr}
-f_\xi( x) =\frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1} \cdot \one{[0; +\infty)}(x)
-\end{equation}
+\subsection{Матожидание и дисперсия}
+Воспользовавшись определением, положим в формулах (\ref{matozhidanie_Gamma}) и (\ref{dispersia_Gamma}) $\nu=1$:
 
-\subsection{Матожидание}
-
-\begin{multline}
-M\xi=
-\intl_{- \infty  }^{+ \infty  } x  f_\xi( x)   dx =
-\intl_{0 }^{+ \infty  } x  \frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1}   dx =
-\\\mbox{( т. к. $\Gamma(\nu +1) =\nu\Gamma( \nu)) $}\\=
-\intl_{0 }^{+ \infty  } x  \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu-1}   dx =
-\intl_{0 }^{+ \infty  } \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu+1-1}   dx =
-\\=
-\frac{\nu}{\lambda }\intl_{0 }^{+ \infty  } \frac{\lambda ^{\nu+1}}{ \Gamma( \nu+1) } e^{ -\lambda x }x^{( \nu+1) -1}   dx =
-\\=
-\frac{\nu}{\lambda }\intl_{- \infty  }^{+ \infty  } \frac{\lambda ^{\nu+1}}{ \Gamma( \nu+1) } e^{ -\lambda x }x^{( \nu+1) -1} \cdot \one{[0; +\infty)}(x)  dx =
-\\  \mbox{( но это - интеграл по всему пространству от плотности }\\\mbox{ распределения $\Gamma( \lambda ,\nu+1) $(\ref{opred_Gamma_raspr}), который равен 1 )}\\=
-\frac{\nu}{\lambda }
-\end{multline}
-
-\subsection{Дисперсия}
-
-Считаем матожидание квадрата:
-\begin{multline}
-M(\xi^2)=
-\intl_{- \infty  }^{+ \infty  } x^2  f_\xi( x)   dx =
-\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu}}{\Gamma( \nu) } e^{ -\lambda x }x^{\nu-1}   dx =
-\\\mbox{( т. к. $\Gamma(\nu +1) =\nu\Gamma( \nu)) $}\\=
-\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu+1}\nu}{\lambda \Gamma( \nu+1) } e^{ -\lambda x }x^{\nu-1}   dx =
-\intl_{0 }^{+ \infty  } x^2  \frac{\lambda ^{\nu+2}\nu(\nu+1)}{\lambda^2 \Gamma( \nu+2) } e^{ -\lambda x }x^{\nu-1}   dx =
-\\=
-\intl_{0 }^{+ \infty  }  \frac{\lambda ^{\nu+2}\nu(\nu+1)}{\lambda^2 \Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1}   dx =
-\\=
-\frac{\nu(\nu+1)}{\lambda^2}\intl_{0 }^{+ \infty  }  \frac{\lambda ^{\nu+2}}{\Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1}   dx =
-\\=
-\frac{\nu(\nu+1)}{\lambda^2}\intl_{-\infty }^{+ \infty  }  \frac{\lambda ^{\nu+2}}{\Gamma( \nu+2) } e^{ -\lambda x }x^{(\nu+2)-1} \cdot \one{[0; +\infty)}(x)   dx =
-\\  \mbox{( но это --- интеграл по всему пространству от плотности }\\\mbox{ распределения $\Gamma( \nu+1,\lambda) $(\ref{opred_Gamma_raspr}), который равен 1 )}\\=
-\frac{\nu(\nu+1)}{\lambda^2}
-\end{multline}
-
-Тогда
-\begin{multline}
-D\xi=M( \xi^{2}) -( M\xi) ^{2}=
-\frac{\nu(\nu+1)}{\lambda^2}  -   \left( \frac{\nu}{\lambda } \right)  ^{2}=
-\frac{\nu^{2}-\nu-\nu^{2}}{\lambda ^{2}}=
-\frac{\nu}{\lambda ^{2}}
-\end{multline}
-
-\section{Нормальное распределение}
-
-\subsection{Определение}
-Говорят, что $\xi \sim N(\mu, \sigma)$, если
 \begin{equation}
-f_\xi (x) = \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} }
+M\xi = 
+\frac{1}{\lambda }
 \end{equation}
-
-\subsection{Матожидание}
-
-\begin{multline}
-M\xi =
-\intl_{-\infty }^{\infty } x \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
-\\\mbox{( положим $t=x-\mu$, тогда $dx=dt$ )}\\=
-\intl_{-\infty }^{\infty } (t+\mu) \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
-\intl_{-\infty }^{\infty } t \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt + \intl_{-\infty }^{\infty } \mu \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
-\\\mbox{( левый интеграл - интеграл от нечётной функции }\\\mbox{по всему пространству, он равен нулю )}\\=
-\intl_{-\infty }^{\infty } \mu \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
- \mu \intl_{-\infty }^{\infty }\frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
-\\\mbox{( это интеграл от плотности по всему пространству, он равен 1 )}\\=
-\mu
-\end{multline}
-
-\subsection{Дисперсия}
-В отличие от других распределений, здесь мы будем считать дисперсию по определению.
-
-Напомним читателю, что в курсе математического анализа вычислялся интеграл Пуассона:
-\begin{equation}\label{integral_Puassona}
- \intl_{-\infty }^{\infty } e^{ -x^2 } dx =  \sqrt{ \pi }
-\end{equation}
-
-Вычислим теперь два очень похожих на него интеграла:
-
-\begin{multline}\label{integral_Puassona_y}
- \int y e^{ -y^2 } dy =
-\\\mbox{( замена: $t = -y^2$, $dt = -2ydy$ )}\\=
--\frac{1}{2} \int e^t dt =
--\frac{1}{2} e^t =
--\frac{1}{2} e^{-y^2}
-\end{multline}
-
-\begin{multline}\label{integral_Puassona_y2}
- \intl_{-\infty }^{\infty } y^2 e^{ -y^2 } dy =
-\\\mbox{( по частям: $u=y$, $du=dy$, $dv = y e^{ -y^2 } dy$, }\\\mbox{ $v= -\frac{1}{2} e^{-y^2}$ по формуле (\ref{integral_Puassona_y}))}\\=
- \left( \left.  -\frac{1}{2} ye^{-y^2}    \right)  \right|_{ y =  -\infty }^{   \infty  } - \intl_{-\infty }^{\infty } -\frac{1}{2} e^{-y^2} dy =
- \frac{1}{2} \intl_{-\infty }^{\infty }  e^{-y^2} dy =
-\\\mbox{( а это --- интеграл Пуассона (\ref{integral_Puassona}) )}\\=
-\frac{ \sqrt{ \pi } }{2}
-\end{multline}
-
-Теперь всё готово к штурму непосредственно дисперсии.
-
-\begin{multline}
-D\xi = M\left((\xi-M\xi)^2\right) =
-\intl_{-\infty }^{\infty } (x-\mu)^2 \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
-\\=
-\sigma\sqrt{2}\intl_{-\infty }^{\infty } (x-\mu)^2 \frac{1}{ 2\sqrt{ \pi }\sigma^2 }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
-\\\mbox{( положим $y=\frac{x-\mu}{\sigma\sqrt{2}}$, тогда $dx = \sigma \sqrt{2} dy$ )}\\=
-\sigma\sqrt{2}\intl_{-\infty }^{\infty } y^2 \frac{1}{ 2\sqrt{ \pi }\sigma^2 }e^{ -y^2}  \sigma \sqrt{2} dy =
-2\sigma^2 \frac{1}{ \sqrt{ \pi }} \intl_{-\infty }^{\infty } y^2 e^{ -y^2} dy =
-\\\mbox{( но это --- интеграл вида (\ref{integral_Puassona_y2}) )}\\=
-2\sigma^2 \frac{1}{ \sqrt{ \pi }} \frac{ \pi }{2}=
-\sigma^2
-\end{multline}
-
-\section{Равномерное распределение}
-
-\subsection{Определение}
 \begin{equation}
-	f_\xi(x) = \frac{1}{b-a} \one{[a;b]}(x)
-\end{equation}
-\subsection{Матожидание}
-
-\begin{multline}
-M\xi =  \intl_{-\infty }^{\infty } xf_\xi(x) dx =
-\intl_{a }^{b } x \frac{1}{b-a} dx =
-\\=
-\frac{1}{b-a} \left.  \left( \frac{x^2}{2} \right)   \right|_{ x=a}^{ x=b}=
-\frac{b^2-a^2}{2(b-a)}=
-\frac{(b-a)(b+a)}{2(b-a)}=
-\frac{a+b}{2}
-\end{multline}
-
-\subsection{Дисперсия}
-\begin{multline}
-    M( \xi ^2) = 
-    \intl_{-\infty }^{\infty } x^2 \frac{1}{b-a}dx =
-    \frac{1}{b-a} \intl_{-\infty }^{\infty } x^2 dx =
-    \\=
-    \frac{1}{b-a}\left. \left( \frac{x^3}{3} \right)  \right|_{ x=a}^{ x=b} = 
-    \frac{1}{b-a} \left( \frac{b^3}{3} - \frac{a^3}{3}\right) =
-    \\=
-    \frac{1}{b-a} \left( \frac{b^3 - a^3}{3} \right) = 
-    \frac{1}{b-a} \left( \frac{(b-a)(a^2+ab+b^2)}{3} \right) = 
-    \frac{a^2+ab+b^2}{3}
-\end{multline}
-
-\begin{multline}
-	D\xi =
-	M(\xi^2)-(M\xi)^2 = 
-	\frac{a^2+ab+b^2}{3} - \left( \frac{a+b}{2} \right)^2  =
-	\\=
-	\frac{a^2+ab+b^2}{3} - \frac{a^2+2ab+b^2}{4} =  
-	\frac{4a^2+4ab+4b^2}{12} - \frac{3a^2+6ab+3b^2}{12} = 
-	\\= 
-	\frac{4a^2+4ab+4b^2-3a^2-6ab-3b^2}{12}=  
-	\frac{a^2 -2ab + b^2 }{12}=  
-	\frac{(a-b)^2}{12}  
-\end{multline}
-
-
-\section{Распределение Коши}
-
-\subsection{Определение}
-Говорят, что случайная величина $\xi$ имеет распределение Коши с параметрами $\mu\in\R$ и $\sigma>0$ и пишут: $\xi\sim C(\mu,\sigma)$, если
-\begin{equation}
-f_\xi (x) = \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2}
+D\xi = 
+\frac{1}{\lambda^2 }
 \end{equation}
 
-\subsection{Отсутствие моментов (в т. ч. матожидания и дисперсии)}
-Убедимся, что матожидания не сущетсвует (а значит, не существует и моментов более высокого порядка, т. е. никаких моментов, в том числе дисперсии).
-Напомним, что матожиданием абсолютно непрерывной случайной величины $\xi$ называется интеграл вида
-\begin{equation}
- \intl_{-\infty }^{\infty } x f_\xi (x) dx
-\end{equation}
-в случае, если он сходится абсолютно.
-Для распределения Коши имеем интеграл
-\begin{equation}\label{matozhidanie_Koshi}
- \intl_{-\infty }^{\infty } x \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2} dx
-\end{equation}
-И этот интеграл по абсолютной величине расходится.
-В самом деле,
-\begin{multline*}
- \intl_{-\infty }^{\infty } \left|x \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2} \right| dx = 
- \\ \mbox{( положим $x=\sigma y$, тогда $dx=\sigma dy$ )} \\=
- \intl_{-\infty }^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+ \left( y-\frac{\mu}{\sigma} \right)  ^2} \right| dy = 
- \\ \mbox{( положим $\lambda = \frac{\mu}{\sigma}$ )} \\=
- \intl_{-\infty }^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+ \left( y-\lambda  \right)  ^2} \right| dy = 
- \\ \mbox{( положим $\alpha = 1+|\lambda|$ )} \\=
- \intl_{-\infty}^{\alpha} \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+(y-\lambda)^2} \right| dy + \intl_{\alpha}^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} \right| dy \geq
- \\ \mbox{( т.к. подынтегральное выражение неотрицательно, можем оценить }\\ \mbox{ снизу сумму интегралов вторым интегралом )} \\ \geq
- \intl_{\alpha}^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} \right| dy =
- \intl_{\alpha}^{\infty } \frac{\sigma |y|}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} dy =
- \\ \mbox{( т.к. при $y\geq \alpha = 1+ |\lambda|>0$ имеем $|y|=y$ )} \\=
- \intl_{\alpha}^{\infty } \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} dy =
- \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{y}{1+( y-\lambda)^2} dy =
- \\ \mbox{( положим $z=y-\lambda$, тогда $dz=dy$ )} \\=
- \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{z+\lambda}{1+z^2} dz =
- \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{z}{1+z^2} dz +  \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{\lambda}{1+z^2} dz =
- \\=
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}\intl_{\alpha}^{\infty } \frac{1}{1+z^2} dz =
- \\=
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}\left. (  \arctg z)  \right|_{ z=\alpha}^{z=+\infty } =
- \\ 
-\end{multline*}
-\begin{multline}
- =
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}(  \arctg (+\infty) - \arctg \alpha) =
- \\=
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\mu}{\pi}( \frac{\pi}{2} - \arctg \alpha) =
- \\ \mbox{( к интегралу справа прибавляется конечная константа, зависящая  }\\ \mbox{ от параметров распределения, обозначим её через $\beta$ )} \\=
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz + \beta =
- \\ \mbox{( положим $t=1+z^2$, тогда $dt=2zdz$ )} \\=
- \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty} \frac{1}{t} dt + \beta =
- \frac{\sigma}{2\pi}\left. \left( \ln |t| \right)  \right|_{t=\alpha }^{t=+\infty } + \beta =
- \\=
- \frac{\sigma}{2\pi} \left( \ln \left|+\infty\right| - \ln |\alpha| \right) + \beta =
- \frac{\sigma}{2\pi} \left( +\infty - \ln \left(1+\left|\frac{\mu}{\sigma}\right|\right) \right) + \beta = +\infty
-\end{multline}
 
-Следовательно, интеграл (\ref{matozhidanie_Koshi}) сходится не абсолютно, и ни математического ожидания, ни каких-либо других моментов (включая дисперсию) у распределения Коши не существует.
-
-\section{распределение}
+\section{Распределение Эрланга}
 
 \subsection{Определение}
 
 \subsection{Матожидание}
 
 \subsection{Дисперсия}
+
+\section{Хи-квадрат-распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{Биномиальное распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{Отрицательное биномиальное распределение}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{Распределение Паскаля}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+\section{Распределение Пуассона}
+
+\subsection{Определение}
+
+\subsection{Матожидание}
+
+\subsection{Дисперсия}
+
+
 
 \section{распределение}
 

@@ -1,0 +1,65 @@
+\section{Нормальное распределение}
+
+\subsection{Определение}
+Говорят, что $\xi \sim N(\mu, \sigma)$, если
+\begin{equation}
+f_\xi (x) = \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} }
+\end{equation}
+
+\subsection{Матожидание}
+
+\begin{multline}
+M\xi =
+\intl_{-\infty }^{\infty } x \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
+\\\mbox{( положим $t=x-\mu$, тогда $dx=dt$ )}\\=
+\intl_{-\infty }^{\infty } (t+\mu) \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
+\intl_{-\infty }^{\infty } t \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt + \intl_{-\infty }^{\infty } \mu \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
+\\\mbox{( левый интеграл - интеграл от нечётной функции }\\\mbox{по всему пространству, он равен нулю )}\\=
+\intl_{-\infty }^{\infty } \mu \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
+ \mu \intl_{-\infty }^{\infty }\frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-t^2}{2\sigma^2} } dt =
+\\\mbox{( это интеграл от плотности по всему пространству, он равен 1 )}\\=
+\mu
+\end{multline}
+
+\subsection{Дисперсия}
+В отличие от других распределений, здесь мы будем считать дисперсию по определению.
+
+Напомним читателю, что в курсе математического анализа вычислялся интеграл Пуассона:
+\begin{equation}\label{integral_Puassona}
+ \intl_{-\infty }^{\infty } e^{ -x^2 } dx =  \sqrt{ \pi }
+\end{equation}
+
+Вычислим теперь два очень похожих на него интеграла:
+
+\begin{multline}\label{integral_Puassona_y}
+ \int y e^{ -y^2 } dy =
+\\\mbox{( замена: $t = -y^2$, $dt = -2ydy$ )}\\=
+-\frac{1}{2} \int e^t dt =
+-\frac{1}{2} e^t =
+-\frac{1}{2} e^{-y^2}
+\end{multline}
+
+\begin{multline}\label{integral_Puassona_y2}
+ \intl_{-\infty }^{\infty } y^2 e^{ -y^2 } dy =
+\\\mbox{( по частям: $u=y$, $du=dy$, $dv = y e^{ -y^2 } dy$, }\\\mbox{ $v= -\frac{1}{2} e^{-y^2}$ по формуле (\ref{integral_Puassona_y}))}\\=
+ \left( \left.  -\frac{1}{2} ye^{-y^2}    \right)  \right|_{ y =  -\infty }^{   \infty  } - \intl_{-\infty }^{\infty } -\frac{1}{2} e^{-y^2} dy =
+ \frac{1}{2} \intl_{-\infty }^{\infty }  e^{-y^2} dy =
+\\\mbox{( а это --- интеграл Пуассона (\ref{integral_Puassona}) )}\\=
+\frac{ \sqrt{ \pi } }{2}
+\end{multline}
+
+Теперь всё готово к штурму непосредственно дисперсии.
+
+\begin{multline}
+D\xi = M\left((\xi-M\xi)^2\right) =
+\intl_{-\infty }^{\infty } (x-\mu)^2 \frac{1}{ \sqrt{2 \pi }\sigma }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
+\\=
+\sigma\sqrt{2}\intl_{-\infty }^{\infty } (x-\mu)^2 \frac{1}{ 2\sqrt{ \pi }\sigma^2 }e^{ \frac{-(x-\mu)^2}{2\sigma^2} } dx =
+\\\mbox{( положим $y=\frac{x-\mu}{\sigma\sqrt{2}}$, тогда $dx = \sigma \sqrt{2} dy$ )}\\=
+\sigma\sqrt{2}\intl_{-\infty }^{\infty } y^2 \frac{1}{ 2\sqrt{ \pi }\sigma^2 }e^{ -y^2}  \sigma \sqrt{2} dy =
+2\sigma^2 \frac{1}{ \sqrt{ \pi }} \intl_{-\infty }^{\infty } y^2 e^{ -y^2} dy =
+\\\mbox{( но это --- интеграл вида (\ref{integral_Puassona_y2}) )}\\=
+2\sigma^2 \frac{1}{ \sqrt{ \pi }} \frac{ \pi }{2}=
+\sigma^2
+\end{multline}
+

@@ -1,0 +1,61 @@
+\section{Распределение Коши}
+
+\subsection{Определение}
+Говорят, что случайная величина $\xi$ имеет распределение Коши с параметрами $\mu\in\R$ и $\sigma>0$ и пишут: $\xi\sim C(\mu,\sigma)$, если
+\begin{equation}
+f_\xi (x) = \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2}
+\end{equation}
+
+\subsection{Отсутствие моментов (в т. ч. матожидания и дисперсии)}
+Убедимся, что матожидания не сущетсвует (а значит, не существует и моментов более высокого порядка, т. е. никаких моментов, в том числе дисперсии).
+Напомним, что матожиданием абсолютно непрерывной случайной величины $\xi$ называется интеграл вида
+\begin{equation}
+ \intl_{-\infty }^{\infty } x f_\xi (x) dx
+\end{equation}
+в случае, если он сходится абсолютно.
+Для распределения Коши имеем интеграл
+\begin{equation}\label{matozhidanie_Koshi}
+ \intl_{-\infty }^{\infty } x \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2} dx
+\end{equation}
+И этот интеграл по абсолютной величине расходится.
+В самом деле,
+\begin{multline*}
+ \intl_{-\infty }^{\infty } \left|x \frac{1}{\pi\sigma}\cdot \frac{1}{1+ \left( \frac{x-\mu}{\sigma} \right)  ^2} \right| dx = 
+ \\ \mbox{( положим $x=\sigma y$, тогда $dx=\sigma dy$ )} \\=
+ \intl_{-\infty }^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+ \left( y-\frac{\mu}{\sigma} \right)  ^2} \right| dy = 
+ \\ \mbox{( положим $\lambda = \frac{\mu}{\sigma}$ )} \\=
+ \intl_{-\infty }^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+ \left( y-\lambda  \right)  ^2} \right| dy = 
+ \\ \mbox{( положим $\alpha = 1+|\lambda|$ )} \\=
+ \intl_{-\infty}^{\alpha} \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+(y-\lambda)^2} \right| dy + \intl_{\alpha}^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} \right| dy \geq
+ \\ \mbox{( т.к. подынтегральное выражение неотрицательно, можем оценить }\\ \mbox{ снизу сумму интегралов вторым интегралом )} \\ \geq
+ \intl_{\alpha}^{\infty } \left| \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} \right| dy =
+ \intl_{\alpha}^{\infty } \frac{\sigma |y|}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} dy =
+ \\ \mbox{( т.к. при $y\geq \alpha = 1+ |\lambda|>0$ имеем $|y|=y$ )} \\=
+ \intl_{\alpha}^{\infty } \frac{\sigma y}{\pi}\cdot \frac{1}{1+( y-\lambda)^2} dy =
+ \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{y}{1+( y-\lambda)^2} dy =
+ \\ \mbox{( положим $z=y-\lambda$, тогда $dz=dy$ )} \\=
+ \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{z+\lambda}{1+z^2} dz =
+ \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{z}{1+z^2} dz +  \frac{\sigma}{\pi}\intl_{\alpha}^{\infty } \frac{\lambda}{1+z^2} dz =
+ \\=
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}\intl_{\alpha}^{\infty } \frac{1}{1+z^2} dz =
+ \\=
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}\left. (  \arctg z)  \right|_{ z=\alpha}^{z=+\infty } =
+ \\ 
+\end{multline*}
+\begin{multline}
+ =
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\sigma\lambda}{\pi}(  \arctg (+\infty) - \arctg \alpha) =
+ \\=
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz +  \frac{\mu}{\pi}( \frac{\pi}{2} - \arctg \alpha) =
+ \\ \mbox{( к интегралу справа прибавляется конечная константа, зависящая  }\\ \mbox{ от параметров распределения, обозначим её через $\beta$ )} \\=
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty } \frac{2z}{1+z^2} dz + \beta =
+ \\ \mbox{( положим $t=1+z^2$, тогда $dt=2zdz$ )} \\=
+ \frac{\sigma}{2\pi}\intl_{\alpha}^{\infty} \frac{1}{t} dt + \beta =
+ \frac{\sigma}{2\pi}\left. \left( \ln |t| \right)  \right|_{t=\alpha }^{t=+\infty } + \beta =
+ \\=
+ \frac{\sigma}{2\pi} \left( \ln \left|+\infty\right| - \ln |\alpha| \right) + \beta =
+ \frac{\sigma}{2\pi} \left( +\infty - \ln \left(1+\left|\frac{\mu}{\sigma}\right|\right) \right) + \beta = +\infty
+\end{multline}
+
+Следовательно, интеграл (\ref{matozhidanie_Koshi}) сходится не абсолютно, и ни математического ожидания, ни каких-либо других моментов (включая дисперсию) у распределения Коши не существует.
+

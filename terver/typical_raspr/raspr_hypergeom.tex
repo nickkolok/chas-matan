@@ -1,0 +1,91 @@
+\section{Гипергеометрическое распределение}
+\subsection{Определение}
+$P\{\xi=k\}=\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}$,
+где $N$ - общее количество элементов,
+$n$ - выбираемое без возвращения количество элементов,
+$k$ - требуемое количество успешных элементов.
+
+\subsection{Математическое ожидание}
+Будем, как обычно, полагать, что при $a>b$, или $a<0$, или $b<0$ $C_b^a=0$.
+Это позволит нам не следить за пределами суммирования.
+
+Далее, подготовим плацдарм в виде нескольких формул.
+Во-первых, сумма вероятностей всех исходов равна 1:
+\begin{equation}
+\suml_{k=1}^\infty \frac{C_M^k C_{N-M}^{n-k}}{C_N^n} = 1
+\end{equation}
+
+Заменив $n$ на $n-1$; $k$ на $k-1$; $M$ на $M-1$; $N$ на $N-1$, имеем:
+\begin{equation}\label{summa_gipergeom_1}
+\suml_{k=1}^\infty \frac{C_{M-1}^{k-1} C_{N-M}^{n-k}}{C_{N-1}^{n-1}} = 1
+\end{equation}
+
+Заметим также, что
+\begin{equation}\label{ponizhenie_C}
+C_b^a =
+\frac{b!}{a!(a-b)!}=
+\frac{b(b-1)!}{a(a-1)!((a-1)-(b-1))!}=
+\frac{b}{a}C_{b-1}^{a-1}
+\end{equation}
+
+Теперь приступаем непосредственно к штурму первого момента.
+
+\begin{multline}
+M\xi=
+\suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} \stackrel{(\ref{ponizhenie_C})}{=}
+\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}}=
+\\=
+\suml_{k=1}^\infty k\frac{\frac{M}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{\frac{N}{n}C_{N-1}^{n-1}}=
+\\ \mbox{(выносим за знак суммы некоторые множители, не зависящие от $k$)} \\=
+\frac{Mn}{N}\suml_{k=1}^\infty k\frac{\frac{1}{k} C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}=
+\\=
+\frac{Mn}{N}\suml_{k=1}^\infty \frac{ C_{M-1}^{k-1} C_{(N-1)-(M-1)}^{(n-1)-(k-1)}}{C_{N-1}^{n-1}}\stackrel{(\ref{summa_gipergeom_1})}{=}
+\frac{Mn}{N}
+\end{multline}
+
+\subsection{Дисперсия}
+Здесь мы снова применим приём, знакомый по формуле (\ref{dispersia_geom}), а именно --- разбитие суммы с квадратом на две.
+Считаем второй начальный момент:
+\begin{multline}
+M(\xi^k) =
+\suml_{k=1}^\infty k^2\frac{C_M^k C_{N-M}^{n-k}}{C_N^n}=
+\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \suml_{k=1}^\infty k\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} =
+\\ \mbox{(вторую сумму мы считали парой строк выше, чем и воспользуемся)} \\=
+\suml_{k=1}^\infty k(k-1)\frac{C_M^k C_{N-M}^{n-k}}{C_N^n} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
+\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} C_{M-1}^{k-1} C_{N-M}^{n-k}}{\frac{N}{n}C_{N-1}^{n-1}} + \frac{Mn}{N} \stackrel{(\ref{ponizhenie_C})}{=}
+\\=
+\suml_{k=1}^\infty k(k-1)\frac{\frac{M}{k} \cdot \frac{M-1}{k-1} C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
+\\ \mbox{(сокращаем множители k(k-1))} \\=
+\suml_{k=1}^\infty \frac{M (M-1) C_{M-2}^{k-2} C_{N-M}^{n-k}}{\frac{N}{n}\cdot\frac{N-1}{n-1} C_{N-2}^{n-2}} + \frac{Mn}{N} =
+\\ \mbox{(выносим за скобки некоторые множители, не содержащие k)} \\=
+\frac{M (M-1) n (n-1)}{N(N-1)}\suml_{k=1}^\infty \frac{ C_{M-2}^{k-2} C_{N-M}^{n-k}}{ C_{N-2}^{n-2}} + \frac{Mn}{N} \stackrel{\ref{summa_gipergeom_1}}{=}
+\\=
+\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N}
+\end{multline}
+
+Теперь считаем дисперсию --- исключительно алгебраическое времяпровождение:
+\begin{multline}
+D\xi =
+M(\xi^2)-(M\xi)^2 = 
+\frac{M (M-1) n (n-1)}{N(N-1)} + \frac{Mn}{N} - \frac{M^2 n^2}{N^2} =
+\\=
+\frac{Mn}{N} \left(  \frac{(M-1)(n-1)}{N-1} + 1 - \frac{M n}{N}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{Mn-M-n+1}{N-1} + 1 - \frac{M n}{N}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{MnN-MN-nN+N}{N(N-1)} + 1 - \frac{M nN - Mn}{N(N-1)}  \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{MnN - MN - nN + N - MnN + Mn}{N(N-1)} + 1 \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn}{N(N-1)} + 1 \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + N + Mn + N^2 - N }{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{- MN - nN + Mn + N^2 }{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{n(M-N) -N (M-N)}{N(N-1)} \right) =
+\\=
+\frac{Mn}{N} \left(  \frac{(n-N)(M-N)}{N(N-1)} \right) =
+\frac{Mn(n-N)(M-N)}{N^2(N-1)}
+\end{multline}
+
