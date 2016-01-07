@@ -70,6 +70,8 @@
 
 [Постпозитивизм](postpositivizm.md)
 
+[Сознание](soznanie.md)
+
 [Фрейд](Freid.md)
 
 [Юнг](Jung.md)
