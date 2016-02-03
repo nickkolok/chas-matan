@@ -382,6 +382,9 @@ console.log(Circle.moGetCrossPoints2(c1,c2));
 function checkSCTcompatWithArray(arr,point){
 	for(var i=2; i<arr.length; i++){
 		var d=Vector2.dist(arr[i],point);
+		if(point.x==arr[i].x && point.y==arr[i].y){
+			return 0;
+		}
 		if(d-Math.floor(d)>=1/1024/1024){
 			return 0;
 		}
@@ -405,12 +408,11 @@ function workWithSCT(arr,r1,r2,base){
 		return;
 	}
 	for(var a=r1; a<=maxD; a++){
-		for(var b=r2; b<=maxD; b++){
-//			if(a==r1 && b==r2 /*|| a+b<base*/){
-//				continue;//знаю, костыль!
-//			}
+		for(var b=1; b<=maxD; b++){
+			if(a==r1 && b==r2 || a+b<base){
+				continue;//вероятно, костыль!
+			}
 			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
-//			console.log(base,a,b,intersects.count);
 			var newarr1=arr.slice();
 			var newarr2=arr.slice();
 			if(addIfGood(newarr1,intersects.pos1)){
