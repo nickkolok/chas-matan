@@ -399,7 +399,9 @@ for(var a=1; a<=maxD; a++){
 
 function workWithSCT(arr,r1,r2,base){
 	if(arr.length==targetPow){
-		console.log(arr);
+		if(isNotTrivial(arr)){
+			logSCT(arr);
+		}
 		return;
 	}
 	for(var a=r1; a<=maxD; a++){
@@ -432,5 +434,20 @@ function addIfGood(arr,point){
 	return 0;
 }
 
+function isNotTrivial(arr){
+	for(var i=0; i<arr.length; i++){
+		if(arr[i].x){
+			return 1;
+		}
+	}
+	return 0;
+}
 
+function logSCT(arr){
+	var rez = '';
+	for(var i = 0; i < arr.length; i++){
+		rez += '( '+arr[i].x+' ; '+arr[i].y+' );  \t  ';
+	}
+	console.log(rez);
+}
 
