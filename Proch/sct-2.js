@@ -211,10 +211,11 @@ function workWithSCT2(arr,current,cand,targetPow,maxD){
 		}
 		return;
 	}
-	for(var i=current; i<=cand.length; i++){
-		var newarr1=arr.slice();
-		if(addIfGood(newarr1,cand[i],maxD)){
-			workWithSCT2(newarr1,i+1,cand,targetPow,maxD);
+	for(var i=current; i<cand.length; i++){
+		if(checkSCTcompatWithArray(arr,cand[i],maxD)){
+			var newarr=arr.slice();
+			newarr.push(cand[i]);
+			workWithSCT2(newarr,i+1,cand,targetPow,maxD);
 		}
 	}
 }
@@ -239,24 +240,14 @@ function checkSCTcompatWithArray(arr,point,maxD){
 }
 
 function findSCTs(targetPow,maxD){
+	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
 	var arr=[{x:0,y:0},{x:0,y:maxD}];
 	workWithSCT2(arr,0,cand,targetPow,maxD);
+	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
 
-
-
-function addIfGood(arr,point,maxD){
-	if(!point){
-		return 0;
-	}
-	if(checkSCTcompatWithArray(arr,point,maxD)){
-		arr.push(point);
-		return 1;
-	}
-	return 0;
-}
 
 function isNotTrivial(arr){
 	for(var i=0; i<arr.length; i++){
@@ -275,4 +266,4 @@ function logSCT(arr){
 	console.log(rez);
 }
 
-findSCTs(4,4);
+findSCTs(8,24);
