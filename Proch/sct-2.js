@@ -165,36 +165,80 @@
         }
 
 //Невозбранно скопипащено с  www.litunovskiy.com/gamedev/intersection_of_two_circles
-/*
-var c1=new Circle(0,0,3);
-var c2=new Circle(0,5,3);
 
 
-console.log(Circle.moGetCrossPoints2(c1,c2));
-*/
+function getCandidatePoints(base,maxD){
+	var candidatePoints=[];
+	for(var a=1; a<=maxD; a++){
+		for(var b=base-a+1; b<=maxD; b++){
+			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
+			candidatePoints.push(intersects.pos1);
+			candidatePoints.push(intersects.pos2);
+		}
+	}
+	for(var i=1; i<base; i++){
+		candidatePoints.push({x:0,y:i});
+	}
+	return candidatePoints;
+}
+
+//console.log(getCandidatePoints(4,4));
+
+function reduceCandidatePoints(arr,minLinks){
+	for(var i=0; i<arr.length; i++){
+		var links=arr.length;
+		for(var j=0; j<arr.length; j++){
+			links-=!isZ(Vector2.dist(arr[i],arr[j]));
+		}
+	}
+}
+
+
+function workWithSCT2(arr,current,cand){
+	if(arr.length==targetPow){
+		if(isNotTrivial(arr)){
+			logSCT(arr);
+		}
+		return;
+	}
+	for(var i=current; i<=cand.length; i++){
+		var newarr1=arr.slice();
+		if(addIfGood(newarr1,cand[i])){
+			workWithSCT2(newarr1,i+1,cand);
+		}
+	}
+}
+
+
+
+function isZ(d){
+	return (d-Math.floor(d)<=1/1024/1024);
+}
+
 
 function checkSCTcompatWithArray(arr,point){
 	for(var i=2; i<arr.length; i++){
-		var d=Vector2.dist(arr[i],point);
 		if(point.x==arr[i].x && point.y==arr[i].y){
 			return 0;
 		}
-		if(d-Math.floor(d)>=1/1024/1024){
+		var d=Vector2.dist(arr[i],point);
+		if((d>maxD)||!isZ(d)){
 			return 0;
 		}
 	}
 	return 1;
 }
 
-var targetPow=4;
-var maxD=4;
+var targetPow=17;
+var maxD=170;
 
-for(var a=1; a<=maxD; a++){
-	var arr=[{x:0,y:0},{x:0,y:a}];
-	workWithSCT(arr,1,1,a);
-}
+var base=maxD;
+var cand=getCandidatePoints(base,maxD);
+var arr=[{x:0,y:0},{x:0,y:base}];
+workWithSCT2(arr,0,cand);
 
-function workWithSCT(arr,r1,r2,base){
+
+function _workWithSCT(arr,r1,r2,base){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
