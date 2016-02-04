@@ -268,6 +268,7 @@ function multArr(arr1,arr2){
 }
 
 function findSCTs(targetPow,maxD){
+	console.log('Ищем СЦТ мощности '+targetPow+' с основанием '+maxD);
 	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
