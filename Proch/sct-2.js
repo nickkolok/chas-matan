@@ -203,6 +203,16 @@ function reduceCandidatePoints(arr,minLinks){
 	}
 }
 
+function mapFriends(cand){
+	for(var i=0; i<cand.length; i++){
+		cand[i].friends=[];
+		for(var j=i+1; j<cand.length; j++){
+			if(isZ(Vector2.dist(cand[i],cand[j]))){
+				cand[i].friends.push(cand[j]);
+			}
+		}
+	}
+}
 
 function workWithSCT2(arr,current,cand,targetPow,maxD){
 	if(arr.length==targetPow){
@@ -211,11 +221,13 @@ function workWithSCT2(arr,current,cand,targetPow,maxD){
 		}
 		return;
 	}
-	for(var i=current; i<cand.length; i++){
+//	var friends=( (arr.length==2) ? (cand) : (arr[arr.length-1].friends));
+//	console.log(cand.length);
+	for(var i=0; i<cand.length; i++){
 		if(checkSCTcompatWithArray(arr,cand[i],maxD)){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
-			workWithSCT2(newarr,i+1,cand,targetPow,maxD);
+			workWithSCT2(newarr,i+1,cand[i].friends,targetPow,maxD);
 		}
 	}
 }
@@ -228,9 +240,6 @@ function isZ(d){
 
 function checkSCTcompatWithArray(arr,point,maxD){
 	for(var i=2; i<arr.length; i++){
-//		if(point.x==arr[i].x && point.y==arr[i].y){
-//			return 0;
-//		}
 		var d=Vector2.dist(arr[i],point);
 		if((d>maxD)||!isZ(d)){
 			return 0;
@@ -243,6 +252,7 @@ function findSCTs(targetPow,maxD){
 	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
+	mapFriends(cand);
 	var arr=[{x:0,y:0},{x:0,y:maxD}];
 	workWithSCT2(arr,0,cand,targetPow,maxD);
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
@@ -266,4 +276,15 @@ function logSCT(arr){
 	console.log(rez);
 }
 
-findSCTs(8,24);
+/*
+3 1
+4 4
+5 7
+6 8
+7 17
+8 24
+9 26..35
+
+*/
+
+findSCTs(9,35);
