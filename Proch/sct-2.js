@@ -203,31 +203,35 @@ function reduceCandidatePoints(arr,minLinks){
 	}
 }
 
-function mapFriends(cand){
+function mapFriends(cand,maxD){
 	for(var i=0; i<cand.length; i++){
 		cand[i].friends=[];
-		for(var j=i+1; j<cand.length; j++){
-			if(isZ(Vector2.dist(cand[i],cand[j]))){
-				cand[i].friends.push(cand[j]);
+		cand[i].friendsNums=[];
+		for(var j=cand.length-1; j>i; j--){
+			var d=Vector2.dist(cand[i],cand[j]);
+			if( (d<=maxD+1/1000000) && isZ(d) ){
+				cand[i].friends[j] = 1;
+				cand[i].friendsNums.unshift(j);
 			}
 		}
 	}
 }
 
-function workWithSCT2(arr,cand,targetPow,maxD){
+function workWithSCT2(arr,cand,candNums,targetPow,maxD,current){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
 		}
 		return;
 	}
-//	var friends=( (arr.length==2) ? (cand) : (arr[arr.length-1].friends));
-//	console.log(cand.length);
-	for(var i=0; i<cand.length; i++){
-		if(checkSCTcompatWithArray(arr,cand[i],maxD)){
+	var last=arr[arr.length-1].friendsNums;
+	for(var j=0; j<last.length; j++){
+		var i=last[j];
+		if(candNums[i]){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
-			workWithSCT2(newarr,cand[i].friends,targetPow,maxD);
+			var candNumsNew=multArr(candNums,cand[i].friends)
+			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,current);
 		}
 	}
 }
@@ -237,24 +241,41 @@ function isZ(d){
 	return (d-Math.floor(d)<=1/1024/1024);
 }
 
+function generateArrayOfOnes(len){
+	var arr=[];
+	for(var i=0; i<len; i++){
+		arr[i]=1;
+	}
+	return arr;
+}
 
-function checkSCTcompatWithArray(arr,point,maxD){
-	for(var i=2; i<arr.length; i++){
-		var d=Vector2.dist(arr[i],point);
-		if((d>maxD)||!isZ(d)){
-			return 0;
+function generateZeroNaturalSequence(len){
+	var arr=[];
+	for(var i=0; i<len; i++){
+		arr[i]=i;
+	}
+	return arr;
+}
+
+function multArr(arr1,arr2){
+	var rez=[];
+	for(var i=Math.min(arr1.length,arr2.length)-1; i>=0; i--){
+		if(arr1[i] && arr2[i]){
+			rez[i]=true;
 		}
 	}
-	return 1;
+	return rez;
 }
 
 function findSCTs(targetPow,maxD){
 	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
-	mapFriends(cand);
+	mapFriends(cand,maxD);
+	var candNums=generateArrayOfOnes(cand.length);
 	var arr=[{x:0,y:0},{x:0,y:maxD}];
-	workWithSCT2(arr,cand,targetPow,maxD);
+	arr[1].friendsNums=generateZeroNaturalSequence(cand.length);
+	workWithSCT2(arr,cand,candNums,targetPow,maxD,0);
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
 
