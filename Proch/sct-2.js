@@ -228,9 +228,9 @@ function isZ(d){
 
 function checkSCTcompatWithArray(arr,point,maxD){
 	for(var i=2; i<arr.length; i++){
-		if(point.x==arr[i].x && point.y==arr[i].y){
-			return 0;
-		}
+//		if(point.x==arr[i].x && point.y==arr[i].y){
+//			return 0;
+//		}
 		var d=Vector2.dist(arr[i],point);
 		if((d>maxD)||!isZ(d)){
 			return 0;
