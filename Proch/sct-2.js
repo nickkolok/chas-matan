@@ -204,7 +204,7 @@ function reduceCandidatePoints(arr,minLinks){
 }
 
 
-function workWithSCT2(arr,current,cand){
+function workWithSCT2(arr,current,cand,targetPow,maxD){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
@@ -213,8 +213,8 @@ function workWithSCT2(arr,current,cand){
 	}
 	for(var i=current; i<=cand.length; i++){
 		var newarr1=arr.slice();
-		if(addIfGood(newarr1,cand[i])){
-			workWithSCT2(newarr1,i+1,cand);
+		if(addIfGood(newarr1,cand[i],maxD)){
+			workWithSCT2(newarr1,i+1,cand,targetPow,maxD);
 		}
 	}
 }
@@ -225,7 +225,7 @@ function isZ(d){
 }
 
 
-function checkSCTcompatWithArray(arr,point){
+function checkSCTcompatWithArray(arr,point,maxD){
 	for(var i=2; i<arr.length; i++){
 		if(point.x==arr[i].x && point.y==arr[i].y){
 			return 0;
@@ -238,21 +238,20 @@ function checkSCTcompatWithArray(arr,point){
 	return 1;
 }
 
-var targetPow=4;
-var maxD=4;
-
-var base=maxD;
-var cand=getCandidatePoints(base,maxD);
-reduceCandidatePoints(cand,targetPow-1);
-var arr=[{x:0,y:0},{x:0,y:base}];
-workWithSCT2(arr,0,cand);
+function findSCTs(targetPow,maxD){
+	var cand=getCandidatePoints(maxD,maxD);
+	reduceCandidatePoints(cand,targetPow-1);
+	var arr=[{x:0,y:0},{x:0,y:maxD}];
+	workWithSCT2(arr,0,cand,targetPow,maxD);
+}
 
 
-function addIfGood(arr,point){
+
+function addIfGood(arr,point,maxD){
 	if(!point){
 		return 0;
 	}
-	if(checkSCTcompatWithArray(arr,point)){
+	if(checkSCTcompatWithArray(arr,point,maxD)){
 		arr.push(point);
 		return 1;
 	}
@@ -276,3 +275,4 @@ function logSCT(arr){
 	console.log(rez);
 }
 
+findSCTs(4,4);
