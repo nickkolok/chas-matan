@@ -214,7 +214,7 @@ function mapFriends(cand){
 	}
 }
 
-function workWithSCT2(arr,current,cand,targetPow,maxD){
+function workWithSCT2(arr,cand,targetPow,maxD){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
@@ -227,7 +227,7 @@ function workWithSCT2(arr,current,cand,targetPow,maxD){
 		if(checkSCTcompatWithArray(arr,cand[i],maxD)){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
-			workWithSCT2(newarr,i+1,cand[i].friends,targetPow,maxD);
+			workWithSCT2(newarr,cand[i].friends,targetPow,maxD);
 		}
 	}
 }
@@ -254,7 +254,7 @@ function findSCTs(targetPow,maxD){
 	reduceCandidatePoints(cand,targetPow-1);
 	mapFriends(cand);
 	var arr=[{x:0,y:0},{x:0,y:maxD}];
-	workWithSCT2(arr,0,cand,targetPow,maxD);
+	workWithSCT2(arr,cand,targetPow,maxD);
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
 
