@@ -182,14 +182,24 @@ function getCandidatePoints(base,maxD){
 	return candidatePoints;
 }
 
-//console.log(getCandidatePoints(4,4));
-
 function reduceCandidatePoints(arr,minLinks){
+	var len=arr.length;
 	for(var i=0; i<arr.length; i++){
-		var links=arr.length;
+		var links=0;
 		for(var j=0; j<arr.length; j++){
-			links-=!isZ(Vector2.dist(arr[i],arr[j]));
+			if(isZ(Vector2.dist(arr[i],arr[j]))){
+				links++;
+			}
 		}
+		if(links<minLinks-1){//Две неучтённых на основание, одна лишняя на себя
+			arr[i]=arr[arr.length-1];
+			arr.length--;
+			i--;
+		}
+	}
+	if(len>arr.length){
+		console.log("Граф урезан: было "+len+", стало "+arr.length);
+		reduceCandidatePoints(arr,minLinks);
 	}
 }
 
@@ -210,7 +220,6 @@ function workWithSCT2(arr,current,cand){
 }
 
 
-
 function isZ(d){
 	return (d-Math.floor(d)<=1/1024/1024);
 }
@@ -229,39 +238,15 @@ function checkSCTcompatWithArray(arr,point){
 	return 1;
 }
 
-var targetPow=17;
-var maxD=170;
+var targetPow=4;
+var maxD=4;
 
 var base=maxD;
 var cand=getCandidatePoints(base,maxD);
+reduceCandidatePoints(cand,targetPow-1);
 var arr=[{x:0,y:0},{x:0,y:base}];
 workWithSCT2(arr,0,cand);
 
-
-function _workWithSCT(arr,r1,r2,base){
-	if(arr.length==targetPow){
-		if(isNotTrivial(arr)){
-			logSCT(arr);
-		}
-		return;
-	}
-	for(var a=r1; a<=maxD; a++){
-		for(var b=1; b<=maxD; b++){
-			if(a==r1 && b==r2 || a+b<base){
-				continue;//вероятно, костыль!
-			}
-			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
-			var newarr1=arr.slice();
-			var newarr2=arr.slice();
-			if(addIfGood(newarr1,intersects.pos1)){
-				workWithSCT(newarr1,a,b+1,base);
-			}
-			if(addIfGood(newarr2,intersects.pos2)){
-				workWithSCT(newarr2,a,b+1,base);
-			}
-		}
-	}
-}
 
 function addIfGood(arr,point){
 	if(!point){
@@ -284,7 +269,7 @@ function isNotTrivial(arr){
 }
 
 function logSCT(arr){
-	var rez = '';
+	var rez = '\n';
 	for(var i = 0; i < arr.length; i++){
 		rez += '( '+arr[i].x+' ; '+arr[i].y+' );  \t  ';
 	}
