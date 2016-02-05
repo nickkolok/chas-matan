@@ -217,25 +217,23 @@ function mapFriends(cand,maxD){
 	}
 }
 
-function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX,notTrivial){
+function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
 		}
 		return 1;
 	}
-	if(current>=firstX && !notTrivial){
-		return 0;
-	}
 
 	var last=arr[arr.length-1].friendsNums;
-	for(var j=0; j<last.length; j++){
+	var len=last.length;
+	for(var j=0; j<len; j++){
 		var i=last[j];
 		if(candNums[i]){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
 			var candNumsNew=multArr(candNums,cand[i].friends);
-			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,i,firstX,(notTrivial || !!cand[i].x));
+			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,i,firstX);
 		}
 	}
 }
@@ -303,8 +301,8 @@ function findSCTs(targetPow,maxD){
 		mapFriends(cand,maxD);
 		var candNums=generateArrayOfOnes(cand.length);
 		var arr=[{x:0,y:0},{x:0,y:maxD}];
-		arr[1].friendsNums=generateZeroNaturalSequence(cand.length);
-		workWithSCT2(arr,cand,candNums,targetPow,maxD,0,firstX,0);
+		arr[1].friendsNums=generateZeroNaturalSequence(firstX);
+		workWithSCT2(arr,cand,candNums,targetPow,maxD,0,firstX,1);
 	}
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
