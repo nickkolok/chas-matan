@@ -217,13 +217,17 @@ function mapFriends(cand,maxD){
 	}
 }
 
-function workWithSCT2(arr,cand,candNums,targetPow,maxD,current){
+function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX,notTrivial){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
 		}
 		return 1;
 	}
+	if(current>=firstX && !notTrivial){
+		return 0;
+	}
+
 	var last=arr[arr.length-1].friendsNums;
 	for(var j=0; j<last.length; j++){
 		var i=last[j];
@@ -231,7 +235,7 @@ function workWithSCT2(arr,cand,candNums,targetPow,maxD,current){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
 			var candNumsNew=multArr(candNums,cand[i].friends);
-			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,current);
+			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,i,firstX,(notTrivial || !!cand[i].x));
 		}
 	}
 }
@@ -267,19 +271,41 @@ function multArr(arr1,arr2){
 	return rez;
 }
 
+function separateX(cand){
+	var left=0;
+	var right=cand.length-1;
+	while(left<right){
+		while(cand[left] && cand[left].x){
+			left++;
+		}
+		while(cand[right] && !cand[right].x){
+			right--;
+		}
+		if(left<right){
+			var buf=cand[left];
+			cand[left]=cand[right];
+			cand[right]=buf;
+		}
+	}
+	var firstX;
+	for(firstX=0;firstX<cand.length && cand[firstX].x;firstX++){
+	}
+	return firstX;
+}
+
 function findSCTs(targetPow,maxD){
 	console.log('Ищем СЦТ мощности '+targetPow+' с основанием '+maxD);
 	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
-	if(!isNotTrivial(cand)){
-		return;
+	if(isNotTrivial(cand)){
+		var firstX=separateX(cand);
+		mapFriends(cand,maxD);
+		var candNums=generateArrayOfOnes(cand.length);
+		var arr=[{x:0,y:0},{x:0,y:maxD}];
+		arr[1].friendsNums=generateZeroNaturalSequence(cand.length);
+		workWithSCT2(arr,cand,candNums,targetPow,maxD,0,firstX,0);
 	}
-	mapFriends(cand,maxD);
-	var candNums=generateArrayOfOnes(cand.length);
-	var arr=[{x:0,y:0},{x:0,y:maxD}];
-	arr[1].friendsNums=generateZeroNaturalSequence(cand.length);
-	workWithSCT2(arr,cand,candNums,targetPow,maxD,0);
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
 
@@ -314,12 +340,13 @@ function logSCT(arr){
 9 26..35
 
 */
-
-//findSCTs(10,45);
+/*
+findSCTs(4,5);
+*/
 
 var found=0;
-var p=11;
-var d=44;
+var p=3;
+var d=1;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
@@ -329,3 +356,4 @@ while(p<100){
 		d++;
 	}
 }
+
