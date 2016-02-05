@@ -222,7 +222,7 @@ function workWithSCT2(arr,cand,candNums,targetPow,maxD,current){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
 		}
-		return;
+		return 1;
 	}
 	var last=arr[arr.length-1].friendsNums;
 	for(var j=0; j<last.length; j++){
@@ -230,7 +230,7 @@ function workWithSCT2(arr,cand,candNums,targetPow,maxD,current){
 		if(candNums[i]){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
-			var candNumsNew=multArr(candNums,cand[i].friends)
+			var candNumsNew=multArr(candNums,cand[i].friends);
 			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,current);
 		}
 	}
@@ -272,6 +272,9 @@ function findSCTs(targetPow,maxD){
 	var t=new Date().getTime();
 	var cand=getCandidatePoints(maxD,maxD);
 	reduceCandidatePoints(cand,targetPow-1);
+	if(!isNotTrivial(cand)){
+		return;
+	}
 	mapFriends(cand,maxD);
 	var candNums=generateArrayOfOnes(cand.length);
 	var arr=[{x:0,y:0},{x:0,y:maxD}];
@@ -296,6 +299,9 @@ function logSCT(arr){
 		rez += '( '+arr[i].x+' ; '+arr[i].y+' );  \t  ';
 	}
 	console.log(rez);
+	try{
+		found=1;
+	}catch(e){}
 }
 
 /*
@@ -309,4 +315,17 @@ function logSCT(arr){
 
 */
 
-findSCTs(9,35);
+//findSCTs(10,45);
+
+var found=0;
+var p=11;
+var d=44;
+while(p<100){
+	found=0;
+	findSCTs(p,d);
+	if(found){
+		p++;
+	} else {
+		d++;
+	}
+}
