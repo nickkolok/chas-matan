@@ -183,10 +183,17 @@ function getCandidatePoints(base,maxD){
 }
 
 function reduceCandidatePoints(arr,minLinks){
-	var len=arr.length;
+	var lengthBefore=arr.length;
+	var timeBefore=Date.now();
+
 	var m=minLinks-1;//Две неучтённых на основание, одна лишняя на себя
+
 	for(var i=0; i<arr.length; i++){
 		var links=0;
+
+		if(arr[i].x==0){
+			continue;
+		}
 		for(var j=0; j<arr.length; j++){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
@@ -201,9 +208,12 @@ function reduceCandidatePoints(arr,minLinks){
 			i--;
 		}
 	}
-	if(len>arr.length){
-		console.log("Граф урезан: было "+len+", стало "+arr.length);
+
+	if(lengthBefore>arr.length){
+		console.log("Граф урезан ("+(Date.now() - timeBefore)+" мс): было "+lengthBefore+", стало "+arr.length);
 		reduceCandidatePoints(arr,minLinks);
+	}else{
+		console.log("Холостой проход по графу ("+(Date.now() - timeBefore)+" мс)");
 	}
 }
 
