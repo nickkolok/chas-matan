@@ -1,3 +1,4 @@
+{
        function sgn(x)
         {
             return (x > 0) - (x < 0);
@@ -165,7 +166,7 @@
         }
 
 //Невозбранно скопипащено с  www.litunovskiy.com/gamedev/intersection_of_two_circles
-
+}
 
 function getCandidatePoints(base,maxD){
 	var candidatePoints=[];
@@ -231,7 +232,7 @@ function mapFriends(cand,maxD){
 	}
 }
 
-function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX){
+function workWithSCT(arr,cand,candNums,targetPow,maxD,current,firstX){
 	if(arr.length==targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
@@ -247,7 +248,7 @@ function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
 			var candNumsNew=multArr(candNums,cand[i].friends);
-			workWithSCT2(newarr,cand,candNumsNew,targetPow,maxD,i,firstX);
+			workWithSCT(newarr,cand,candNumsNew,targetPow,maxD,i,firstX);
 		}
 	}
 }
@@ -317,7 +318,7 @@ function findSCTs(targetPow,maxD){
 		var candNums=generateArrayOfOnes(cand.length);
 		var arr=[{x:0,y:0},{x:0,y:maxD}];
 		arr[1].friendsNums=generateZeroNaturalSequence(firstX);
-		workWithSCT2(arr,cand,candNums,targetPow,maxD,0,firstX,1);
+		workWithSCT(arr,cand,candNums,targetPow,maxD,0,firstX,1);
 	}
 	console.log('Времени затрачено, мс: '+(new Date().getTime()-t))
 }
@@ -358,8 +359,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=30;
-var d=430;
+var p=4;
+var d=4;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
