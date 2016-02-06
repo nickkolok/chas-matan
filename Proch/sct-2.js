@@ -184,14 +184,18 @@ function getCandidatePoints(base,maxD){
 
 function reduceCandidatePoints(arr,minLinks){
 	var len=arr.length;
+	var m=minLinks-1;//Две неучтённых на основание, одна лишняя на себя
 	for(var i=0; i<arr.length; i++){
 		var links=0;
 		for(var j=0; j<arr.length; j++){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
+				if(links>=m){
+					break;
+				}
 			}
 		}
-		if(links<minLinks-1){//Две неучтённых на основание, одна лишняя на себя
+		if(links<m){
 			arr[i]=arr[arr.length-1];
 			arr.length--;
 			i--;
@@ -205,7 +209,7 @@ function reduceCandidatePoints(arr,minLinks){
 
 function mapFriends(cand,maxD){
 	for(var i=0; i<cand.length; i++){
-		cand[i].friends=[];
+		cand[i].friends=new Int8Array(cand.length);
 		cand[i].friendsNums=[];
 		for(var j=cand.length-1; j>i; j--){
 			var d=Vector2.dist(cand[i],cand[j]);
@@ -226,10 +230,10 @@ function workWithSCT2(arr,cand,candNums,targetPow,maxD,current,firstX){
 	}
 
 	var last=arr[arr.length-1].friendsNums;
-	var len=last.length;
-	for(var j=0; j<len; j++){
+	var minFriends=targetPow-arr.length-1;
+	for(var j=0; j<last.length; j++){
 		var i=last[j];
-		if(candNums[i]){
+		if(candNums[i] && cand[i].friends.length>=minFriends){
 			var newarr=arr.slice();
 			newarr.push(cand[i]);
 			var candNumsNew=multArr(candNums,cand[i].friends);
@@ -244,7 +248,7 @@ function isZ(d){
 }
 
 function generateArrayOfOnes(len){
-	var arr=[];
+	var arr=new Int8Array(len);
 	for(var i=0; i<len; i++){
 		arr[i]=1;
 	}
@@ -260,8 +264,9 @@ function generateZeroNaturalSequence(len){
 }
 
 function multArr(arr1,arr2){
-	var rez=[];
-	for(var i=Math.min(arr1.length,arr2.length)-1; i>=0; i--){
+	var len=Math.min(arr1.length,arr2.length);
+	var rez=new Int8Array(len);
+	for(var i=len-1; i>=0; i--){
 		if(arr1[i] && arr2[i]){
 			rez[i]=true;
 		}
@@ -343,8 +348,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=3;
-var d=1;
+var p=30;
+var d=430;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
