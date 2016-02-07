@@ -209,21 +209,26 @@ function reduceCandidatePoints(arr,minLinks){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
 				arr[j].weight++;
-				if(links>=m){
+//				if(links>=m){
 //					break;
-				}
+//				}
 			}
 		}
 		if(links<m){
 			if(arr[i].x==-arr[arr.length-1].x && arr[i].y==arr[arr.length-1].y){
 				arr.length--;
-			} else if(arr[i+1] && arr[i].x==-arr[i+1].x && arr[i].y==arr[i+1].y){
-				arr[i+1]=arr[arr.length-1];
-				arr.length--;
+			} else {
+				if(arr[i+1] && arr[i].x==-arr[i+1].x && arr[i].y==arr[i+1].y){
+					arr[i+1]=arr[arr.length-1];
+					arr[i  ]=arr[arr.length-2];
+					arr.length-=2;
+					i--;
+				} else {
+					arr[i]=arr[arr.length-1];
+					arr.length--;
+					i--;
+				}
 			}
-			arr[i]=arr[arr.length-1];
-			arr.length--;
-			i--;
 		}
 	}
 
@@ -401,8 +406,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=3;
-var d=1;
+var p=30;
+var d=430;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
