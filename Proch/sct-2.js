@@ -173,12 +173,24 @@ function getCandidatePoints(base,maxD){
 	for(var a=1; a<=maxD; a++){
 		for(var b=base-a+1; b<=maxD; b++){
 			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
-			candidatePoints.push(intersects.pos1);
-			candidatePoints.push(intersects.pos2);
+			candidatePoints.push({
+				x:intersects.pos1.x,
+				y:intersects.pos1.y,
+				weight:0,
+			});
+			candidatePoints.push({
+				x:intersects.pos2.x,
+				y:intersects.pos2.y,
+				weight:0,
+			});
 		}
 	}
 	for(var i=1; i<base; i++){
-		candidatePoints.push({x:0,y:i});
+		candidatePoints.push({
+			x:0,
+			y:i,
+			weight:0,
+		});
 	}
 	return candidatePoints;
 }
@@ -187,19 +199,25 @@ function reduceCandidatePoints(arr,minLinks){
 	var lengthBefore=arr.length;
 	var timeBefore=Date.now();
 
-	var m=minLinks-1;//Две неучтённых на основание, одна лишняя на себя
+	var m=minLinks-2;//Две неучтённых на основание
 
 	for(var i=0; i<arr.length; i++){
-		var links=0;
-
+		var links=arr[i].weight;
+		arr[i].weight=0;
+/*
 		if(arr[i].x==0){
 			continue;
 		}
-		for(var j=0; j<arr.length; j++){
+		if(links>=m){
+			continue;
+		}
+*/
+		for(var j=i+1; j<arr.length; j++){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
+				arr[j].weight++;
 				if(links>=m){
-					break;
+//					break;
 				}
 			}
 		}
@@ -307,6 +325,28 @@ function separateX(cand){
 	return firstX;
 }
 
+function reduceX(cand,firstX){
+	var lengthBefore=cand.length;
+	var timeBefore=Date.now();
+
+	for(var i=firstX; i<cand.length; i++){
+		var fl=false;
+		for(var j=0; j<firstX; j++){
+			if(isZ(Vector2.dist(cand[i],cand[j]))){
+				fl=true;
+				break;
+			}
+		}
+		if(!fl){
+			cand[i]=cand[cand.length-1];
+			i--;
+			cand.length--;
+		}
+	}
+
+	console.log("Удаление осевых точек ("+(Date.now() - timeBefore)+" мс): было "+lengthBefore+", стало "+cand.length);
+}
+
 function findSCTs(targetPow,maxD){
 	console.log('Ищем СЦТ мощности '+targetPow+' с основанием '+maxD);
 	var t=new Date().getTime();
@@ -314,6 +354,9 @@ function findSCTs(targetPow,maxD){
 	reduceCandidatePoints(cand,targetPow-1);
 	if(isNotTrivial(cand)){
 		var firstX=separateX(cand);
+		reduceX(cand,firstX);
+		reduceCandidatePoints(cand,targetPow-1);
+		firstX=separateX(cand);
 		mapFriends(cand,maxD);
 		var candNums=generateArrayOfOnes(cand.length);
 		var arr=[{x:0,y:0},{x:0,y:maxD}];
@@ -359,8 +402,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=4;
-var d=4;
+var p=3;
+var d=1;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
