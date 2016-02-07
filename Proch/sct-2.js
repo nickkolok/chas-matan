@@ -233,8 +233,14 @@ function reduceCandidatePoints(arr,minLinks,maxD){
 			}
 		}
 		if(links<m){
-			while(areSymmetric(arr[i],arr[arr.length-1])){
+			if(areSymmetric(arr[i],arr[arr.length-1])){
 				arr.length--;
+				if(areSymmetric(arr[i],arr[arr.length-1])){
+					arr.length--;
+					if(areSymmetric(arr[i],arr[arr.length-1])){
+						arr.length--;
+					}
+				}
 			}
 			if(areSymmetric(arr[i],arr[i+3])){
 				arr[i+3]=arr[arr.length-1];
