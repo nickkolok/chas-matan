@@ -208,6 +208,14 @@ function getCandidatePoints(base,maxD){
 	return candidatePoints;
 }
 
+function areSymmetric(a,b,maxD){
+	return a && b &&
+		(a.x==-b.x || a.x==b.x)
+	&&
+		(a.y==b.y || a.y==maxD-b.y)
+	;
+}
+
 function reduceCandidatePoints(arr,minLinks,maxD){
 	var lengthBefore=arr.length;
 	var timeBefore=Date.now();
@@ -225,27 +233,24 @@ function reduceCandidatePoints(arr,minLinks,maxD){
 			}
 		}
 		if(links<m){
-			while(
-				arr[i]
-				&&
-				(arr[i].x==-arr[arr.length-1].x || arr[i].x==arr[arr.length-1].x)
-				&&
-				(arr[i].y==arr[arr.length-1].y || arr[i].y==maxD-arr[arr.length-1].y)
-			){
+			while(areSymmetric(arr[i],arr[arr.length-1])){
 				arr.length--;
 			}
-			{
-				if(arr[i+1] && arr[i].x==-arr[i+1].x && arr[i].y==arr[i+1].y){
-					arr[i+1]=arr[arr.length-1];
-					arr[i  ]=arr[arr.length-2];
-					arr.length-=2;
-					i--;
-				} else {
-					arr[i]=arr[arr.length-1];
-					arr.length--;
-					i--;
-				}
+			if(areSymmetric(arr[i],arr[i+3])){
+				arr[i+3]=arr[arr.length-1];
+				arr.length--;
 			}
+			if(areSymmetric(arr[i],arr[i+2])){
+				arr[i+2]=arr[arr.length-1];
+				arr.length--;
+			}
+			if(areSymmetric(arr[i],arr[i+1])){
+				arr[i+1]=arr[arr.length-1];
+				arr.length--;
+			}
+			arr[i]=arr[arr.length-1];
+			arr.length--;
+			i--;
 		}
 	}
 
