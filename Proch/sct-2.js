@@ -171,7 +171,7 @@
 function getCandidatePoints(base,maxD){
 	var candidatePoints=[];
 	for(var a=1; a<=maxD; a++){
-		for(var b=base-a+1; b<=maxD; b++){
+		for(var b=Math.max(base-a+1,a); b<=maxD; b++){
 			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
 			candidatePoints.push({
 				x:intersects.pos1.x,
@@ -183,6 +183,19 @@ function getCandidatePoints(base,maxD){
 				y:intersects.pos2.y,
 				weight:0,
 			});
+			if(a!=b){
+				var intersects=Circle.moGetCrossPoints2(new Circle(0,0,b),new Circle(0,base,a),1/1024/1024);
+				candidatePoints.push({
+					x:intersects.pos1.x,
+					y:intersects.pos1.y,
+					weight:0,
+				});
+				candidatePoints.push({
+					x:intersects.pos2.x,
+					y:intersects.pos2.y,
+					weight:0,
+				});
+			}
 		}
 	}
 	for(var i=1; i<base; i++){
@@ -195,7 +208,7 @@ function getCandidatePoints(base,maxD){
 	return candidatePoints;
 }
 
-function reduceCandidatePoints(arr,minLinks){
+function reduceCandidatePoints(arr,minLinks,maxD){
 	var lengthBefore=arr.length;
 	var timeBefore=Date.now();
 
@@ -209,15 +222,19 @@ function reduceCandidatePoints(arr,minLinks){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
 				arr[j].weight++;
-//				if(links>=m){
-//					break;
-//				}
 			}
 		}
 		if(links<m){
-			if(arr[i].x==-arr[arr.length-1].x && arr[i].y==arr[arr.length-1].y){
+			while(
+				arr[i]
+				&&
+				(arr[i].x==-arr[arr.length-1].x || arr[i].x==arr[arr.length-1].x)
+				&&
+				(arr[i].y==arr[arr.length-1].y || arr[i].y==maxD-arr[arr.length-1].y)
+			){
 				arr.length--;
-			} else {
+			}
+			{
 				if(arr[i+1] && arr[i].x==-arr[i+1].x && arr[i].y==arr[i+1].y){
 					arr[i+1]=arr[arr.length-1];
 					arr[i  ]=arr[arr.length-2];
@@ -234,7 +251,7 @@ function reduceCandidatePoints(arr,minLinks){
 
 	if(lengthBefore>arr.length){
 		console.log("Граф урезан ("+(Date.now() - timeBefore)+" мс): было "+lengthBefore+", стало "+arr.length);
-		reduceCandidatePoints(arr,minLinks);
+		reduceCandidatePoints(arr,minLinks,maxD);
 	}else{
 		console.log("Холостой проход по графу ("+(Date.now() - timeBefore)+" мс)");
 	}
@@ -359,7 +376,7 @@ function findSCTs(targetPow,maxD){
 	if(isNotTrivial(cand)){
 		var firstX=separateX(cand);
 		reduceX(cand,firstX);
-		reduceCandidatePoints(cand,targetPow-1);
+		reduceCandidatePoints(cand,targetPow-1,maxD);
 		firstX=separateX(cand);
 		mapFriends(cand,maxD);
 		var candNums=generateArrayOfOnes(cand.length);
@@ -406,8 +423,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=30;
-var d=430;
+var p=14;
+var d=90;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
