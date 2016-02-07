@@ -242,17 +242,17 @@ function reduceCandidatePoints(arr,minLinks,maxD){
 					}
 				}
 			}
-			if(areSymmetric(arr[i],arr[i+3])){
-				arr[i+3]=arr[arr.length-1];
-				arr.length--;
-			}
-			if(areSymmetric(arr[i],arr[i+2])){
-				arr[i+2]=arr[arr.length-1];
-				arr.length--;
-			}
 			if(areSymmetric(arr[i],arr[i+1])){
 				arr[i+1]=arr[arr.length-1];
 				arr.length--;
+				if(areSymmetric(arr[i],arr[i+2])){
+					arr[i+2]=arr[arr.length-1];
+					arr.length--;
+					if(areSymmetric(arr[i],arr[i+3])){
+						arr[i+3]=arr[arr.length-1];
+						arr.length--;
+					}
+				}
 			}
 			arr[i]=arr[arr.length-1];
 			arr.length--;
