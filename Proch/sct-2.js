@@ -204,14 +204,7 @@ function reduceCandidatePoints(arr,minLinks){
 	for(var i=0; i<arr.length; i++){
 		var links=arr[i].weight;
 		arr[i].weight=0;
-/*
-		if(arr[i].x==0){
-			continue;
-		}
-		if(links>=m){
-			continue;
-		}
-*/
+
 		for(var j=i+1; j<arr.length; j++){
 			if(isZ(Vector2.dist(arr[i],arr[j]))){
 				links++;
@@ -222,6 +215,12 @@ function reduceCandidatePoints(arr,minLinks){
 			}
 		}
 		if(links<m){
+			if(arr[i].x==-arr[arr.length-1].x && arr[i].y==arr[arr.length-1].y){
+				arr.length--;
+			} else if(arr[i+1] && arr[i].x==-arr[i+1].x && arr[i].y==arr[i+1].y){
+				arr[i+1]=arr[arr.length-1];
+				arr.length--;
+			}
 			arr[i]=arr[arr.length-1];
 			arr.length--;
 			i--;
