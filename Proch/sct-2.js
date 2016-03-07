@@ -454,14 +454,15 @@ function logSCT(arr){
 8 24
 9 26..35
 
+34 553
 */
 /*
 findSCTs(4,5);
 */
 
 var found=0;
-var p=14;
-var d=90;
+var p=42;
+var d=863;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
