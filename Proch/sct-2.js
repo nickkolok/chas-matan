@@ -283,7 +283,7 @@ function mapFriends(cand,maxD){
 }
 
 function workWithSCT(arr,cand,candNums,targetPow,maxD,current,firstX){
-	if(arr.length==targetPow){
+	if(arr.length>=targetPow){
 		if(isNotTrivial(arr)){
 			logSCT(arr);
 		}
@@ -292,13 +292,37 @@ function workWithSCT(arr,cand,candNums,targetPow,maxD,current,firstX){
 
 	var last=arr[arr.length-1].friendsNums;
 	var minFriends=targetPow-arr.length-1;
-	for(var j=0; j<last.length; j++){
-		var i=last[j];
-		if(candNums[i] && cand[i].friends.length>=minFriends){
-			var newarr=arr.slice();
-			newarr.push(cand[i]);
-			var candNumsNew=multArr(candNums,cand[i].friends);
-			workWithSCT(newarr,cand,candNumsNew,targetPow,maxD,i,firstX);
+//	console.log(last);
+	if(last[0]>=firstX){//У последней точки все друзья - осевые
+		var firstXlocal=arr.length;
+//		console.log(1);
+		//И можно смело портить массив
+		for(var j=0; j<last.length; j++){
+			var bGoodPoint=true;
+			for(var j2=2; j2<firstXlocal; j2++){//Первые две точки не берём - это концы основания
+//				console.log(j2);
+				if(!arr[j2].friends[last[j]]){
+					bGoodPoint=false;
+					break;
+				}
+			}
+			if(bGoodPoint){
+				arr.push(cand[last[j]]);
+				if(arr.length==targetPow){
+					logSCT(arr);
+					return 1;
+				}
+			}
+		}
+	} else {
+		for(var j=0; j<last.length; j++){
+			var i=last[j];
+			if(candNums[i] && cand[i].friends.length>=minFriends){
+				var newarr=arr.slice();
+				newarr.push(cand[i]);
+				var candNumsNew=multArr(candNums,cand[i].friends);
+				workWithSCT(newarr,cand,candNumsNew,targetPow,maxD,i,firstX);
+			}
 		}
 	}
 }
