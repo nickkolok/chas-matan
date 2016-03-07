@@ -400,7 +400,7 @@ function reduceX(cand,firstX){
 		}
 	}
 
-	console.log("Удаление осевых точек ("+(Date.now() - timeBefore)+" мс): было "+lengthBefore+", стало "+cand.length);
+	console.log("Удаление осевых точек ("+(Date.now() - timeBefore)+" мс): было "+lengthBefore+", стало "+cand.length+", неосевых "+firstX);
 }
 
 function findSCTs(targetPow,maxD){
@@ -414,6 +414,8 @@ function findSCTs(targetPow,maxD){
 		reduceCandidatePoints(cand,targetPow-1,maxD);
 		firstX=separateX(cand);
 		mapFriends(cand,maxD);
+//		console.log(firstX);
+//		console.log(cand[0].friendsNums);
 		var candNums=generateArrayOfOnes(cand.length);
 		var arr=[{x:0,y:0},{x:0,y:maxD}];
 		arr[1].friendsNums=generateZeroNaturalSequence(firstX);
