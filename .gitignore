@@ -1,6 +1,9 @@
+
 *~
 *.aux
 *.log
 *.out
 *.toc
+*.dvi
+*.synctex.gz
 .goutputstream-*
