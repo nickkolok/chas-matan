@@ -1,0 +1,105 @@
+\begin{opred}
+Пусть Е - открытое множество, $E\subset\R^n$
+\\
+Пусть $f:E\to\R^1,l=(l^1,...,l^n)\in\R^n$ - фиксированный вектор единичной длины (||l||=1), $x\in E$ - фиксированно.
+\\
+Тогда, при достаточно малых $t:x+tl\in E$
+\\
+$\lim_{t\to 0}\frac{f(x+tl)}{t}$ (если этот lim существует) - производная функции f в т. х по направлению l.
+\end{opred}
+\\
+Часто производную по направлению $h\ne 0$ определяют как $\lim_{t\to 0} \frac{f(x+th)-f(x)}{t}$, не предполагая, что ||h||=1. В этом случае:
+$$
+f_h'(x)=||h||\cdot f_{h1}'(x)
+$$
+где $h_1=\frac{h}{||h||}$
+\\
+\dokvo
+$$
+f_h'(x)=\lim_{t\to 0}\frac{f(x+th)-f(x)}{t}=\lim_{t\to 0}\frac{f(x+h_1\cdot||h||\cdot t)-f(x)}{t}=
+$$
+
+$$
+=||h||\cdot\lim_{t\to 0}\frac{f(x+||h||t\cdot h_1)-f(x)}{||h||t}=<k=t\cdot ||h||;k\to 0; t\to 0>=
+$$
+
+$$
+=||h||\cdot\lim_{t\to 0}\frac{f(x+k\cdot h_1)-f(x)}{k}=||h||\cdot f_{h_1}'(x)
+$$
+\dokno
+
+\begin{opred}
+Функция, дифференцируемая по Гато в т.х - функция дифференцируемая в т. х по $\forall$ направлению.
+\end{opred}
+
+Из дифференцируемости по Гато функции в некоторой точке НЕ СЛЕДУЕТ непрерывность в точке, как это было для дифференцируемости по Фреше.
+\subsubsection{Пример:}
+
+$f:\R^2\to\R^1:f(x^1,x^2) = 
+\left\{\begin{array}{c c}
+0 & ,(x^1,x^2)=0 \\
+\frac{(x^1)^3 \sqrt[4]{(x^2)^2}}{(x^1)^4+(x^2)^2} & ,(x^1,x^2)\ne 0
+\end{array}\right.$
+
+f(0;0)=0
+\\
+в качестве $x^2$ возьмём $(x^1)^2 (x^2)=(x^1)^2)-$ парабола)
+\\
+$\lim_{x^1\to 0}\frac{(x^1)^3\cdot |x^1|}{(x^1)^4+(x^1)^4}=\lim_{x^1\to 0}\frac{|x^1|}{2x^1}=\pm\frac{1}{2}=\left[\begin{array}{c c}
+0,5 & ,x^1\to +0 \\
+-0,5 & ,x^1\to -0
+\end{array}\right.$
+\\
+$\lim_{x^1\to -0} f(x^1,(x^1)^2)=-\frac{1}{2}, \lim_{x^1\to +0} f(x^1,(x^1)^2)=\frac{1}{2}, f(0,0)=0\Rightarrow$
+\\
+$\Rightarrow f(x^1,(x^1)^2)$ - разрывна в (0;0).
+\\
+Покажем, что $\forall(h\in \R^2, h(h_1;h_2))\exists(f_n'(0;0)):f_n'(0;0) = $
+\\
+$ = \lim_{t\to 0}\frac{1}{t}(f(0+th)-f(0))=\lim_{t\to 0}\frac{f(th)}{t} = $
+\\
+$ = \lim_{t\to 0}\frac{(th_1)^3\sqrt[4]{(th_2)^2}}{(th_1)^4+(th_2)^2}\cdot \frac{1}{t} = \lim_{t\to 0}\frac{(h_1)^3\sqrt[4]{t^2\cdot (h_2)^2}}{t^2(h_1)^4+(h_2)^2}=0,$ т.е.
+\\
+$\forall(h\in\R^2:h=(h_1;h_2))\exists(f_n'(0;0)=0)$
+\\
+$\Rightarrow f(x^1,x^2)$ - дифференцируема по Гато и разрывна в точке (0;0).
+
+\begin{teorema}
+Связь между дифференцируемостью функции по Фреше и Гато:
+\\
+если f дифференцируема по Фреше в $x_0$, то она дифференцируема и по Гато в $x_0$ т.е.
+$$
+\forall(h\in\R^n)\exists(f_h'(x_0))[f_h'(x_0)=df(x_0,h)]
+$$
+\end{teorema}
+\dokvo
+Дано: f - дифференцируема по Фреше. Доказать: 
+\\
+$\exists(\lim_{t\to 0}\frac{f(x_0+th)-f(x_0)}{t}).$
+\\
+$\lim_{t\to 0}\frac{f(x_0+th)-f(x_0)}{t}=\lim_{t\to 0}\frac{f'(x)th+\omega(x,th)}{t}, (\omega(x,th)=o(||th||)=$
+\\
+$
+= \lim_{t\to 0}(f'(x)h+\frac{\omega(x,th)}{t})=\lim_{t\to 0}(f'(x)h+\frac{\omega(x,th)}{||th||}\cdot\frac{||th||}{|t|})=
+$
+\\
+$
+= \lim_{t\to 0}f'(x)h=f'(x)h=df(x,h)\Rightarrow
+$
+\\
+$
+\Rightarrow\exists(f_h'(x))\forall(h)[f_h'(x)=df(x,h)]
+$
+\\
+\dokno
+Обратная теорема НЕВЕРНА!!! (см.пример)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,149 @@
+\begin{teorema}
+	Пусть $E\subset\R^n$ - открытое, $f:E\to\R^1, \varphi^i:H\to\R^1, H\subset\R^m, (\varphi^1(t),...,\varphi^n(t))\subset E \forall(t\in H)$
+	\\
+	Пусть в некотором $t_0\in H, \varphi^i(t)$ - дифференцируема, а в $x_0=(\varphi^1(t_0),...,\varphi^n(t_0))$ - дифференцируема f(x).
+	\\
+	Тогда сложная функция $g(t)=f(\varphi^1(t),...,\varphi^n(t))$ - дифференцируема в $t_0$ и $dg(t_0,k) = \sum_{j=1}^{m}(\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\cdot \frac{\delta \varphi}{\varphi t^j}(t_0))\cdot k^j$, где $k=(k^1,...,k^m)\in\R^m$
+\end{teorema}
+
+\dokvo
+Возьмём приращение $k=(k^1,...,k^m)\in\R^n:t_0+k\in H$
+\\
+$$
+g(t_0+k) - g(t_0) = f(\varphi^1(t_0+k),...,\varphi^n(t_0+k)) - f(\varphi^1(t_0),...,\varphi^n(t_0))=
+$$
+
+$$
+= f(x_0^1+h^1,...,x_0^n+h^n)-f(x_0^1,...,x_0^n)
+$$
+где $x_0^i = \varphi^i(t_0), h^i = \varphi^i(t_0+k)-\varphi_i(t_0)$
+\\
+В силу дифференцируемости функци f имеем:
+$$
+f(x_0+h)-f(x_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^2+\omega(x_0,h)
+$$
+где $\frac{\omega(x,h)}{||h||}\to 0$ при $h\to 0$
+\\
+Из дифференцируемости функции в $x_0$ вытекает:
+$$
+h^i = \varphi_i(t_0+k)-\varphi_i(t_0) = \sum_{j=1}^{m}\frac{\delta \varphi^i}{\delta t^j}(t_0)k^j+\omega_1(t_0,k)
+$$
+где $\frac{\omega_1(t_0,k)}{||k||}\to 0$ при $k\to 0$
+\\
+Получим (т.к. функции $\varphi'(t), i=\{1;n\}$ дифф-емы в $t_0$):
+$$
+g(t_0+k)-g(t_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)(\sum_{j=1}^{m}\frac{\delta\varphi^i}{\delta t^j}(t_0)+\omega_1)+\omega=
+$$
+
+$$
+\sum_{j=1}^{m}(\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\frac{\delta\varphi^i}{\delta t^j}(t_0))k^j+\omega_2,
+$$
+где $\omega_2 = \omega_1\cdot\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)+\omega$
+\\
+Покажем, что $\omega_2=o(||k||)$:
+$$
+\frac{\omega_2}{||k||}=\frac{\omega_1}{||k||}\cdot\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)+\frac{\omega}{||k||}
+$$
+Значит
+$$
+\lim_{k\to 0}\frac{\omega_2}{||k||} = \lim_{k\to 0}(\frac{\omega_1}{||k||}\cdot\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)+\frac{\omega}{||k||})=\lim_{k\to 0}\frac{\omega(x,h)}{||k||}
+$$
+
+$$
+\lim_{k\to 0}\frac{\omega(x,h)}{||h||}\cdot\frac{||h||}{||k||} = 0 \leftrightarrow
+$$
+
+$
+\leftrightarrow \frac{||h||}{||k||}-
+$
+ограничено.
+\\
+а) в силу непрерывности $\varphi^i,$ при $k\to 0$
+\\
+$\forall(i\in\{1;n\})[h\to 0]\Rightarrow h\to 0$ т.е.
+
+$$
+\lim_{k\to 0}\frac{\omega(x,h)}{||h||}= \lim_{h\to 0}\frac{\omega(k,h)}{||h||}=0
+$$
+
+б) докажем, что $\frac{||h||}{||k||}$ - ограничено при $k\to 0$ - огр.
+\\
+Тогда $g(t_0+k)-g(t_0)=\sum_{j=1}^{m}(\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\frac{\delta\varphi^i}{\delta t^j}(t_0))k^j+\omega_2$,
+\\
+где $\omega_2=(||k||).$ Тогда, по определению Фреше:
+$$
+dg(t_0,k)=\sum_{j=1}^{m}(\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\frac{\delta\varphi^i}{\delta t^j}(t_0))k^j
+$$
+\dokno
+
+\subsubsection{Следствие 1.}
+для выполнения условий теоремы для частных производных функции имеет место формула:
+$$
+\frac{\delta g}{\delta t^k}(t_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\frac{\delta\varphi^i}{\delta t^k}(t_0), k\in\{1;m\}
+$$
+
+\subsubsection{Замечание:}
+можно доказать, что последняя формула верна и при более слабыэ утверждениях, чем условие теоремы. Достаточно требовать, чтобы f - дифференцируема в $x_0$, a $\varphi^i$ имели все частные производные в $t_0.$ Однако, одного существования частных производных функции f в $x_0$ и функции $\varphi^i$ в т. $t_0$ недостаточно для справедливости последней формулы.
+
+\subsubsection{Пример:}
+$$
+f(x)=f(x^1,x^2)=\left\{\begin{array}{c c}
+0 & ,(x^1,x^2) = 0\\
+\frac{(x^1)^2\cdot x^2}{(x^1)^2+(x^2)^2} & ,(x^1,x^2)\ne 0
+\end{array}\right.
+$$ 
+функция имеет частные производные во всех точках:
+
+$$
+\frac{\delta f}{\delta x^1}(0,0) = \lim_{\vartriangle x^1\to 0}\frac{f(\vartriangle x^1,0) - f(0,0)}{\vartriangle x^1}=0
+$$
+
+$$
+\frac{\delta f}{\delta x^2} = \lim_{\vartriangle x^2\to 0}\frac{f(0,\vartriangle x^2) - f(0,0)}{\vartriangle x^2}=0
+$$
+Введём новую переменную $t: x^1=t, x^2=t\Rightarrow$
+\\
+$\Rightarrow g(t)=f(t,t)$ - сложная функция от t:
+$$
+g(t) = \frac{t^3}{2t^2} = \frac{1}{2}t
+$$
+g(t) - дифференцируема при $\forall(t).$
+\\
+$g'(t) = \frac{1}{2}$
+\\
+Но! $g_1'(0)=f_{x^1}'(0)-(x^1)(0)+f_{x^2}'(0)\cdot(x^2)(0) = 0 \ne \frac{1}{2}$
+
+\subsubsection{Следствие 2}
+Инвариантность формы первого дифференциала $f:E\R^1, E\subset\R^n - $ открытое, f - дифференцируема в $x\in E,$ и $\varphi^i:H\to\R^1,h\subset\R^m$ - открытое, $\varphi^i$ - дифференцируема в т. $t\in H: x =(\varphi^1(t),...,\varphi^n(t))$.
+\\
+Тогда:
+$$
+df(x,dx) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x)dx^i,
+$$
+где $dx^i = d\varphi^i(t,dt),$
+\\
+т.е. дифференциал имеет тот же вид, что и в случае, когда х - независимая перенная.
+\dokvo
+$$g(t) = f(\varphi^1(t),...,\varphi^n(t)) = f(x).$$
+Тогда
+$$
+dg(t,dt) = \sum_{k=1}^{m}\frac{\delta q}{\delta t^k}(t)dt^k = \sum_{k=1}^{m}(\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x)\frac{\delta\varphi^i}{\delta t^k}(t))dt^k
+$$
+Поменяем порядок суммирования:
+$$
+\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x)\sum_{k=1}^{m}\frac{\delta\varphi^i}{\delta t^k}(t)dt^k = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x)dx^i \Rightarrow
+$$
+
+$$
+\Rightarrow df(x,dx) = dg(t,dt) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x)dx^i
+$$
+т.е. дифференциал имеет тот же вид, что и в случае когда t была независимой переменной 
+\dokno
+\\
+форма 1 дифференциала не зависит от того, является ли х зависимой или независимой переменной
+$$
+dg(t,dt)=df(x,dx)=\sum \frac{\delta f}{\delta x^i}(x)dx^i
+$$
+
+
+

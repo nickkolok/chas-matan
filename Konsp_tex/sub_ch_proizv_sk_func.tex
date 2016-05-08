@@ -1,0 +1,208 @@
+E - открытое множество, $E\subset\R^n$
+\\
+\begin{opred}
+Частные производные функции f в т. $x_0$ по переменным $x^1,...,x^n$ - производная функции $f:E\to\R^1$ в т. $x_0\in E$ по направлениям ортов.
+($\frac{\delta f}{dx^1}(x_0),...\frac{\delta f}{dx^n}(x_0)$, или $f_{x^1}'(x_0),.. f_{x^n}'(x_0)$)
+\\
+(иногда штрихи опускаются), или
+\\
+$D_1 f(x_0),... D_n f(x_0)$, или $\delta_1 f(x_0),... \delta_n f(x_0)$
+\end{opred}
+
+Согласно определениям:
+$\frac{\delta f}{\delta x^i}(x_0) = \lim_{t\to 0}\frac{f(x_0+te_i)-f(x_0)}{t} = $
+\\
+$ = \lim_{t\to 0}\frac{f(x_0^1,...,x_0^{i-1},x_0^i+t,x_0^{i+1},...,x_0^n)}{t}$
+\\
+Иногда вместо t пишут $\vartriangle x^i$, подчёрквивая, что приращение получает лишь i-тая координата.
+\\
+Определение показывает, что для нахождения частной производной нужно все координаты точек, кроме i-той, рассматривать как const и находить производную от функции f по переменной $x^i$ как от функции одной переменной. Таким образом, нахождение частных производных производится по обычным правилам дифференцирования вещественной функции вещественной переменной.
+\subsubsection{Пример:}
+$f:\R^2\to \R^1, f(x^1,x^2)=(x^1)^2,$ где $x^1>0.$
+\\
+Тогда $\frac{\delta f}{dx^1}(x) = x^2\cdot(x^1)^{x^2-1},$ а $\frac{\delta f}{\delta x^2}(x)=\frac{(x^1)^{x^2}}{ln (x^2)}$
+\\
+\begin{teorema}
+Если $f:E\to\R^1$ - дифференцируема в т. $x_0$ по Фреше, то в т. $x_0 \exists$ все частные производные, т.е.
+$$
+\exists(\frac{\delta f}{\delta x^i}(x_0), i\in\{1,..n\})[df(x_0,h)=\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^i]
+$$  
+\end{teorema}
+\dokvo
+1. f - дифференцируема в $x_0$ по Фреше $\Rightarrow$ f - дифференцируема в $x_0$ по Гато (т.е.$\forall(h\in\R^n)\exists(f_h')$) $\Rightarrow$
+\\
+$\Rightarrow f$ - дифференцируема и по ортмам $\Rightarrow \exists(\frac{\delta f}{\delta x^i}(x_0))\forall(i\in\{1,..n\})$
+\\
+2. т.к. f - дифференцируема по Фреше, то 
+$$
+f(x_0+h)-f(x_0) = df(x_0,h)+\omega(x_0,h)
+$$
+где $\omega(x_0,h) = o(||h||)$ при $h\to 0$
+\\
+$df(x_0,h) = <u,h>$, где $u\in\R^n$ - элемент, определяющий линейный функционал.
+$$
+f(x_0+h) - f(x_0) = <u,h> + \omega(x_0,h) = \sum_{i=1}^{n}u^i h^i + \omega(x_0,h)
+$$
+Выберем $h^{i_0}\ne 0, i_0\in[1;n]$ так, чтобы 
+$$
+h_0 = (0,0,...,0,h^{i_0},0,...,0)
+$$
+
+Подставим $h_0$ вместо h:
+$$
+\frac{f(x_0^{1},...,x_0^{i0-1},x_0^{i0}+h^{i0},...,x_0^{i0+1},...,x_0^n) - f(x_0^1,...,x_0^n)}{h^{i0}} = 
+$$
+
+$$
+= \frac{u^{i0}\cdot h^{i0}}{h^{i0}}+\frac{\omega(x_0,h_0)}{h^{i0}} = u^{i0} + \frac{\omega(x_0,h_0)}{h^{i0}}
+$$
+
+$$
+\lim_{h_0\to 0}\frac{f(x_0+h_0)-f(x_0)}{h^{i0}}=\lim_{h_0\to 0}(u^{i0}+\frac{\omega(x_0,h_0)}{h^{i0}}) = u^{i0}
+$$
+Отсюда:
+$$
+\lim_{h_0\to 0}\frac{f(x_0+h_0)-f(x_0)}{h^{i0}} = \frac{\delta f}{\delta x^{i0}}(x_0) = u^{i0}
+$$
+
+$$
+df(x_0,h) = <u,h> = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^i
+$$
+\dokno
+\subsubsection{Замечание:}
+часто приращение $h=(h^1,...,h^n)$ обозначают через $dx = (dx^1,...,dx^n).$ Тогда 
+$$
+df(x_0,h)=\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)dx^i
+$$
+\begin{teorema}
+Связь между существованием частных производных и дифферецируемостью.
+\\
+Если $f:E\to\R^1, \forall(x\in U(x_0))\exists(\frac{\delta f}{\delta x^i}(x), i\in\{1;n\})$ и $\frac{\delta f}{\delta x^i}(x), i\in\{1;n\}$ - непрерывны в $x_0$ тогда в $x_0$
+\\
+$\forall(l\in\R^n)\exists(f_l'(x_0))[f_l'(x_0)=\sum_{i=1}^{n}\lambda^i \frac{\delta f}{\delta x^i}(x_0)],$ где $\lambda^i = <l;e_i> - $ i-тая координата вектора l.  
+\end{teorema}
+\dokvo
+$$
+\frac{f(x_0+tl) - f(x_0)}{t} = \frac{1}{t}[(f(x_0+\sum_{k=1}^{n}t\lambda^k e_k) - f(x_0+\sum_{k=2}^{n}t\lambda^k e_k))+(f(x_0+\sum_{k=2}^{n}t\lambda^k e_k) - f(x_0+\sum_{k=3}^{n}t\lambda^k e_k))+...+ (f(x_0+t\lambda^n e_n) - f(x-0))] =
+$$
+
+$$
+= \sum_{i=1}^{n}\frac{1}{t}[f(x_0+\sum_{k=i}^{n}t\lambda^k e_k) - f(x_0+\sum_{k=i+1}^{n}t\lambda^k e_k)]
+$$
+частичное покоординатное приращение
+
+$$
+= \sum_{i=1}^{n}\lambda^i\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}t\lambda^k e_k + \theta t \lambda^i e_i)
+$$
+где $\theta\in(0;1)$
+\\
+$\lim_{t\to 0}(\sum_{k=i+1}^{n}t\lambda^k e_k +\theta t\lambda^i e_i)=0.$
+\\
+т.к. в $x_0$ все частные производные непрерывны, то при $t\to 0$, в силу непрерывности функции,
+
+$$
+\lim_{t\to 0}\sum_{i=1}^{n}\lambda^i\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}t\lambda^k e_k+\theta t\lambda^i e_i) = \sum_{i=1}^{n}\lambda^i \frac{\delta f}{\delta x^i}(x_0)
+$$
+Отсюда:
+$$
+\lim_{t\to 0}\frac{f(x_0+tl)-f(x_0)}{t}=\sum_{i=1}^{n}\lambda^i\frac{\delta f}{\delta x^i}(x_0)\Rightarrow
+$$
+по определению:
+$$
+\forall(l\in\R^n)\exists(f_l'(x_0))[f_l'(x_0)=\sum_{i=1}^{n}\lambda^i\frac{\delta f}{\delta x^i}(x_0)]
+$$
+\dokno
+\subsubsection{Замечание 1:}
+если $||l||=1, ||e_i|| =1,$ то, в $\R^3 \lambda^i - $ направляющие косинусы ($l,e_i$), т.к.
+$$
+\lambda^i = <l, e_i> = ||l||\cdot ||e_i||\cdot cos(l,e_i) = cos (l, e_i)
+$$
+По аналогии с $\R^3: \lambda^i = cos(\lambda,e_i)$.
+\\
+Тогда: $f_l'(x_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\cdot cos(l,e_i)$
+
+\subsubsection{Замечание 2:}
+если в некоторой точке $x_0 \forall(i\in\{1;n\})\exists(\frac{\delta f}{\delta x^i}(x_0)),$ то функция может не иметь производной в $x_0$ по какому-нибудь направлению.
+\subsubsection{Пример:}
+$f:\R^2\to\R^1.$ $f(x)=f(x^1,x^2)=\left\{\begin{array}{c c}
+0 & ,x^1\cdot x^2 = 0 \\
+1 & ,x^1\cdot x^2 \ne 0
+\end{array}\right.$
+
+$$
+\frac{\delta f}{\delta x^1}(0;0) = \lim_{\vartriangle x^1\to 0}\frac{f(\vartriangle x^1,0)-f(0,0)}{\vartriangle x^1} = 0
+$$
+
+$$
+\frac{\delta f}{\delta x^2}(0;0) = \lim_{\vartriangle x^2\to 0}\frac{f(\vartriangle x^2,0)-f(0,0)}{\vartriangle x^2} = 0
+$$
+существуют все частные производные. Но!
+\\
+пусть $l=(\frac{1}{\sqrt{2}};\frac{1}{\sqrt{2}})$. Тогда
+$$
+\lim_{t\to 0}\frac{f(\frac{1}{\sqrt{2}};\frac{1}{\sqrt{2}}) - f(0,0)}{t}= \lim_{t\to 0} \frac{1}{t}
+$$
+Нет конечного предела следовательно $f_l'(0,0)$
+\\
+Значит, существования всех частных производных недостаточно для существования всех производных по направлению.
+
+\begin{teorema}
+Дифференцируемость функции по Фреше
+Если $f:E\to\R^1$ имеет в $U(x_0)$ все частные производные, непрерывные в $x_0$, то функция f - дифференцируема по Фреше и $df(x_0,h)=\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^i$
+\end{teorema}
+\dokvo
+Возьмём приращение $h\in\R^n:x_0+h\in E, h =\sum_{k=1}^{n}h^k e_k$
+\\
+$$f(x_0+h)-f(x_0) = f(x_0+\sum_{k=1}^{n}h^k e_k) - f(x_0+\sum_{k=2}^{n}h^k e_k)+...+f(x_0+\lambda^n e_n) - f(x_0)=$$
+
+$$
+=\sum_{i=1}^{n}(f(x_0+\sum_{k=i}^{n}h^k e_k)-f(x_0+\sum_{k=i+1}^{n}h^k e_k)) = 
+$$
+по теореме Лагранжа
+$$
+=\sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}h^k e_k + \theta h^i e_i)\cdot h^i,
+$$
+где $\theta\in(0;1)$
+\\
+Отсюда:
+$$
+f(x_0+h)-f(x_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^i + \sum_{i=1}^{n}(\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}h^k e_k +\theta h^i e_i)- \frac{\delta f}{\delta x^i}(x_0))h^i
+$$
+
+$$
+\lim_{h\to 0}\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}h^k e_k + \theta h^i e_i) = \frac{\delta f}{\delta x^i} (x_0)
+$$
+
+Значит:
+$$
+\sum_{i=1}^{n}(\frac{\delta f}{\delta x^i}(x_0+\sum_{k=i+1}^{n}h^k e_k + \theta h^i e_i) - \frac{\delta f}{\delta x^i}(x_0))\cdot h^i = o(||h||) = \omega(x_0,h)
+$$
+
+Отсюда:
+$$
+f(x_0+h)-f(x_0) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)\cdot h^i+\omega(x_0,h) - 
+$$
+определение дифференцируемости по Фреше $\Rightarrow$
+\\
+$$
+\Rightarrow df(x_0,h) = \sum_{i=1}^{n}\frac{\delta f}{\delta x^i}(x_0)h^i
+$$
+\dokno
+\subsubsection{Следствие:}
+Если функция $f:E\to\R^1$ имеет в $U(x_0) \\
+\forall(l\in\R^n)\exists(f_e'(x) -$ непрер. в $x_0, x\in U(x_0), x_0\in E)$
+\\
+то f - дифференцируема в $x_0$ по Фреше и $df(x_0,h)=f_h'(x_0)$
+
+\begin{opred}
+Градиент функции f в $x_0$ - n-мерный вектор, координаты которого равны частным производным функции $f:E\to\R^1$
+($grad f(x_0) = (\frac{\delta f}{\delta x^1}(x_0),...,\frac{\delta f}{\delta x^n}(x_0))$ и $df(x_0,h)=<grad f(x_0),h>$)
+\end{opred}
+
+
+
+
+
+
+
+

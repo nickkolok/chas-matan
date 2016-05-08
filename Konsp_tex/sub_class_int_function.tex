@@ -1,0 +1,115 @@
+\subsubsection{1.Клас непрерывных функций}
+\begin{teorema}
+Непрерывная на отрезке функция всегда интегрируема на нём.
+\end{teorema}
+
+\dokvo
+По следствию из теоремы Кантора:
+$$
+\forall(\epsilon>0)\exists(\sigma>0)\forall(T)[d(T)<\sigma|\Rightarrow\omega_i<\frac{\epsilon}{b-a}]
+$$
+Поэтому:
+$$
+\sum_{i=1}^{n}\omega_i\cdot\vartriangle x_i < \sum_{i=1}^{n} \frac{\epsilon}{b-a}\vartriangle x_i = \frac{\epsilon}{b-a}\sum_{i=1}^{n}\vartriangle x_i = \frac{\epsilon}{b-a}\cdot (b-a)=\epsilon
+$$
+\\
+Значит, $\forall(\epsilon>0)\exists(\sigma>0)\forall(T)[d(T)<\sigma|\Rightarrow\sum_{i=1}^{n}\omega_i\vartriangle x_i < \epsilon$, т.е. выполняется НиД уловие интегрируемости функции. Значит, любая непрерывная функция - интегрируема.
+\dokno
+
+\subsubsection{2.Класс кусочно-непрерывных функций}
+\begin{opred}
+Функция кусочно-непрерывна на отрезке, если она непрерывна во всех точках этого отрезка, за исключением конечного числа точек.
+$PC[a;b]=Peace Continues=$[кусочно-непрерывная]
+\end{opred}
+
+\begin{teorema}
+Если $f\in PC[a;b]$ f(x) - ограничена, то $f \in R[a;b]$
+\end{teorema}
+
+\dokvo
+т.к. f(x) - ограничена, то $\exists(M>0)\forall(x\in[a;b])[|f(x)|\leq M]$. Пусть $A=a_1,...,a_k$ - точки разрыва функции f(x).
+\\
+Возьмем $\forall(\epsilon>0).$
+\\
+Пусть $\mu=\min_{i\neq j}|a_i-a_j|$ и $(\sigma_1>0)[\sigma_1<\min(\mu,\frac{\epsilon}{8mk})]$
+\\
+Окружим точки разрыва интервалом радиуса $\sigma_1$. Эти окрестности пересекаться не будут!!!
+\\
+Пусть G-объединение этих окрестностей $K=[a;b]\ G.$ G-промежутки $\Rightarrow$ K-компакт. В силу теоремы Кантора f(x) - равномерно непрерывна на компакте K, если:
+$$
+\exists(\sigma_2>0)\forall(x',x''\in K)[|x'-x''|<\sigma_2|\Rightarrow|f(x')-f(x'')|<\frac{\epsilon}{2(b-a)}]
+$$
+Без ограничения общности будем считать, что $\sigma_2<\frac{1}{2}\cdot \sigma_1.$
+\\
+Возьмём произвольные разбиение $T:d(T)<\sigma_2$
+$$
+\sum_{i=1}^{n}\omega_i\vartriangle x_i = \sum_{i=1;\vartriangle_i\notin G}^{n}\omega_i\vartriangle x_i + \sum_{i=1;\vartriangle_i \cap G \neq 0}^{n}
+\omega_i\vartriangle x_i$$
+\\
+Оценим каждое слагаемое отдельно:
+$$
+1) \sum_{i=1;\vartriangle_i\in K}^{n}\omega_i\vartriangle x_i<(\omega_i<\frac{\epsilon}{2(b-a)})<\frac{\epsilon}{2(b-a)}+\sum_{i=1}^{n}\vartriangle x_i = \frac{\epsilon}{2(b-a)}\cdot (b-a)=\frac{\epsilon}{2}
+$$
+
+$$
+2) \omega_i < 2\mu; (\omega_i=|\sup-\inf|\leq |\sup|+|\inf| < \mu+\mu=2\mu)
+$$
+тогда:
+$$
+\sum_{\vartriangle_i\in G}\omega_i\vartriangle x_i \leq k(\sigma_1+2\sigma_2)\cdot 2\mu < (\sigma_2<\frac{1}{2}\cdot\sigma_1) <
+$$
+$$
+< k\cdot\sigma_1\cdot2\mu < 4\mu k \min(\mu,\frac{\epsilon}{8mk})=\frac{\epsilon}{2}
+$$
+Тогда,
+$$
+\sum_{i=1}^{n}\omega_i\vartriangle x_i=\sum_{\vartriangle_i\in k}^{n}\omega_i\vartriangle x_i +\sum_{\vartriangle_i \in G}^{n}\omega_i\vartriangle x_i<\frac{\epsilon}{2}+\frac{\epsilon}{2} = \epsilon,
+$$
+т.е. f(x) удовлетворяет определению $\Rightarrow f(x)\in R[a;b]$
+\dokno
+
+\subsubsection{3.Класс монотонных функций}
+\begin{teorema}
+Если $f:[a;b]\to \R$ - монотонна, то $f\in R[a;b]$
+\end{teorema}
+\dokvo
+Возьмем $\forall(\epsilon>0).$ Пусть $\sigma=\frac{\epsilon}{|f(b)-f(a)|},(f(a)\neq f(b))$
+\\
+Если $f(a)=f(b)$, то, в силу монотонности, $f(x)=\cos t.$ Возьмем $\forall(T):d(T)<\sigma$
+$$
+\sum_{i=1}^{n}\omega(f,\vartriangle_i)\vartriangle x_i =(1)=\sum_{i=1}^{n}|f(x_i)-f(x_{i-1})|\vartriangle x_i \leq (2) \leq d(T)\sum_{i=1}^{n}|f(x_i)-f(x_{i-1})|=
+$$
+$$
+=d(T)|\sum_{i=1}^{n}(f(x_i)-f(x_{i-1}))|=d(T)|f(b)=f(a)|<
+$$
+$$
+<\sigma\cdot|f(b)-f(a)|=\frac{\epsilon}{|f(b)-f(a)|}\cdot|f(b)-f(a)|=\epsilon
+$$
+\subsubsection{Пояснение(1)}
+$\omega(f,\vartriangle_i)=|f(x_i)-f(x_{i-1})|$, в силу монотонности f(x).
+\subsubsection{Пояснение(2)}
+$\vartriangle x_i\leq d(T),$ т.к. $d(T)\max\vartriangle x_i$
+\\
+Получили, что f(x) подходит под определение, следовательно $f(x)\in R[a;b]$
+\dokno
+
+\subsubsection{Замечание}
+Если PC - функции могут иметь лишь конечное число точек разрыва, то монотонные функции могут иметь бесконечное число точек разрыва.
+\\
+Например:
+$
+f(x)\left\{
+\begin{array}{l}
+0,x=0 \\
+\frac{1}{2^n},\frac{1}{2^n}< x < \frac{1}{2^{n+1}}
+\end{array}
+\right. (n =1,2...)
+$
+
+\subsubsection{Упражнение}
+Доказать, что монотонная функция может иметь не более чем счетное число точек разрыва.
+\\
+(см. Соболев, Покорный, Аносов, краткий курс матана ч.1 стр. 112-113)
+
+
+

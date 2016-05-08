@@ -1,0 +1,83 @@
+\begin{opred}
+	$f:E\to\R^1$.Если функция f имеет в Е частную производную $ \frac{\delta f}{\delta x^i}$, то эта частная производная сама является некоторой функцией $ \frac{\delta f}{\delta x^i}:E\to\R^1$. Эта функция, в свою очередь может иметь частную производную по некоторой переменной х, которая называется производной 2 порядка или второй частной производной по $x^i$ и $x^j$
+	\\
+	($\frac{\delta}{\delta x^j}(\frac{\delta f}{\delta x^i})(x_0) = \frac{\delta^2 f}{\delta x^i \delta x^j}(x_0)$ или $\delta_{ij}f(x_0)$, или $f_{x^j x^i}''(x_0)$)
+\end{opred}
+\\
+Порядок индексов указывает в каком порядке производится дифференцирование по переменным.
+\begin{opred}
+	Если определена частная производная порядка $k: \frac{\delta^k f}{\delta x^{i_1},..,\delta x^{i_x}}$, то частная прозводная порядка к+1 определяется следующим соотношением:
+	$$
+	\frac{\delta^{k+1}f}{\delta x^i \delta x^{i_1} \delta x^{i_2}...\delta x^{i_k}}=\frac{\delta}{\delta x^i}(\frac{\delta^k f}{\delta x^{i_1}...\delta x^{i_k}})
+	$$
+\end{opred}
+	
+	\begin{teorema}
+		Если функция $f:E\to\R^1$ имеет в некоторой окрестности т. $x_0\in E$ частную производную $\frac{\delta^2 f}{\delta x^i \delta x^j}(x)$ и $\frac{\delta^2 f}{\delta x^j \delta x^i}(x)$, которые непрерывны в $x_0$, то
+		$$
+		\frac{\delta^2 f}{\delta x^i \delta x^j}(x_0)=\frac{\delta^2 f}{\delta x^j \delta x^i}(x_0)
+		$$
+	\end{teorema}
+	\dokvo
+	Будем считать, что имеем дело с функциями двух переменных: $f(x^1,x^2).$ Надо доказать:
+	$$
+	\frac{\delta^2 f}{\delta x^1 \delta x^2}(x_0)=\frac{\delta^2 f}{\delta x^2 \delta x^1}(x_0)
+	$$
+	Рассмотрим вспомогательную функцию:
+	$$
+	F(h^1,h^2)=f(x_0^1+h^1,x_0^2+h^2)\cdot f(x_0^1+h^1,x_0^2)-f(x_0^1,x_0^2+h^2)+f(x_0^1,x_0^2),
+	$$
+	где $h=(h^1,h^2):x_0^1+h^1$ и $x_0^2+h^2$ не выходят за пределы окрестности, где существует производная.
+	\\
+	Пусть $\varphi(t)=f(x_0^1+th^1,x_0^2+h^2)-f(x_0^1+th^1,x_0^2).$
+	\\
+	Тогда $F(h^1,h^2)=\varphi(1)-\varphi(0)=\varphi'(\theta_1)$ - по теореме Лагранжа.
+	\\
+	По следствию 1 из теоремы о дифференцируемости сложной функции:
+	$$
+	F(h^1,h^2)=\frac{\delta f}{\delta x^1}(x_0^1+\theta_1 h^1,x_0^2+h^2)\cdot h^1\frac{\delta f}{\delta x^1}(x_0^1+\theta_1 h^1, x_0^2)h^1 =
+	$$
+	
+	$$
+	\frac{\delta^2 f}{\delta x^2 \delta x^1}(x_0^1+\theta_1 h^1,x_0^2+\theta_2 h^2)h^1 h^2
+	$$
+	где $\theta_2\in(0;1)$
+	\\
+	Пусть $\psi(t) = f(x_0^1+h^1, x_0^2+th^2) - f(x_0^1,x_0^2+th^2).$ Тогда
+	\\
+	$F(h^1,h^2)=\psi(1)-\psi(0) = \psi'(\theta_3)$ - по теореме Лагранжа
+	\\
+	$F(h^1,h^2) = \frac{\delta f}{\delta x^2}(x_0^1+h^1,x_0^2+\theta_3 h^2)h^2 - \frac{\delta f}{\delta x^2}(x_0^1,x_0^2+\theta_3 h^2)h^2 = $
+	\\
+	$ = \frac{\delta^2 f}{\delta x^1 \delta x^2}(x_0^1+\theta_4 h^1,x_0^2+\theta_3 h^2)h^1 h^2,$
+	где $0<\theta_3\theta_4<1$
+	\\
+	Получается:
+	$$
+	\frac{\delta^2 f}{\delta x^2 \delta x^1}(x_0^1+\theta_1 h^1,x_0^2+\theta_2 h^2)h^1 h^2 = \frac{\delta^2 f}{\delta x^1 \delta x^2}(x_0^1+\theta_4 h^1, x_2+\theta_3 h^2) = F(h^1,h^2)
+	$$
+	
+	$\frac{\delta^2 f}{\delta x^2 \delta x^1}$ и $\frac{\delta^2 f}{\delta x^1 \delta x^2}$ непрерывны в $x_0$
+	\\
+	Перейдем к $\lim_{h\to 0} F(h^1,h^2)$ и получим:
+	$$
+	\frac{\delta^2 f}{\delta x^2 \delta x^1}(x_0) =\frac{\delta^2 f}{\delta x^1 \delta x^2}(x_0) 
+	$$
+	\dokno
+	
+	\subsubsection{Замечание:}
+	Если $\frac{\delta^2 f}{\delta x^2 \delta x^1}$ и $\frac{\delta^2 f}{\delta x^1 \delta x^2}$ - не непрерывны в $x_0$, то они могут оказаться неравными
+	
+	\subsubsection{Упражнение:}
+	$f:\R^2\to\R^1$ 
+	\\
+	$$
+	f(x^1,x^2)=\left\{\begin{array}{c c}
+	x^1,x^2\cdot\frac{(x^1)^2 - (x^2)^2}{(x^1)^2+(x^2)^2} & ,(x^1,x^2)\ne 0 \\
+	0 & ,(x^1,x^2)=0
+	\end{array}\right.
+	$$
+	в этом случае $\frac{\delta^2 f}{\delta x^2 \delta x^1} \ne \frac{\delta^2 f}{\delta x^1 \delta x^2}$
+	\\
+	Если $f:E\to\R^1$ имеет $\forall$ частные производные до к - порядка включительно, которые непрерывны на Е, то значение к-той производной $\frac{\delta^k f(x^1,..,x^n)}{\delta x^{i_1} \delta x^{i_2},...,\delta x^{i_n}}$ не зависит от порядка $i_1,...,i_k$ остаётся прежним при $\forall$ перестановки индекса.
+	Доказательство по индукции.

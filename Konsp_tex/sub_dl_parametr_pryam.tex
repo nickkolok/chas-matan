@@ -1,0 +1,93 @@
+\begin{opred}
+Простая кривая на плоскости в $\R^2$ - образ непрерывного взаимнооднозначного отображения $ \varGamma:[a;b] \to \R^2$ ($\varGamma$ - "гамма") т.е. множество точек (x;y):{(x;y)=$\varGamma(t),f\in[a;b],(x;y)\in \R^2$}
+\end{opred}
+Часто удобно задавать $\varGamma$ покоординатно:
+$$
+\left\{
+\begin{array}{l}
+x=x(t) \\
+y=y(t)
+\end{array}
+\right. \mbox{~- это параметрическое задание функции~}
+$$
+
+$
+\left\{
+\begin{array}{l}
+x=x(t) \\
+y=y(t)
+\end{array}
+\right.$ задает параметризованную кривую, если отрезок [a;b] допускает разбение на конечное число подотрезков 
+$[t_0;t_1],...,[t_{n-1};t_n], где t_0=a, t_n=b$
+образ каждого из которых при отображении $\varGamma$ является простой кривой.
+
+\begin{opred}
+Возьмем разбиение $T=\{t_0=a;t_1;...;t_n=b\}$.
+Пусть $\varGamma_k=\varGamma(t_k)$. Соединим $\varGamma_{k-1}$ и $\varGamma_k$ отрезком. $\forall(k=\{1;n\})$
+Получим ломаную, вписанную в параметризованную кривую, которая определяется уравнениями $x=x(t), y=y(t)$.
+\end{opred}
+
+\begin{opred}
+	Параметризованная кривая $\varGamma$ - распремляемая, если множество длинн $\{l(L)\}$ ломанных, вписанных в $\varGamma$ - ограничено. В этом случае sup всех этих длинн называют длина кривой.
+	$des: l(L)=\sup \{l(L)\}$
+\end{opred}
+
+\begin{teorema}
+Пусть $T_1$- измельчений T соответственной ломаной. Тогда $l(L_1) \geqslant l(L)$
+\end{teorema}
+	
+\dokvo
+$l(L)=\sum x_i$, где $x_i$ - длина ломаной на $[t_{i-1};t_i]$, где $t_{i-1},t_i$ - точки разбиения.
+
+Пусть $t_i$ - точки разбиения $T_1$.
+Если на ($t_{i-1},t_i$) нет $t'$, тогда $x_i-{x_i}' = 0$
+Если на ($t_{i-1},t_i$) есть $t'$, тогда ${x_i}'-x_i > 0$
+Т.к. $l(L_1)=\sum {x_i'}$, тогда $l(L_1)-l(L)=\sum x_i - \sum {x_i}' \geqslant 0$
+\dokno
+
+\begin{opred}
+	Если в определении кривеой x(t) и y(t) - непрерывно дифференцируемы, то такая кривая называется гладкой.
+\end{opred}
+
+\begin{teorema}
+	Любая гладкая на [a;b] кривая спрямляема и длина её вычисляется по формуле:
+	$l(\varGamma)= \sum \sqrt{(x'(t))^2+(y'(t))^2} dt$
+\end{teorema}
+
+\dokvo
+Возьмем произвольное разбиение $T=\{t_0,t_1,...,t_n\}$ где $t_0=a, t_n=b$. Пусть $L$ - ломаная, соответсвующая этому разбиению, вписанная в кривую $\varGamma$.
+Найдем длину ломаной:
+$l(L)=\sum \sqrt{(x(t_i)-x(t_{i-1}))^2+(y(t_i)-y(t_{i-1}))^2}$ , где $(x(t_i);y(t_i))$ - координаты $t_i$
+ $(x(t_{i-1});y(t_{i-1}))$ - координаты $t_{i-1}$.
+ В силу непрерывной дифференцируемости x(t) и y(t) используем теорему Лагранжа:
+$\exists (\eta_i , \zeta_i \in(t_{i-1};t_i))[x(t_i)-x(t_{i-1})=x'(\zeta_i)\vartriangle t_i \\
+y(t_i)-y(t_{i-1})=y'(\eta_i) \vartriangle t_i]$
+Тогда $l(L)= \sum \sqrt{(x'(\zeta_i))^2 \cdot (\vartriangle t_i)^2 + (y'(\eta_i))^2 \cdot (\vartriangle t_i)^2} = \vartriangle t_i \cdot \sum_{i=1}^{n} \sqrt{(x'(\zeta_i))^2+(y'(\eta))^2}$ т.к. x'(t) и y'(t) - непрерывны то $\exists(M)[|x'(t)\leqslant M|y'(t)\leqslant M]$.
+Тогда $l(\varGamma) \leqslant \sqrt{2} M(b-a)$. Т.е. все ломаные, вписаные в кривую, ограничены по длине, что означает спрямленность кривой $\varGamma$.
+\\
+Пусть S(T,$\zeta$) - интегральная сумма, где $\zeta_i(t_{i-1},t_i) \cdot [x(t_i)-x(t_{i-1})=x'(\zeta_i)\vartriangle t_i]$ (по теореме Лагранжа) $S(f(T,\zeta)) = \sum_{i=1}^{n} \sqrt{(x'(\zeta_i))^2+(y'(\zeta_i))^2} \vartriangle t_i$.
+\\
+$\forall (\epsilon > 0) \exists (\delta>0) \forall(T)[d(T)<\delta \Rightarrow |l(L)-I|<\frac{\epsilon}{2}]$, где $I=\int_{a}^{b} \sqrt{(x'(t))^2+(y'(t))^2}dt$, т.к. $|\sqrt{a^2+b_1^2}-\sqrt{a^2+b^2}|\leqslant|b_1 - b|$, то $|\sqrt{(x'(\zeta_i))^2+(y'(\zeta_i))^2}-\sqrt{(x'(\zeta_i))^2+(y'(\eta_i))^2}| \leqslant |y'(\zeta_i) - y'(\eta_i)|\leqslant \omega(y',\eta_i)$.
+\\
+Тогда $|l(L)-S(f(T,\zeta))|=|\sum_{i=1}^{n}\sqrt{(x'(\zeta_i))^2+(y'(\zeta_i))^2} \vartriangle t_i - \sum_{i=1}^{n}\frac{a \cdot \vartriangle t_i}{\sqrt{(x'(\zeta_i))^2+(y'(\zeta_i))^2}}| \leqslant \sum_{i=1}^{n} \omega(y',\vartriangle_i)\vartriangle t_i$ т.к. y'-непрерывна $|\Rightarrow y'\in R[a;b]|\Rightarrow$ выполняет НиД условие интегрируемости при бесконечно малом $d(T)[\sum_{i=1}^{n}\omega(y',\vartriangle_i)\vartriangle t_i < \frac{\epsilon}{4}]$.
+\\Кроме того $|S(T,\zeta)-I|<\frac{\epsilon}{4}$ при $d(T)\rightarrow 0$
+\\
+Отсюда:
+\\
+$|l(L)-I|\leqslant |l(L)-S(T,\zeta)|+S(T,\zeta)-I| < \frac{\epsilon}{4}+\frac{\epsilon}{4}=\frac{\epsilon}{2}$
+\\
+Среди всех ломаных, удовлетворяющих последнему неравенству, найдется ломаная с длиной l(L), которая отличается от длины кривой $l(\varGamma)$ на величину, меньшую, чем $\frac{\epsilon}{2}$.
+В самом деле:
+$l(\varGamma)=sup$ длинн ломаных, поэтому $\exists(T^*)$ $[0 \leqslant l(\varGamma)-l(L^*)<\frac{\epsilon}{2}]$.
+\\
+Измельчим $T^*$ так, чтобы $d(T^{**})<\delta$.
+\\
+Для соответвующей ломаной, в силу доказанного: $[|l(L^{**})-I|<\frac{\epsilon}{2}]$. Отсюда (при $d(T^{**})$):$|l(\varGamma)-I|\leqslant |l(\varGamma)-l(L^{**})|+|l(L^{**})-I|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$.
+В силу произвольности $\epsilon$ получим, что $l(\varGamma)=I=\int_{a}^{b}\sqrt{(x'(t))^2+(y'(t))^2}$
+\dokno
+
+\subsubsection{Следствие.}
+Когда имеется простая кривая, заданная как график функции y=f(x), то её можно параметрищовать с помощью отображения $\varGamma:x \rightarrow(x,f(x))$. Полученная гладкая параметризованная кривая имеет в силу теоремы длину, равную $\int_{a}^{b}\sqrt{(x'(t))^2+(y'(t))^2}dt$
+
+\subsubsection{Замечание 1.}
+Если кривая параметризована двумя....

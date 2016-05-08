@@ -1,0 +1,120 @@
+\begin{opred}
+Пусть есть $f:[a;b] \to R$, f(x) - ограничена.
+Есть $\forall(T:T=\{x_0,...,x_n\}); M_i=\sup_{x\in\vartriangle_i}f(x); m_i=\inf_{x\in\vartriangle_i}f(x).$
+\\
+Тогда верхняя ($\overline{S}(f,T)$)/нижняя ($\underline{S}(f,T)$) сумма Дарбу функции f(x) по отрезку [a;b] и разбиению T - это:
+$$
+\overline{S}(f,T)=\sum_{i=1}^{n}M_i \vartriangle x_i
+$$
+$$
+\underline{S}(f,T)=\sum_{i=1}^{n}m_i \vartriangle x_i
+$$
+где $\vartriangle x_i = x_i - x_{i-1}; \vartriangle_i=[x_{i-1};x_i]$
+\end{opred}
+
+\subsubsection{Свойства сумм Дарбу}
+\subsubsection{(1)}
+$\forall(T)$ справедливо неравенство:
+$$
+m(b-a) \leq \underline{S}(f,T)\leq S(f,T)\leq \overline{S}(f,T) \leq M(b-a)
+$$
+$$ где m=\inf_{x \in [a;b]}f(x), M=\sup_{x\in[a;b]}f(x)$$
+$$S(f,(T,\varphi))=\sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i  (\varphi_i \in \vartriangle_i)$$
+$$m\leq m_i\leq f(\varphi_i)\leq M_i\leq M$$
+\subsubsection{(2)}
+$\forall(T)[\sup S(f,(T,\varphi))=\overline{S}(f,T);\inf S(f,(T,\varphi))=\underline{S}(f,T)]$
+\\
+\dokvo
+Пусть $\varphi=(\varphi_1,...,\varphi_n)$
+\\
+$\sup S(f,(T,\varphi))=\sup \sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i=\sup \sum_{i=1}^{n}\sup f(\varphi_i)\vartriangle x_i=$
+\\
+$=\sum_{i=1}^{n}M_i\vartriangle x_i = \overline{S}(f,T)$
+\\
+$\inf S(f,(T,\varphi))=\inf\sum_{i=1}^{n}(f(\varphi_i)\vartriangle x_i)=\inf\sum_{i=1}^{n}\inf f(\varphi_i)\vartriangle x_i = \sum_{i=1}^{n}m_i\vartriangle x_i = \underline{S}(f,T)$
+\subsubsection{(3)}
+$\forall(T,\tilde{T}:T\subset\tilde{T})[\overline{S}(f,\tilde{T})\leq \overline{S}(f,T); \underline{S}(f,\tilde{T})\geq \underline{S}(f,T)]$
+\dokvo
+$$\overline{S}(f,\tilde{T})=\sum_{i=1}^{n}\sum_{j=1}^{n_i}M_{ij}\vartriangle x_{ij} \leq \sum_{i=1}^{n}M_i\sum_{j=1}^{n_i}\vartriangle x_{ij}= \sum_{i=1}^{n}M_i\vartriangle x_i = \overline{S}(f,T)
+$$
+$$
+M_{ij}=\sup_{x\in \vartriangle_{ij}}
+$$
+
+$$\underline{S}(f,\tilde{T})=\sum_{i=1}^{n}\sum_{j=1}^{n_i}m_{ij}\vartriangle x_{ij} \geq \sum_{i=1}^{n}m_i\sum_{j=1}^{n_i}\vartriangle x_{ij}= \sum_{i=1}^{n}m_i\vartriangle x_i = \underline{S}(f,T)
+$$
+$$
+M_{ij}=\inf_{x\in \vartriangle_{ij}}
+$$
+\dokno
+
+\subsubsection{(4)}
+Пусть $\forall(T_1,T_2)\exists(T)[T=T_1 \cup T_2].$ Тогда $T_1 \subset T, T_2 \subset T.$
+$$\underline{S}(f,T_1) \leq \underline{S}(f,T) \leq \overline{S}(f,T) \leq \overline{S}(f,T_2)$$
+\dokno
+
+\subsubsection{Верхние и нижние интегралы Дарбу}
+Из свойства и сумм Дарбу следует, что ${\overline{S}(f,T)}$ ограничена снизу, т.е. $\exists(\inf_{T}\overline{S}(f,T))$ и $\underline{S}(f,T)$ ограничена сверху, т.е. $\exists(\sup_{T}(f,T))$
+\\
+\begin{opred}
+Эти числа называются соответственно верхний($\overline{\overline{s}}$) и нижний ($\underline{\overline{s}}$) интегралы Дарбу.
+$$
+\overline{\overline{s}}=\inf_{T}\overline{S}(f,T);\underline{\overline{s}}=\inf_{T}\underline{S}(f,T)
+$$
+\end{opred}
+
+\begin{teorema}
+$$
+\lim_{d(T)\to 0}\overline{S}(f,T)=\overline{\overline{s}};
+\lim_{d(T)\to 0}\underline{S}(f,T)=\underline{\overline{s}}
+$$
+\end{teorema}
+\dokvo
+Надо доказать что:
+$$
+\forall(\epsilon>0)\exists(\sigma>0)\forall(T:d(T)<\sigma)[|\overline{S}(f,T)-\overline{s}|<\epsilon].
+$$
+$$
+\overline{\overline{s}}=\inf\overline{S}(f,T)\Rightarrow\overline{S}(f,T)-\overline{\overline{s}}\geq 0\Rightarrow|\overline{S}(f,T)-\overline{s}|=\overline{S}(f,T)-
+\overline{s}
+$$
+\\
+Значит теперь надо доказать:
+$$
+\forall(\epsilon>0)\exists(\sigma>0)\forall(T:d(T)<\sigma)[\overline{S}(f,T)<\overline{s}+\epsilon]
+$$
+Возьмем $\forall(\epsilon>0)$ т.к. $\overline{s}=\inf \overline{S}(f,T)$, то по определению $\inf:$
+$$\exists(T_1 отрезка [a;b]=\{x_0,...,x_n\})[\overline{S}(f,T)<\overline{\overline{s}}+\frac{\epsilon}{2}]$$
+Положим $\exists(\sigma=\frac{\epsilon}{2\Omega p})$, где $\Omega=\omega(f,[a;b])$ p - количество точек в $T_1.$
+\\
+Возьмем произвольное разбиение $\forall(T:d(T)<\sigma).$
+Пусть $T_2=T \cup T_1;$ тогда $T \subset T_2, T_1 \subset T.$
+\\
+1). Если $\exists(\vartriangle_i \subset T)[$в $\vartriangle_i$ нет $x_i].$ Тогда $M_i \vartriangle x_i = 0.$
+\\
+2).Если в $\vartriangle_i$ из T есть точки разбиения $T_1(n_j)$, тогда посчитаем разность:
+$$
+\overline{S}(f,T)-\overline{S}(f,T_2)=M_i\vartriangle x_i - \sum_{j=1}^{n_i}M_{ij}\vartriangle x_{ij} = \sum_{j=1}^{n_i}(M_i - M_{ij})\vartriangle x_{ij} \leq 
+$$
+$$
+\leq (M_i - M_{ij}=\sup_{[a;b]}f(x)-\sup_{[x_i;x_{i+1}]_ni}f(x) \leq\omega(f,[a;b])=\Omega) \leq
+$$
+$$
+\leq\Omega\sum_{j=1}^{n}\vartriangle x_{ij} =\Omega\vartriangle x_i<\Omega d(T)<\Omega\sigma=\frac{\epsilon}{2p}
+$$
+На каждом из подотрезков, рассматриваемого типа, внутри которых есть точки из $T_1$, меньше p.
+\\
+Поэтому
+$$
+\overline{S}(f,T)-\overline{S}(f,T_2)<p\cdot\frac{\epsilon}{2p}=\frac{\epsilon}{2}
+$$
+Т.к. $T_2$ - измельчение разбиения $T_1$, то по свойству №3 верхних сумм Дарбу:
+$$
+\overline{S}(f,T_2)\leq\overline{S}(f,T_1)<\overline{s}+\frac{\epsilon}{2}
+$$
+Отсюда: $\overline{S}(f,T_1)-\overline{s}<\frac{\epsilon}{2}.$
+$$\overline{S}(f,T)<\frac{\epsilon}{2}+\overline{S}(f,T_2)<\frac{\epsilon}{2}+\overline{s}+\frac{\epsilon}{2}<\overline{s}+\epsilon$$
+\dokno
+
+
+

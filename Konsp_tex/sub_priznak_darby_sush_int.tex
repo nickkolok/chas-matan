@@ -1,0 +1,70 @@
+\begin{teorema}
+Для того, чтобы $f \in R[a;b]$ НиД чтобы $\underline{\overline{s}}=\overline{\overline{s}}$
+\end{teorema}
+
+\dokvo
+\subsubsection{Необходимость}
+дано: $f\in R[a;b]$ доказать $\underline{\overline{s}}=\overline{\overline{s}}$
+\\
+$$f\in R[a;b] \Rightarrow \exists(\overline{s}=\int_{a}^{b}f(x)dx) \Rightarrow \forall(\epsilon>0)\exists(\sigma>0)\forall(T)[d(T)<\sigma \Rightarrow \overline{s}-\epsilon<S(f,(T,\varphi))<\overline{s}+\epsilon]$$ 
+По свойству №2 сумм Дарбу:
+$$
+\overline{S}(f,T)=\sup_{T}S(f,(T,\varphi)); \underline{S}(f,T)=\inf_{T}S(f,(t,\varphi))
+$$
+Поэтому из того, что 
+$$
+[\overline{s}-\epsilon<S(f,(T,\varphi))<\overline{S}+\epsilon] \Rightarrow \overline{S}-\epsilon \leq \underline{S}(f,T) \leq S(f,(T,\varphi)) \leq \overline{S}(f,T) \leq \overline{s}+\epsilon
+$$
+По определению: $\overline{\underline{s}}=\sup \underline{S}(f,T); \overline{\overline{s}}=\inf \overline{S}(f,T)$
+Значит:
+$
+\underline{I}=\sup \underline{S}=\int_{a}^{b}f(x)dx
+$
+$
+\overline{I}=\inf \overline{S}=\int_{a}^{b}f(x)dx
+$
+\dokno
+
+\subsubsection{Достаточность}
+дано:$\tilde{\underline{s}}=\overline{\tilde{s}}$
+доказать: $f\in R[a;b]$
+Пусть $\tilde{\underline{s}}=\overline{\tilde{s}}=\tilde{s}$
+Докажем, что $\tilde{s}=\int_{a}^{b}f(x)dx$
+Теорема Дарбу: $\lim_{d(T) \to 0} \underline{S}(f,T)=\underline{I}=I$
+\\
+$\lim_{d(T) \to 0} \overline{S}(f,T)=\overline{I}=I$
+$$
+\forall(\epsilon>0)\exists(\sigma_1>0)\forall(T)[d(T)<\sigma_1|\Rightarrow \overline{s}-\epsilon < \underline{S}(f,T)<\overline{s}+\epsilon]
+$$
+$$
+\forall(\epsilon>0)\exists(\sigma_2>0)\forall(T)[d(T)<\sigma_2|\Rightarrow \overline{s}-\epsilon < \overline{S}(f,T)<\overline{s}+\epsilon]
+$$
+Пусть $\sigma=min(\sigma_1 и \sigma_2).$ Тогда:
+$$
+\forall(T:d(T)<\sigma)[(\overline{s}-\epsilon<\underline{S}(f,T)<\overline{s}+\epsilon) \wedge (\overline{s}-\epsilon<\overline{S}(f,T)<\overline{s}+\epsilon)]
+$$
+По свойству №1 сумм Дабу:
+$$
+\overline{s}-\epsilon < \underline{S}(f,T)\leq S(f,(T,\varphi))\leq \overline{S}(f,T) < \overline{s}+\epsilon|\Rightarrow
+$$
+$$
+\Rightarrow \forall(\epsilon>0)\exists(\sigma>0)\forall(T:d(T)<\sigma)[
+\overline{s}-\epsilon < S(f,(T,\varphi)) < \overline{s} + \epsilon]\Rightarrow
+$$
+$$
+\Rightarrow [|S(f,(T,\varphi))-\overline{s}| < \epsilon] \Rightarrow
+ $$
+$$
+ \Rightarrow f\in R[a;b]
+$$
+\dokno
+
+\subsubsection{Следствие}
+$$
+f\in R[a;b]\Leftrightarrow \forall(\epsilon>0)\exists(\sigma>0)\forall(T)[d(T)<\sigma \Rightarrow \sum_{i=1}^{n(T)}\omega(f_i,\vartriangle_i)\vartriangle x_i < \epsilon]
+$$
+или используя определение предела, переформулируем:
+$$
+f \in R[a;b] \Leftrightarrow \lim_{d(T) \to 0} \sum_{i=1}^{n(T)}\omega(f,\vartriangle_i)\vartriangle x_i = 0
+$$
+

@@ -1,0 +1,54 @@
+\begin{opred}
+Пусть $x,y\in\R^n$. Тогда множество точек $\R^n$ вида $\{\lambda x+(1-\lambda)y, \lambda\in[0;1]\}$ называется отрезком, соединяющим точки х и у ([x;y]).
+\\
+Если Е - открытое множество из $\R^n:E\subset\R^n,$
+\\
+$\forall(x\in E)\forall(h\in\R^n)\exists(\delta > 0)\forall(\alpha:|\alpha| < \delta)[[x;x+\alpha h]\subset E]$
+\end{opred}
+
+\begin{teorema}
+Аналог теоремы Лагранжа для функции многих переменных:
+Пусть $f:E\to\R^1$ имеет в $\forall(x\in E)\exists(f_h'(x))\forall(h).$
+\\
+Тогда $\forall(h\in\R^n)\forall(\delta > 0)\forall(\alpha:|\alpha| < \delta)[[x;x+\alpha h]\subset E]$
+\\
+справедлива формула Лагранжа:
+\\
+$f(x+\alpha h)-f(x)=\alpha f_h'(x+Q\alpha h)$, где
+\\
+$Q=(x,\alpha,h),$ т.е. Q зависит от $x,\alpha,h$ и $Q\in (0;1)$
+\end{teorema}
+\dokvo
+Введём $\varphi(t)=f(x+th)$, где $t\in(-\delta;\delta)$
+\\
+Исследуем $\varphi(t)$ - функцию 1 переменной, докажем что $\varphi(t)$ - дифференцируема и $\varphi '(t) = f_h'(x+th)$
+\\
+Рассмотрим $\forall(t\in(-\delta;\delta)):$
+\\
+$\varphi ' = \frac{\varphi(t+\vartriangle t)-\varphi(t)}{\vartriangle t} = \frac{f(x+(t+\vartriangle t)h)-f(x+th)}{\vartriangle t}=\frac{f((x+th)+\vartriangle th)-f(x+th)}{\vartriangle t}$
+\\
+т.к. дано, что $\forall(h)\exists(f_h'(x))$, то 
+$$
+\exists(\lim_{\vartriangle t\to 0}\frac{f(x+th+\vartriangle th)-f(x+th)}{\vartriangle t}=f_h'(x+th))
+$$
+\dokno
+\\
+Значит, $\varphi (t)$ - дифференцируема для $\forall(t\in(-\delta;\delta))$
+\\
+Возьмём $\forall(\alpha:|\alpha|<\delta).$ Тогда $\varphi(t)$ дифференцируема на $[-\alpha;\alpha]$. Поэтому, т.к. $\varphi (t)$ - скалярная функция 1 переменной, дифференцируемая на отрезке, то к ней можно применить теорему Лагранжа.
+\\
+Возьмем $[0;\alpha]$ по теореме Лагранжа для функции скалярного аргумента:
+$$
+\exists(\theta\in(0;1))[\varphi(\alpha)-\varphi(o)=(\alpha - 0)\varphi'(\theta\alpha)=\alpha\varphi'(\theta\alpha)]
+$$ 
+т.к. $\varphi(\alpha)=f(x+\alpha h), \varphi (0) = f(x), \varphi'(\theta\alpha)=f_h'(x+\theta\alpha h),$
+\\
+то $f(x+\alpha h) - f(x) = \alpha\cdot f_h'(x+\theta\alpha h)$
+\dokno
+
+
+
+
+
+
+

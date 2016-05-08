@@ -1,0 +1,74 @@
+\begin{teorema}
+Если $f,g:E\to\R^1$ - дифференцируемы в $x\in E$, то:
+\\
+a) $\lambda f+\mu g$ (где $\lambda,\mu\in\R^1)$ - дифференцируема в х, и $[(\lambda f+ \mu g)'(x)=(\lambda f'+\mu g')(x)]$
+\\
+б) $f\cdot g$ - дифференцируема в x, и 
+$[(f\cdot g)'(x)=(f'\cdot g)(x)+(f\cdot g')(x)]$
+\\
+в) $f/g$ (если $g(x)\ne 0$) - дифференцируема в х, и
+\\
+$[(f/g)'(x)=(\frac{f'\cdot g - g'\cdot f}{g^2})(x)]$
+\end{teorema}
+
+\dokvo
+а) Возьмем $\forall$ приращение: $\forall(h\in\R^n:x+h\in E):$
+\\
+$$(\lambda f+\mu g)(x+h)-(\lambda f+\mu g)(x)=$$
+$$=(\lambda\cdot f(x+h)-\lambda\cdot f(x))+(\mu\cdot g(x+h)-\mu\cdot g(x))=$$
+$$=\lambda(f(x+h)-f(x))+\mu(g(x+h)-g(x))=$$
+$$=\lambda(f'(x,h)+\omega_1(x,h))+\mu(g'(x,h)+\omega_2(x,h))=$$
+$$=\lambda f'(x,h)+\mu g'(x,h)+(\lambda\omega_1(x,h)+\mu\omega_2(x,h))=$$
+$$=(\lambda f'(x)+\mu g'(x))(h)+\omega(x,h).$$
+\\
+$\lim_{h\to 0}\omega(x,h)=\lim_{h\to 0}(\lambda\omega_1(x,h)+\mu\omega_2(x,h))=0\Rightarrow$
+\\
+$\Rightarrow \omega(x,h)=o(||h||)$
+\\
+Значит, $\lambda f+ \mu g$ - дифференцируема в х, и $(\lambda f+ \mu g)'=\lambda f'+ \mu g'$ 
+\\
+\dokno
+\\
+б) аналогично пункту а)
+\\
+в) достаточно будет доказать, что $\frac{1}{g}$ - дифференцируема в х, $(\frac{1}{g})'(x) = -\frac{g'(x)}{g^2(x)}$, и воспользовать пунктом б) данной теоремы:
+\\
+$(\frac{f}{g})'(x) = (f\cdot\frac{1}{g})'(x) = (f'\cdot\frac{1}{g})(x)+(f\cdot\frac{-g'}{g^2})(x) = (\frac{f'g-g'f}{g^2})(x)$
+\\
+докажем вышесказанное:
+$\forall(h\in\R^n:x+h\in\R^2)$
+\\
+$$
+[\frac{1}{g(x+h)}-\frac{1}{g(x)}=-\frac{g(x+h)-g(x)}{g(x+h)\cdot g(x)} = -\frac{g'(x)+\omega(x,h)}{g(x+h)\cdot g(x)}]
+$$
+где $\omega(x,h)=o(||h||)$, при $h\to 0$.
+\\
+Функция g - дифференцируема $\Rightarrow$ непрерывна в х.
+\\
+Поэтому $\frac{1}{g(x+h)\cdot g(x)}\to\frac{1}{g^2(x)}$ при $h\to 0$.
+\\
+$\frac{1}{g(x+h)\cdot g(x)}\to\frac{1}{g^2(x)}+\alpha(x,h)$, где $\alpha(x,h)\to 0, h\to 0$
+\\
+Отсюда:
+\\
+$\frac{1}{g(x+h)}-\frac{1}{g(x)}=-((g'(x)+\omega(x,h))\cdot\frac{1}{g(x+h)\cdot g(x)})=$
+\\
+$=-(g'(x)h+\omega(x,h))\cdot(\frac{1}{g^2(x)}+\alpha(x,h))=-\frac{g'(x)h}{g^2(x)}+\omega_1(x,h)$
+\\
+где $\lim_{h\to 0}\omega_1(x,h)=\lim_{h\to 0}(g'(x)h\cdot\alpha(x,h)+\omega(x,h)(\frac{1}{g^2(x)}+\alpha(x,h)))=0$
+\\
+$\lim_{h\to 0}\frac{\omega_1(x,h)}{||h||}=\lim_{h\to 0}(g'(x)\cdot\frac{h}{||h||}\cdot\alpha(x,h)+\frac{\omega(x,h)}{||h||}(\frac{1}{g^2(x)}+\alpha(x,h)))=0$
+\\
+Значит, $\omega_1(x,h)=o(||h||)$, при $h\to 0\Rightarrow$
+\\
+$\Rightarrow\frac{1}{g(x)}$ - дифференцируема в х, и $(\frac{1}{g})'(x)=-\frac{g'(x)}{g^2(x)}$
+\\
+\dokno
+
+
+
+
+
+
+
+

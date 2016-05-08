@@ -1,0 +1,200 @@
+\begin{opred}
+Пусть $G\subset\R^n; f:G\to\R$ - скалярная функция вещественного аргумента, функция многих переменных, или функция нескольких переменных.
+\end{opred}
+Например:
+\\
+$f = arctg((x^1)^3+x^2), (x^1,x^2)\in\R^2$
+\\
+Определение предела по Коши
+\\
+Пусть $\R^n$ - нормированное пространство, $x_0$ - предельная точка G, $f:G\to\R$
+
+\begin{opred}
+Число A - предел функции f в т. $x_0,$ если
+$$
+\forall(\epsilon>0)\exists(\delta>0)\forall(x\in G)[0<||x-x_0||<\delta\Rightarrow|f(x)-A|<\epsilon]
+$$
+\end{opred}
+
+\begin{opred}
+$x_0$ предельная точка G, $f:G\to\R, A\in\R$ - предел f в $x_0$, если
+$$
+\forall(\{x_k\}:x_k\in G, x_k\ne x_0)[x_k\to x_0\Rightarrow\{f(x_k)\}\to A]
+$$
+или $[f(x_k)\to A$ при $k\to\infty]$
+\\
+или $[A=lim f(x)$, т.е. $f(x)\to A$ при $x\to x_0]$
+\end{opred}
+Так ж, как и для функций 1 переменной доказывается эквивалентность определения по Коши и по Гейне и свойство пределов, связанное с арифметическими операцтями. В сиду эквивалентности норм выполняется равентсво $A=\lim_{x\to x_0} f(x)$
+
+\subsubsection{Упражнение:}
+Сформулировать определение предела для трех норм, введенных в $\R^n$
+
+\subsubsection{Примечание:}
+$x_k$ - обозначение к-того члена последовательности;
+\\
+$x^k$ - обозначение к-той координаты
+\\
+Спецификой функций многих переменных являются повторные пределы.
+\\
+Пусть $H,K\subset\R; a=lim H, b=lim K.$ Рассмотрим $G=H\times K$ (декартово произведение). Тогда $lim G= x_0,$ где $x_0=(a,b)$.
+
+\begin{teorema}
+Пусть $f:G\to\R, A=\lim_{x\to x_0} f(x),$ где $x_0=(a,b).$ Тогда:
+$$
+\forall(x^1\in H:x^1\ne 0)\exists(\lim_{x^1\to b}f(x^1,x^1)=g(x^1))[\exists(\lim_{x1\to a} g(x^1)=A)]
+$$
+\end{teorema}
+\dokvo
+В силу определения $lim f(x^1,x^2)$ по Коши:
+$$
+\forall(\epsilon>0)\exists(\delta>0)\forall(x^1\in K, x^2\in H)
+$$
+
+$$
+[0<||x^1-a||<\delta ^ 0<||x^2-b||<\delta\Rightarrow|f(x^1,x^2)-A|<\frac{\epsilon}{2}]
+$$
+т.к. дано, что $A=\lim_{x\to(a,b)}f(x),$ то $\exists(\lim_{x^2\to b}f(x^1,x^2)=g(x^1)).$
+\\
+Т.к. $\exists(lim f(x^1,x^2)=g(x^1)),$ то в последнем неравенстве можно перейти к $lim x^2=b.$ Тогда
+$$
+|g(x^1)-A|\le\frac{\epsilon}{2}<\epsilon, 0<|x^1-a|<\delta\Rightarrow
+$$
+
+$\Rightarrow \exists(\lim_{x\to a}g(x^1)=A)$
+\dokno
+
+\subsubsection{Замечание:}
+Теорема обратная данно теореме НЕВЕРНА!!!
+\\
+Например:
+1. Рассмотрим $f:\R^2\to\R:f(x^1,x^2)=\frac{x^1\cdot x^2}{(x^1)^2+2(x^2)^2}$
+\\
+Если $x^2\to 0, x\ne 0$ - фиксировать, то $g(x^1)=0\Rightarrow \lim_{x^1\to 0}g(x^1)=0.$ И следовательно, $\lim_{x^1\to 0}\lim_{x^2\to 0}f(x^1,x^2)=0$
+\\
+2. Рассмотрим прямую (пусть($x^1,x^2)\to 0$):
+\\
+$f(x^1x^2)=x^1$
+\\
+$\neg\exists f(x^1,x^2)$ при $(x^1,x^2)\to(0;0)$
+\\
+Пусть $x^2=0. f(x^1,0)=0, x^1\ne 0\Rightarrow$
+\\
+$\Rightarrow lim - $нет а повторный lim - есть.
+\\
+$G\subset\R^n, f:G\to\R^n$ - непрерывна в $x_0\in G$ если:
+$$
+\forall(\epsilon>0)\exists(\delta>0)\forall(x\subset G)[||x-x_0||<\delta\Rightarrow |f(x)-f(x_0)|<\epsilon]
+$$
+
+\subsubsection{Упражнение:}
+Доказать, что в изолированных точках функция непрерывна, а в т. $x_0\in G$ - предельной точке f непрерывна $\leftrightarrow f(x_0)=\lim_{x\to x_0}f(x)$
+\\
+$f(\lim_{x\to x_0}x)=\lim_{x\to x_0}f(x)$ - для непрерывных функций знаки f и lim можно поменять местами
+
+\begin{opred}
+$f:G\to\R^1$ - непрерывна на G, если она непрерывна в каждой точке из G:
+$$
+\forall(x_0\in G, \epsilon>0)\exists(\delta>0)\forall(x\in G)
+$$
+$$
+[||x-x_0||<\delta\Rightarrow|f(x)-f(x_0)|<\epsilon]
+$$
+
+\end{opred}
+
+\subsubsection{Свойства непрерывной функции:}
+1. Арифметические свойства:
+\\
+$G\subset\R^n; f,g:G\to\R^1; f,g - $непрерывны в $x_0\in G.$
+\\
+Тогда $(f\pm g), (f\cdot g), (f/g,$ если $g(x_0)\ne 0)$ - непрерывны в $x_0.$
+\\
+2. Свойства сохранения знака:
+\\
+$G\subset\R^n; f:G\to\R^1, f(x_0)\ne 0\Rightarrow$
+\\
+$\Rightarrow\exists(r>0)\forall(x\in G\cap B(x_0,r))[f(x)\cdot f(x_0)>0]$ - т.е. $f(x)$ и $f(x_0)$ имеют одинаковые знаки.
+\\
+3. Непрерывность суперпозиции:
+\\
+$G\subset\R^n, f:G\to\R^1 -$ непрерывна в $x_0\in G.$
+\\
+Пусть есть n функций $\varphi^i:[a;b]\to\R^1, i=\{1;n\}$ такие, что $\forall(t\in[a;b])[x(t)=(\varphi^1(t),...,\varphi^n(t))\in G]$
+\\
+$\varphi^i$ - непрерывна в $t_0, x(t_0)=x_0.$ Тогда сложная функция $F(t) = f(x(t))$ - непрерывна в $x_0$
+\\
+4. Свойства функций, непрерывных на компакте:
+\\
+$K\subset\R^n, K -$ компакт, $f:K\to\R^1$ - непрер на К. Тогда для f верны следующие теоремы:
+\\
+	а) 1 теорема Вейрштрасса
+	\\
+		f - ограничена на К;
+	\\
+	б) 2 теорема Вейрштрасса:
+	\\
+		f достигает min и max на К;
+	\\
+	в) Теорема Кантора:
+	\\
+		f - равномерно непрерывна на К, т.е.
+		$$
+		\forall(\epsilon>0)\exists(\delta>0)\forall(x_1,x_2\in K)[||x_1-x_2||<\delta\Rightarrow|f(x_1)-f(x_2)<\epsilon]
+		$$
+5. Теорема Больсано-Коши
+\begin{opred}
+Множество $G\subset\R^n$ - связанное, если любые его точки можно соединить непрерывной параметризованной кривой, т.е. $\forall(x_1,x_2\in G)\exists([a;b]$, n штук непрерывных на [a;b] функций:
+$
+\varphi^i[a;b]\to\R^1, i=\{1;n\})\forall(t\in[a;b])$
+$$
+[x(t)=(\varphi^1(t),...,\varphi^n(t))\in G  x_1=(\varphi^1(a),...,\varphi^n(a))]
+$$
+$x_2=(\varphi^1(b),...,\varphi^n(b))]$
+\end{opred}
+
+\begin{teorema}
+Пусть f - непрерывна на G, где $G\subset\R^n$ - связанное. Тогда, принимая некоторые значения на G она(функция f) принимает все значения из множества G
+\end{teorema}
+\dokvo
+Пусть f на G принимает какие-нибудь 2 значения: $f(x_1) = A, f(x_2) = B, x_1,x_2\in G.$
+\\
+Докажем, что $\forall(C\in[A;B])\exists(x_3)[f(x_3)=C]$
+\\
+Т.к. G- связаное, то существует непрерывная кривая x(t), соединяющая $x_1$ и $x_2(t\in[a;b]).0$
+\\
+$F(t)=f(x(t)), t\in[a,b] -$ непрерывна на [a;b].
+\\
+$F(a)=f(x(a)) = f(x_1) = A$ и $F(b)=f(x(b))=f(x_2)=B$
+\\
+По теореме о промежуточном значении $\exists(t_0\in[a;b])[F(t_0)=C] \Rightarrow$
+\\
+$f(x(t_0))=C\Rightarrow$ f принимает $\forall$ значение.
+\dokno
+
+\begin{teorema}
+Эквивалентность 2-х норм в $\R^n.$\\
+Докажем, что для
+$$
+\forall(||x||_1,||x||_2)\exists(c_1,c_2)[c1||x||_1\le||x||_2\le c_2||x||_1, x\in\R^n]
+$$
+\end{teorema}
+
+\dokvo
+Рассмотрим $S(0;1)=\{x:x\in\R^n, |x|=1\}$ и $\varphi(x)=||x||.$
+\\
+$$|\varphi(x)-\varphi(y)|=| ||x||\cdot||y|| |\le ||x-y|| = ||\sum_{i=1}^{n}(x^i - y^i)e_i||\le$$
+$$
+\le \sum_{i=1}^{n}|x^i - y^i|\cdot||e_i||\le|x-y|\sum_{i=1}^{n}||e_i||,
+$$
+Если х и у - различны по базису, то
+$$
+x = \sum_{i=1}^{n}x^i e_i, y = \sum_{i=1}^{n}y^i e_i\Rightarrow
+$$
+$\Rightarrow \varphi$ - равномерно непрерывна на S.
+\\
+S(0,1) - ограничено и замкнуто $\Rightarrow\varphi$ достигает max и min на S(m=min, M = max)
+\\
+$m\le\frac{x}{|x|}\le M\Rightarrow m|x|\le||x||\le M|x|$
+\\
+Здесь в качестве $c_1$ взято m, в качестве $c_2$ взято M. При х=0 это выражение так же будет справедливо.

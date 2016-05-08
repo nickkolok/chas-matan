@@ -1,0 +1,84 @@
+Связывает определение определенных и неопределенных интегралов.
+\begin{opred}
+F-обобщённая первообразная для f(x) на некотором промежутке, если F(x) - дифференцируема на этом промежутке, исключая некоторое конечное число точек, и всюду, где F(x) диффренцируема $[F'(x)=f(x)]$
+\end{opred}
+\subsubsection{Лемма 1}
+$f\in R[a;b]$ - непрерывна в $x_0\in[a;b].$ Тогда $F(x)=\int_{a}^{b}f(t)dt$ - дифференцируема в $x_0$ и $F'(x_0)=f(x_0)$
+\dokvo
+$x_0,\vartriangle x: x_0+\vartriangle x\in[a;b]$
+
+$$
+\vartriangle F=F(x_0+\vartriangle x)-F(x_0)=\int_{a}^{x_0+\vartriangle x}f(t)dt - \int_{a}^{x_0}f(t)dt=
+$$
+
+$$
+=\int_{x_0}^{x_0+\vartriangle x}f(t)dt = \mu(\vartriangle x)\cdot\vartriangle x
+$$
+\\
+(по теореме о среднем),где $m(\vartriangle x)\leq\mu(\vartriangle x)\leq M(\vartriangle x),$
+\\
+$(M=\sup_{x\in\vartriangle_i}f(x),m=\inf_{x\in\vartriangle_i}f(x)),$
+\\
+где $\vartriangle_i=[x_0;x_0+\vartriangle x]$
+\\
+$\frac{\vartriangle F}{\vartriangle x}=\mu(\vartriangle x)$
+\\
+При $\vartriangle_i \to x_0$  $\vartriangle x \to 0 |\Rightarrow \vartriangle_i \to x_0,$ т.е. $[x_0;x_0+\vartriangle x]\to x_0,$ где $x_0$-просто точка.
+\\
+f(x) - непрерывна в $x_0$, $\mu(\vartriangle x)\in[\inf f(x),\sup f(x)]$
+\\
+$\forall(\epsilon>0)\exists(\sigma>0)[|\vartriangle x|<\sigma\Rightarrow|\mu \vartriangle x - f(x_0)|<\epsilon]$
+\\
+Перейдём к $\lim (\vartriangle x \to 0).$ Получим:
+$$
+\lim_{\vartriangle x\to 0}\mu(\vartriangle x) = f(x_0)
+$$
+
+$$
+\lim_{\vartriangle x\to 0}\frac{\vartriangle F}{\vartriangle x}=\lim_{\vartriangle x\to 0}\mu(\vartriangle x)=f(x_0)\Rightarrow F'(x)=f(x_0)
+$$
+\dokno
+
+\subsubsection{Замечание}
+если f(x) непрерывна на всём отрезке [a;b], то эта лемма верна для $\forall(x\in[a;b])$
+
+\subsubsection{Следствие 1}
+если f(x) - непрерывна на [a;b], то $F(x)=\int_{a}^{x}f(t)dt$ - первообразная для f(t) на [a;b]. Поскольку любые 2 первообразные отличаются лишь на константу, то множество первообразных можно представить в виде $\int_{a}^{x}f(t)dt+C$
+
+\subsubsection{Следствие 2}
+Если $f\in PC[a;b],$ то $\int_{a}^{x}f(t)dt$ - обобщенная первообразная от функции f(t).
+
+\subsubsection{Теорема}
+$ f(x) \in PC[a;b]\models>\int\limits_a^b f(x)$, $dx= f(b)- f(a) $
+где $F$-обобщенная первообразная для $f(t)$
+($ f(x)$-$f(a)$ $= \Bigl. F(x) \Bigr|_a^b$
+$-f(x)$ в подстановке от а до в)
+Доказательство:
+
+в силу следствия 2 из леммы1 обобщенная первообразная $ f(x)$ выражается
+
+Пусть
+
+$ F(x)= $ $\int_a^b f(t)\,dt+C$ 
+
+тогда
+
+$ f(a)= $ $\int_a^b f(t)\,dt+C=C$
+
+$f(x)=$ $\int_a^b f(t)\,dt+C=$$\int_a^b f(t)\,dt+$$f(x)$ 
+
+Отсюда:
+
+$\int_a^b f(t) dt = $ $f(b)-$ $f(x)$
+
+Th1-основная Th интегрального исчисления.
+
+Замечание:
+
+Не следует думать, что любой определённый интеграл можно вычислить подобным оброзом фуции,первообразные которых не выражаються через элементарные функции.
+
+Например:
+
+$\int_a^b f(x) dx-$
+не выражается через формулу Ньютона - Лейбница, но он ведь существует!Т.е. их как-то можно выразить в числах,посчитать
+ 

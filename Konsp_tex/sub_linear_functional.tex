@@ -1,0 +1,72 @@
+\begin{opred}
+Линейный функционал на $\R^n$ - это $f:\R^n \to \R^1$ для которого выполняется:
+\\
+1.Свойство аддитивности:
+$$
+\forall(x,y\in\R^n)[f(x+y)=f(x)+f(y)]
+$$
+2.Свойство однородности:
+$$
+\forall(x\in\R^n)\forall(\alpha\in\R)[f(\lambda_x)=\lambda f(x)]
+$$
+\end{opred}
+
+\begin{opred}
+	Внутреннее (скалярное) произведение элементов x,y - 
+	\\
+	это $\sum_{i=1}^{n}x^i\cdot y^i$ : $<x,y>=\sum_{i=1}^{n}x^i\cdot y^i$ для $\forall(x=(x^1,...,x^n))$ 
+	\\
+	и $y=(y^1,...,y^n)\in\R^n)$
+\end{opred}
+
+\subsubsection{Свойства скалярного произведения (для $x,y\in\R^n$)}
+$1.\forall(x,y)[<x,y>=<y,x>];$
+\\
+$2.\forall(x,y,z\in\R^n)[<(x+y),z>=<x,z>+<y,z>];$
+\\
+$3.\forall(x,y,z\in\R^n,\lambda)[\lambda<x,y>=<\lambda x,y>];$
+\\
+$4.\forall(x\in\R^n)[(<x,x>\geq 0 ^ <x,x>=0)\Leftrightarrow(x=0)];$
+\\
+$5.|<x,y>|\le |x|\cdot |y| ,$
+\\
+ так как $|x|=\sqrt{\sum_{i=1}^{n}(x')^2} = \sqrt{<x,x>}$, а 
+\\
+$
+|<x,y>| = \sum_{i=1}^{n} |a_i b_i|\le\sqrt{\sum_{i=1}^{n}a^2}\cdot\sqrt{\sum_{i=1}^{n}B^2}=|x|\cdot |y|
+$
+\\
+(по неравенству Бониковского-Шварца)
+
+\subsubsection{Предположение}
+$f:\R^n\to\R^1$ - линейный, $f(x)=<x,u>$, где $u\in\R^n$ - фиксированный.
+\\
+$e_1,...,e_n$- стандартный базис "бегающая 1".
+\\
+Пусть $f(e_i)=u_i;i=\{1,n\}$. Тогда 
+$$
+\forall(x\in\R^n)[x=\sum_{i=1}^{n}x^i\cdot e_i]\Rightarrow f(x)=\sum_{i=1}^{n}x^i f^i(e_i)=\sum_{i=1}^{n} x^i\cdot u_i=<x,u>
+$$
+где $u=(u_1,...,u_n)$
+\\
+Получается:$\forall(x\in\R^n)[|f(x)|=|<x,u>|\le|x|\cdot |u|]$, по неравенству Бониковского-Шварца.
+\\
+\begin{opred}
+	Норма функционала f - норма вектора u, порождающего функционал f. (||f||=|u|)
+	\\
+	Таким образом $|f(x)|\le|x|\cdot|u|=|x|\cdot||f||$
+\end{opred}
+\\
+Любой линейный функционал на $\R^n$ является непрерывным т.к. $\forall(x,x_0 \in \R^n)[|f(x)-f(x_0)|=|f(x-x_0)|\le||f||\cdot |x-x_0|]$
+\\
+Отсюда $|f(x)-f(x_0)|$ будет как угодно мал, когда $|x-x_0|<\delta|$. Тогда за $\delta$ можно взять:
+$$
+|x-x_0|<\frac{\epsilon}{||f||}=\delta
+$$
+
+
+
+
+
+
+

@@ -1,3 +1,73 @@
+\begin{opred}
+Пусть f(x) определена на множестве E. Тогда колебанием функции f на множестве E называется
+$$
+\omega(f,E)=\sup_{x',x''\in E}|f(x')-f(x'')|=\sup_{x\in E}f(x)-\inf_{x\in E}f(x)
+$$
+если f(x) - ограничена на E, то $\omega(f,E) \neq\infty$
+\end{opred}
+\\
+Рассмотрим промежуток [a;b], где $\vartriangle x_i = x_i - x_{i-1}; \vartriangle_i=[x_{i-1};x_i];$
+$$
+\vartriangle_{ij}=[x_{i-1;j-1};x_{ij}],
+$$
+Если $T_1$ - измельчение T.
+
+\begin{teorema}
+Для того, чтобы ограниченная функция f(x) была интегрируема по Риману в [a;b] НиД
+$$
+\forall(\epsilon>0)\exists(\sigma>0)\forall(T)[d(T)<\sigma\Rightarrow\sum_{i=1}^{n}\omega(f,\vartriangle_i)\cdot\vartriangle x_i<\epsilon]
+$$
+(если $\omega(f,\vartriangle_i)=\omega_i ,$ то $\sum_{i=1}^{n} \omega(f,\vartriangle_i)\cdot x_i= \sum_{i=1}^{n}\omega_i \vartriangle x_i$)
+\end{teorema}
+
+\dokvo
+\subsubsection{Необходимость}
+Дано: $f\in R[a;b]$
+\\
+Возьмем $\forall(\epsilon>0).$ Т.к. $f\in R[a;b],$ то выполняется критерий Коши:
+
+$$
+\forall(\epsilon>0)\exists(\sigma>0)\forall((T',\varphi'),(T'',\varphi''))[d(T')<\sigma_1 d(T')<\sigma\Rightarrow|S(f,(T',\varphi'))-S(f,(T'',\varphi''))|<\frac{\epsilon}{3}]
+$$
+\\
+Пусть $T'=T''=T$, а $\varphi'' \neq \varphi'$.
+\\
+$\varphi'=(\varphi_1',...,\varphi_n')$ выберем так, чтобы:
+$$
+f(\varphi_i')>\sup_{x\in\vartriangle_i}f(x)-\frac{\epsilon}{3(b-a)}=M_i-\frac{\epsilon}{3(b-a)}
+$$
+где $M_i=\sup_{x\in\vartriangle_i}f(x)$
+\\
+$\varphi''=(\varphi_1'',...,\varphi_n'')$ выберем так чтобы:
+$$
+f(\varphi_i')>\inf_{x\in\vartriangle_i}f(x)-\frac{\epsilon}{3(b-a)}=m_i-\frac{\epsilon}{3(b-a)}
+$$
+Преобразуем условие:
+$$
+\sum_{i=1}^{n}\omega_i\vartriangle x_i=\sum_{i=1}^{n}(M_i-m_i)\vartriangle x_i=
+$$
+
+$$
+=\sum_{i=1}^{n}(M_i-f(\varphi_i')+f(\varphi_i')f(\varphi_i'')+f(\varphi_i'')-m_i)\cdot\vartriangle x_i=
+$$
+
+$$
+=\sum_{i=1}^{n}(M_i-f(\varphi_i'))\vartriangle x_i + \sum_{i=1}^{n}(f(\varphi_i')-f(\varphi_i''))\vartriangle x_i + \sum_{i=1}^{n}(f(\varphi_i'')-m_i)\vartriangle x_i<
+$$
+
+$$
+\sum_{i=1}^{n}(\frac{\epsilon}{3(b-a)}\cdot\vartriangle x_i) + \sum_{i=1}^{n}f(\varphi_i')\vartriangle x_i + \sum_{i=1}^{n}f(\varphi_i'')\vartriangle x_i + \sum_{i=1}^{n}\frac{\epsilon}{3(b-a)}\cdot \vartriangle x_i =
+$$
+
+$$
+=\frac{2\epsilon}{3(b-a)}\cdot\sum_{i=1}^{n}\vartriangle x_i + S(f,(T,\varphi')) - S(f,(T,\varphi''))<
+$$
+
+$$
+<\frac{2\epsilon}{3(b-a)}\cdot (b-a) + \frac{\epsilon}{3}=\epsilon
+$$
+\dokno
+
 \begin{teorema}
 $f\in R[a;b] \Leftrightarrow$
 \begin{equation}\label{nid_usl_int_koleb}
@@ -7,12 +77,60 @@ $f\in R[a;b] \Leftrightarrow$
 \end{teorema}
 
 \dokvo
-\neobh
 
-Так как функция интегрируема, можем пользоваться критерием Коши.
-Зафиксируем общие $\epsilon$ и $\delta$ в (\ref{krit_Koshi_opr_int}) и (\ref{nid_usl_int_koleb}).
-Рассмотрим два разбиения $T'$ и $T''$, таких, 
-Обозначим $ $
+\subsubsection{Достаточность}
+Дано: усл. Доказать: $f\in R[a;b]$
+\\
+В силу критерия Коши надо доказать что выполняется условие (*) (см.2.2).
+\\
+Возьмем два разбиения: ($T,\varphi$) и ($\tilde{T},\tilde{\varphi}$):$T \subset \tilde{T}$, т.е. $\tilde{T}$ - измельчение T. Пусть T имеет n  точек разбиения, и в каждом i-том подотрезке будет $n_i$ разбиений: значит, $\sum_{j=1}^{n}\vartriangle x_{ij}=\vartriangle x_i.$ Тогда
+$$
+|S(f,(T,\varphi))-S(f(\tilde{T},\tilde{\varphi}))|=|\sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i - \sum_{i=1}^{n}\sum_{j=1}^{n}f(\varphi_{ij})\vartriangle x_{ij}|
+$$
 
+$$
+|\sum_{i=1}^{n}\sum_{j=1}^{n}(f(\varphi_i)-f(\varphi_{i,j}))\vartriangle x_{ij}|\leq
+$$
 
+\subsubsection{Пояснение:}
+почему $\sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i$ можно заменить на $\sum_{i=1}^{n}\sum_{j=1}^{n}f(\varphi_{i})\vartriangle x_{ij}$?
+\\
+Вспомним, что такое $\sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i$;
+\\
+$\sum_{i=1}^{n}\sum_{j=1}^{n}f(\varphi_{i})\vartriangle x_{ij}$
+(та же самая площадь, только разбитая на более мелкие кусочки)
+\\
+Или алгебраически:
+$\sum_{i=1}^{n}\sum_{j=1}^{n}f(\varphi_{i})\vartriangle x_{ij} = \sum_{i=1}^{n}f(\varphi_i)\sum_{j=1}^{n_i}\vartriangle x_{ij}=\sum_{i=1}^{n}f(\varphi_i)\vartriangle x_i$
 
+$$
+\leq |f(\varphi_i)-f(\varphi_{ij})\leq\omega(f,\vartriangle_i)=\omega_i|\leq
+$$
+
+$$
+\leq\sum_{i=1}^{n}\sum_{j=1}^{n}\omega_i\vartriangle x_{ij} = \sum_{i=1}^{n}\omega_i\sum_{j=1}^{n}\vartriangle x_{ij}=
+$$
+
+$$
+=\sum_{i=1}^{n}\omega_i \vartriangle x_i < \frac{\epsilon}{2}
+$$
+\\
+Возьмём $\forall(\epsilon>0)$. Тогда $\exists(\sigma>0)[d(T)<\sigma\Rightarrow\sum_{i=1}^{n}\omega_i \vartriangle x_i < \frac{\epsilon}{2}]$
+\\
+Но!Возьмём 2 разбиения: $\forall$($(T',\varphi')$ и $(T'',\varphi'')$).
+\\
+Пусть $T=T'\cup T'' \Rightarrow T-$ измельчение T' и T'' $\Rightarrow d(T)<\sigma\Rightarrow$
+
+$$
+\Rightarrow|S(f,(T',\varphi'))-S(f,(T'',\varphi''))|=\leq
+$$
+
+$$
+\leq|S(f,(T,\varphi))+S(f,(T',\varphi'))+S(f,(T,\varphi))-S(f,(T'',\varphi''))|\leq
+$$
+
+$$
+\leq ||S(f,(T,\varphi))-S(f,(T',\varphi'))| + |S(f,(T,\varphi))-S(f,(T'',\varphi''))|<\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+$$
+Значит выполняется (*) из критерия Коши следует что $f\in R[a;b]$
+\dokno
