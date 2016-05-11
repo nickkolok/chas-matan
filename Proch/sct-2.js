@@ -461,8 +461,8 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=43;
-var d=937;
+var p=44;
+var d=959;
 while(p<100){
 	found=0;
 	findSCTs(p,d);
