@@ -383,6 +383,18 @@ function separateX(cand){
 	return firstX;
 }
 
+function isFullSquare(n){
+  while(!(n & 3)){
+    n = n >> 2;
+  }
+  if((n & 7) != 1){
+    return false;
+  }
+  var s = Math.sqrt(n);
+  return s == Math.floor(s);
+
+}
+
 function reduceX(cand,firstX){
 	var lengthBefore=cand.length;
 	var timeBefore=Date.now();
@@ -390,7 +402,7 @@ function reduceX(cand,firstX){
 	for(var i=firstX; i<cand.length; i++){
 		var fl=false;
 		for(var j=0; j<firstX; j++){
-			if(isZ(Vector2.dist(cand[i],cand[j]))){
+			if(isFullSquare(Math.pow(cand[i].x-cand[j].x,2)+Math.pow(cand[i].y-cand[j].y,2))){
 				fl=true;
 				break;
 			}
