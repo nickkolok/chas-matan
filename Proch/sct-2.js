@@ -168,45 +168,78 @@
 //Невозбранно скопипащено с  www.litunovskiy.com/gamedev/intersection_of_two_circles
 }
 
-function getCandidatePoints(base,maxD){
+function getCandidatePoints(d){
 	var timeBefore=Date.now();
 	var candidatePoints=[];
-	for(var a=1; a<=maxD; a++){
-		for(var b=Math.max(base-a+1,a); b<=maxD; b++){
-			var intersects=Circle.moGetCrossPoints2(new Circle(0,0,a),new Circle(0,base,b),1/1024/1024);
-			candidatePoints.push({
-				x:intersects.pos1.x,
-				y:intersects.pos1.y,
-				weight:0,
-			});
-			candidatePoints.push({
-				x:intersects.pos2.x,
-				y:intersects.pos2.y,
-				weight:0,
-			});
-			if(a!=b){
-				var intersects=Circle.moGetCrossPoints2(new Circle(0,0,b),new Circle(0,base,a),1/1024/1024);
-				candidatePoints.push({
-					x:intersects.pos1.x,
-					y:intersects.pos1.y,
+
+	//Точки, которые по 4
+	var d2 = Math.pow(d,2);
+	for(var a=1; a<=d; a++){
+		// a < b
+		var a2 = Math.pow(a,2);
+		for(var b=Math.max(d-a,a)+1; b<=d; b++){
+			var y = (a2+d2 - Math.pow(b,2))/(2*d);
+			var x = Math.sqrt(a2-Math.pow(y,2));
+			candidatePoints.push(
+				{
+					x:x,
+					y:y,
 					weight:0,
-				});
-				candidatePoints.push({
-					x:intersects.pos2.x,
-					y:intersects.pos2.y,
+				},
+				{
+					x:x,
+					y:d-y,
 					weight:0,
-				});
-			}
+				},
+				{
+					x:-x,
+					y:y,
+					weight:0,
+				},
+				{
+					x:-x,
+					y:d-y,
+					weight:0,
+				}
+			);
 		}
 	}
-	for(var i=1; i<base; i++){
-		candidatePoints.push({
-			x:0,
-			y:i,
-			weight:0,
-		});
+
+	// Точки, которые по 2
+	var y = d/2;
+	var y2 = Math.pow(y,2);
+	for(var a=Math.floor(y)+1; a<=d; a++){
+		var x = Math.sqrt(Math.pow(a,2)-y2);
+		candidatePoints.push(
+			{
+				x:x,
+				y:y,
+				weight:0,
+			},
+			{
+				x:-x,
+				y:y,
+				weight:0,
+			}
+		);
 	}
-	console.log("Массив точек-кандидатов составлен ("+(Date.now() - timeBefore)+" мс)");
+
+	//Осевые точки
+
+	for(var a=1; a<d; a++){
+		candidatePoints.push(
+			{
+				x:0,
+				y:a,
+				weight:0,
+			}
+		);
+	}
+
+
+
+	console.log("Массив точек-кандидатов составлен ("+(Date.now() - timeBefore)+" мс), всего точек: "+candidatePoints.length);
+//	console.log(candidatePoints);
 	return candidatePoints;
 }
 
