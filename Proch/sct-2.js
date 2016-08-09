@@ -169,6 +169,7 @@
 }
 
 function getCandidatePoints(base,maxD){
+	var timeBefore=Date.now();
 	var candidatePoints=[];
 	for(var a=1; a<=maxD; a++){
 		for(var b=Math.max(base-a+1,a); b<=maxD; b++){
@@ -205,6 +206,7 @@ function getCandidatePoints(base,maxD){
 			weight:0,
 		});
 	}
+	console.log("Массив точек-кандидатов составлен ("+(Date.now() - timeBefore)+" мс)");
 	return candidatePoints;
 }
 
