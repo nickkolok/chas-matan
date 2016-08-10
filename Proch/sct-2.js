@@ -168,6 +168,14 @@
 //Невозбранно скопипащено с  www.litunovskiy.com/gamedev/intersection_of_two_circles
 }
 
+
+function Point(x,y) {
+	this.x=x;
+	this.y=y;
+	this.weight=0;
+};
+
+
 function getCandidatePoints(d){
 	var timeBefore=Date.now();
 	var candidatePoints=[];
@@ -181,26 +189,10 @@ function getCandidatePoints(d){
 			var y = (a2+d2 - Math.pow(b,2))/(2*d);
 			var x = Math.sqrt(a2-Math.pow(y,2));
 			candidatePoints.push(
-				{
-					x:x,
-					y:y,
-					weight:0,
-				},
-				{
-					x:x,
-					y:d-y,
-					weight:0,
-				},
-				{
-					x:-x,
-					y:y,
-					weight:0,
-				},
-				{
-					x:-x,
-					y:d-y,
-					weight:0,
-				}
+				new Point(x,y),
+				new Point(x,d-y),
+				new Point(-x,y),
+				new Point(-x,d-y)
 			);
 		}
 	}
@@ -211,16 +203,8 @@ function getCandidatePoints(d){
 	for(var a=Math.floor(y)+1; a<=d; a++){
 		var x = Math.sqrt(Math.pow(a,2)-y2);
 		candidatePoints.push(
-			{
-				x:x,
-				y:y,
-				weight:0,
-			},
-			{
-				x:-x,
-				y:y,
-				weight:0,
-			}
+			new Point(x,y),
+			new Point(-x,y)
 		);
 	}
 
@@ -228,11 +212,7 @@ function getCandidatePoints(d){
 
 	for(var a=1; a<d; a++){
 		candidatePoints.push(
-			{
-				x:0,
-				y:a,
-				weight:0,
-			}
+			new Point(0,a)
 		);
 	}
 
@@ -508,11 +488,11 @@ findSCTs(4,5);
 */
 
 var found=0;
-var p=44;
-var d=964;
-//var p=3;
-//var d=1;
-while(p<100){
+//var p=44;
+//var d=964;
+var p=3;
+var d=1;
+while(p<15){
 	found=0;
 	findSCTs(p,d);
 	if(found){
