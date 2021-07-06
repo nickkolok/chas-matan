@@ -7,3 +7,7 @@
 *.dvi
 *.synctex.gz
 .goutputstream-*
+
+*.fdb_latexmk
+*.orig
+*.fls
