@@ -1,0 +1,29 @@
+\begin{opr}
+	Число $b$ называется пределом функции $f(x)$ при $x$, стремящемся к $a$, если
+	\begin{equation}
+		\forall(\varepsilon > 0)\exists(\delta>0)\forall(x: 0<|x-a|<\delta)[|f(x)-b|<\varepsilon]
+		.
+	\end{equation}
+	Пишут:
+	\begin{equation}
+		\lim_{x\to a} f(x) = b
+		.
+	\end{equation}
+\end{opr}
+Сама функция $f$ может и не быть определена в точке $a$, например
+\begin{equation}
+	\lim_{x\to 0} \frac{\sin x}{x} = 0
+	,
+\end{equation}
+
+\begin{equation}
+	\lim_{x\to 1} \frac{x^2-1}{x-1} = 2
+	.
+\end{equation}
+
+Вообще говоря, предела у функции может и не существовать.
+Например, не существует предела
+\begin{equation}
+	\lim_{x\to 0} \frac{|x|}{x}
+	.
+\end{equation}
