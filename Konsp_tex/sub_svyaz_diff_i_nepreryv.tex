@@ -1,0 +1,33 @@
+\begin{teorema}
+
+Если $X \subset \mathbb {R}$ $f : X \rightarrow \mathbb {R}$, $f$ - дифференцируема в $x_0 \in X$, то $f$ - непрерывна в $x_0$.
+
+\end{teorema}
+
+Доказательство:
+
+Т.к. $f(x)$ - дифференцируема, то $f(x_0 +h) - f(x_0) = f'(x_0)h + \omega(x_0,h)$,
+\\
+где $\omega(x_0,h) = 0(h)$.
+
+Отсюда, если в качестве $h$ взять последовательность $h_n : x + h_n \in X$, то 
+\\
+$f(x_0 +h_n) - f(x_0) = f'(x_0)h_n + \omega(x_0,h_n)$.
+
+Пусть $h_n \rightarrow 0$. Тогда $x_0 +h_n \rightarrow x_0$ и  $f(x_0 + h_n) \rightarrow f(x_0)$,
+\\
+т.к. $f'(x_0)h_n + \omega(x_0,h_n) \rightarrow 0$, при $n \rightarrow \infty$.
+
+Значит по определению Гейне: о непрерывности функций $f(x)$ - непрерывна в $x_0$. Что и требовалось доказать.
+
+\subsubsection{Замечание.}
+
+Обратная теорема неверна. Т.е. из непрерывности не следует дифференцируемость.
+
+\subsubsection{Например.}
+
+$y = |x|$.
+\\
+$(lim_{x \to +0} \frac {\Delta y}{\Delta x} = lim_{x \to +0} \frac {\Delta x}{\Delta x} = 1) \neq (lim_{x \to -0} \frac {\Delta y}{\Delta x} = lim_{x \to -0} \frac {-\Delta x}{\Delta x} = -1)$
+
+т.е. $y = |x|$ - не дефференцируема в точке $x=0$, хотя непрерывна в ней.
