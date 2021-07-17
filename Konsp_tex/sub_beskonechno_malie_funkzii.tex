@@ -1,0 +1,76 @@
+\opred
+	$f(x)$ - бесконечно малая функция, если $\lim\limits_{x\rightarrow0}f(x)=0$
+
+	\subsubsection {Утверждения, касающиеся бесконечно малых функций:}
+	\begin{enumerate}
+		\item $\lim\limits_{x\rightarrow0}f(x)=b \Leftrightarrow \lim\limits_{x\rightarrow0}(f(x)-b)-0$
+
+	     т.е. функкция $\alpha(x)=f(x)$ - бесконечно малая при x $\rightarrow a$
+
+		\item Сумма и произведение бесконечно малых функий при x $\rightarrow$ a есть бесконечно малая функции при x $\rightarrow a$.
+
+		\item Произведение бесконечно малой функции при x $\rightarrow a$ на ограниченную функцию = бесконечно малая функция при x $\rightarrow a$
+
+		\end{enumerate}
+
+	\subsubsection {Доказательство:}
+
+	Пусть $f(x)$ - бесконечно малая, т.е. $\lim f(x)=0$. Пусть $g(x)$ - ограничена, т.е.
+	$\exists(M>0)[|f(x)| \leq M]$ $|f(x)\cdot g(x)| \leq |f(x)|\cdot M$
+
+	$\lim\limits_{x\rightarrow a}(|f(x)||g(x)|)=\lim\limits_{x\rightarrow a}f(x) \cdot \lim\limits_{x\rightarrow a}M = 0 \cdot M = 0$
+
+
+	\subsubsection {Сравнение бесконечено малых функций.}
+
+	Пусть есть $g(x) и f(x)$: X $\Rightarrow \ \mathbb {R}; X \subset  \mathbb {R}, x \rightarrow a$.
+
+	$g(x) и f(x)$ - бесконечно малая одного порядка, если $$\lim\limits_{x\rightarrow a}\frac{g(x)}{f(x)}=b, (где b\neq 0)$$
+
+	Бесконечно малые функции эквивалентны если $\lim\limits_{x \rightarrow 0}\frac{g(x)}{f(x)}=1$. Пишут: $g(x) \sim f(x)$
+
+	Например: $\sin(x) \sim x$
+
+	$f(x)$ - бесконечно малая функция высшего порядка малости по сравнению с g(x), если $\lim\limits_{x \rightarrow a}\frac{g(x)}{f(x)}=0$. Пишут: $f(x) = 0(g(x))$
+
+	Например: $x^2 = 0(x), при x \rightarrow 0$.
+
+	\subsubsection {Теорема.}
+	$f(x) \sim g(x) при x \rightarrow 0 \Leftrightarrow f(x) = g(x) = 0(f(x)) = 0(g(x))$
+
+	\subsubsection {Доказательство:}
+
+	$$\lim\limits_{x \rightarrow a}\frac{f(x) - g(x)}{f(x)} = \lim\limits_{x \rightarrow a}\left(1 - \frac{g(x)}{f(x)}\right) =
+	 \lim\limits_{x \rightarrow a}1 - \lim\limits_{x \rightarrow a}\frac{g(x)}{f(x)0}=0$$
+
+	$$\lim\limits_{x \rightarrow a}\frac{f(x) - g(x)}{g(x)} = \lim\limits_{x \rightarrow a}\left(\frac{g(x)}{f(x)} - 1\right) =
+	 1 - \lim\limits_{x \rightarrow a}\frac{f(x)}{g(x)0}=0$$
+
+	чтд.
+
+	$f(x) и g(x)$ - несравнимые бесконечно малые функции, если $$\not\exists \lim\limits_{x \rightarrow a}\frac{f(x)}{g(x)}$$
+
+	Например: $$f(x) = x\sin(\frac{1}{x}), g(x)=x, x\rightarrow 0: \lim\limits_{x \rightarrow 0}\frac{x\sin(\frac{1}{x})}x =
+	 \lim\limits_{x \rightarrow 0}\sin(\frac{1}{x}) = \emptyset$$
+
+	$f(x) - бесконечно малая функция порядка k по сравнению с g(x), если \lim\limits_{x\rightarrow a}\frac{f(x)}{(g(x))^k}=b (b \neq 0)$
+
+	Здесь $(g(x))^k$ - главня часть функции $f(x)$ по сравнению с $g(x)$.
+
+	Например: $$\sin^{\lambda}x=f(x), g(x)=x, x=0, \lim\limits_{x \rightarrow 0}\frac{\sin^{2}x}{x^2}=1$$
+
+	Значит, $\sin^{2}x$ - функция порядка 2 по сравнению с x, $x^2$ - главная часть $\sin^{2}x$.
+
+	\subsubsection {Теорема.}
+
+	Пусть $g(x) \sim f(x) и f(x), g(x) бесконечно малая. Тогда \lim(f(x)\alpha(x))=\lim(g(x)\alpha(x))$, где $\alpha(x)$ - произвольная функция.
+
+	\subsubsection {Доказательство:}
+
+	$\lim(f(x)\alpha(x)) = \lim\frac{f(x)}{g(x)}g(x)\alpha(x) = \lim\frac{f(x)}{g(x)} \lim((g(x)) \alpha(x)) = \lim(g(x)\alpha(x))$.
+
+	чтд.
+\\
+	Эта теорема позволяет сокращать вычисление $\lim$: некоторые множетиле можно заменить эквивалентными.
+
+	Например: $\lim\frac{\sin^{3}(x)}{x^3}=\lim\frac{x^3}{x^3}=1$

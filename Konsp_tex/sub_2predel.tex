@@ -1,0 +1,37 @@
+	\opred
+	$\lim\limits_{x\rightarrow 0}(1+x)^\frac{1}{x}=e$ (1)
+	\\
+	$\lim\limits_{x\rightarrow \infty}(1+\frac{1}{x})^x=e$ (2)
+	\subsubsection{Доказательство}
+	$\lim\limits_{n\rightarrow \infty}(1+\frac{1}{n})^n=e$ - было ранее. Похоже на (2).
+	Разница в том, что там - последовательность, а в (2) - просто числа.
+
+	Воспользуемся Th о существовании и равенстве $\lim\limits_{x\rightarrow a\pm 0}$. Берем def по Гейне.
+
+	Рассмотрим 2 последовательность: $x_n и x_n^{'}: x_n \rightarrow 0 + 0; x_n^{'} \rightarrow 0-0$.
+
+	Надо показать, что $f(x)\rightarrow e$ слева и справа:
+	Пусть $m_n$ = $ [\frac{1}{x_n}]$; тогда $m_n$ $\leq \frac{1}{x_n} \leq m_n + 1$
+
+	$$\frac{1}{m_n} \geq x_n \geq \frac{1}{m_n + 1} \bigg| +1$$
+	$$ 1 + \frac{1}{m_n} \geq x_n + 1 \geq \frac{1}{m_n + 1} + 1$$
+	$$\left(1 + \frac{1}{m_n}\right)^{m_n+1} \geq (x_n + 1)^{\frac{1}{x_n}} \geq \left(\frac{1}{m_n + 1} + 1\right)^{m_n+1}$$
+	$$\left(1 + \frac{1}{m_n}\right)\left(1 + \frac{1}{m_n}\right)^{m_n} \geq (x_n + 1)^{\frac{1}{x_n}} \geq \left(\frac{1}{m_n + 1} + 1\right)^{m_n+1}
+	\bigg| \left(\frac{1}{m_n + 1} + 1\right)$$
+
+	Пусть $m_n \rightarrow \infty$.
+	Тогда $\lim\limits_{m_n\rightarrow\infty}\left(1+\frac{1}{m_n}\right)\left(1+\frac{1}{m_n}\right)^{m_n}=e$,
+	$\lim\limits_{x\rightarrow\infty}\frac{\left(\frac{1}{m_n + 1} + 1\right)^{m_n+1}}{\frac{1}{m_n + 1} + 1}=e$
+	$\bigg| \Rightarrow \lim\limits_{m_n\rightarrow\infty}(x_n + 1)^{\frac{1}{x_n}}=e$
+
+	Это мы доказал стремление справа. Теперь докажем схождение слева. Пусть $x_n^{'} \rightarrow 0-0$ и
+	$x_n = \frac{-x_n^{'}}{1+x_n^{'}}$. Отсюда $x_n^{'}$ = $\frac{-x_n}{1+x_n}$
+
+	Значит, $f(x)=(1+x_n^{'})^{\frac{1}{x_n^{'}}}$=$\left(1 - \frac{x_n}{1+x_n}\right)^\frac{1+x_n}{-x_n}$=
+	$\left(\frac{1+x_n-x_n}{1+x_n}\right)^{-\frac{1+x_n}{x_n}}=(1+x_n)^{\frac{1+x_n}{x_n}}=
+	(1+x_n)^{1+\frac{1}{x_n}}=(1+x_n)(1+x_n)^{\frac{1}{x_n}}$
+
+	$\lim\limits_{x_n\rightarrow0}f(x)=\lim\limits_{x_n^{'}\rightarrow0-0}(1+x_n^{'})^{\frac{1}{x_n}}=e$
+
+
+
