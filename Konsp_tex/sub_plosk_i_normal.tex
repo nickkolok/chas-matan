@@ -1,0 +1,201 @@
+Пусть $S$ - непрерывно дифференцируемая поверхность. Рассмотрим векторное представление $r = \overline{r}(u,v)$, $(u,v) \in \overline{U}$,
+\\
+где $r$ - непредельная дифференцируемая векторная функция на $\overline{U}$.
+
+Предположим, что для прямых $u=u_0$ или $v=v_0$, $\overline{U} \bigcap u$ $(\overline{U} \bigcap v)$ состоит из одного отрезка (может быть вырождающейся точкой).
+
+\opred
+
+При сделанных предположениях и при фиксированных $u_0$ или $v_0$, отображение $r$ называется координатная линия:
+\\
+$r = \overline{r}(u_0,v)$ - $v$ линия,
+\\
+$r = \overline{r}(u,v_0)$ - $u$ линия.
+
+\opred
+
+$\overline{r_v} = \frac{dr}{dv}$ и $\overline{r_u} = \frac{dr}{dг}$ - касательные вектора.
+
+\opred
+
+Точка поверхности $S$, в которой векторы $\overline{r_u}$ и $\overline{r_v}$ неколлинеарны, называется неособая точка при данной представлении этой поверхности. 
+
+Условие неколлинеарности векторов:
+\\
+$\overline{r_u} \cdot \overline{r_v} \neq 0$, если точка неособая, то, в частности $\overline{r_u} \neq 0$ и $\overline{r_v} \neq 0$.
+
+\opred
+
+Если $\overline{r_u}$ и $\overline{r_v}$ коллинеарны, то точка называется особая при данном ее представлении.
+
+Рассмотрим кривую на поверхности $S$. Пусть эта кривая задана представлениями $r=r(u(t),v(t))$ где $t \in [t_o, T]$, а $u(t),v(t)$ - непрерывно дифференцируемы, причем $(u'(t))^2+(v'(t))^2 \neq 0$. Тогда 
+
+$$d\overline{r} = \overline{r_u}du+ \overline{r_v}dv = (\overline{r_u}u_t' + \overline{r_v}v_t')dt$$.
+
+\opred
+
+Если точка поверхности неособая, то $dr$ будет касательной к кривой $F(u(t),v(t))$.
+
+\opred
+
+Плоскость, проходящая через точку $\overline{r}(u_0,v_0)$ поверхности, в которой лежат все касательные к кривым $\overline{r}(u(t),v(t))$, проходящим через эту точку, 
+\\
+называются касательной плоскостью, проходящей через точку $\overline{r}(u_0,v_0)$,
+\\
+называемую точкой касания.
+
+Если точка неособая, то в ней существует единственная касательная плоскость. Это будет плоскость проходящая через эту точку параллельно векторам $\overline{r_u}(u_0,v_0)$, $\overline{r_v}(u_0,v_0)$.
+
+Уравнение касательной плоскости.
+
+Пусть $\overline{r_0}$ - радиус вектор точки касания, $\overline{r}$ - текущий вектор.
+\\
+Вектор $\overline{r} - \overline{r_0}$ лежит в плоскости касания и в этой же плоскости лежат вектора $\overline{r_u}$,  $\overline{r_v}$, т.е. $\overline{r_u}$,  $\overline{r_v}$, $\overline{r} - \overline{r_0}$ - компланарны.
+
+Пусть $\overline{r} = (x,y,z)$, $\overline{r_0} = (x_0,y_0,z_0)$. Тогда:
+\\
+$\left|
+  \begin{array}{ccc}
+x - x_0 \quad y - y_0 \quad z - z_0
+\\
+x_u' \quad \quad \quad y_u' \quad \quad \quad z_u'
+\\
+x_v' \quad  \quad \quad y_v' \quad \quad \quad z_v'
+  \end{array}
+\right|$
+$=$
+\\
+$=(x-x_0)$
+$\left| 
+  \begin{array}{ccc}
+y_u' \quad z_u'
+\\
+y_v' \quad z_v'
+  \end{array}
+\right|$
+$+(y-y_0)$
+$\left| 
+  \begin{array}{ccc}
+z_u' \quad x_u'
+\\
+z_v' \quad x_v'
+  \end{array}
+\right|$
+$+(z-z_0)$
+$\left| 
+  \begin{array}{ccc}
+x_u' \quad y_u'
+\\
+x_v' \quad y_v'
+  \end{array}
+\right|$
+\\
+Если поверхность задана явно, т.е. $z = z(x,y)$, то:
+\\
+$(x-x_0)$
+$\left| 
+  \begin{array}{ccc}
+0 \quad z_x'
+\\
+1 \quad z_y'
+  \end{array}
+\right|$
+$+(y-y_0)$
+$\left| 
+  \begin{array}{ccc}
+z_x' \quad 0
+\\
+z_y' \quad 1
+  \end{array}
+\right|$
+$+(z-z_0)$
+$\left| 
+  \begin{array}{ccc}
+1 \quad 0
+\\
+0 \quad 1
+  \end{array}
+\right|$
+$=0$
+
+$$z-z_0 = (x-x_0)z_x' + (y-y_0)z_y'$$
+\\
+Если поверхность задана неявно, т.е. $F(x,y,z) = 0$, то: 
+
+$$(x-x_0)F_x' + (y-y_0)F_y' + (z-z_0)F_z' = 0$$
+
+\opred
+
+Прямая проходящая через точку касания поверхности с касательной плоскостью, перпендикулярная этой плоскости, называется нормальной прямой $K$ поверхности в указанной точке.
+
+Уравнение нормальной прямой 
+\\
+Пусть $(x_0,y_0,z_0)$ - точка касания. $\overline{r_u}$,  $\overline{r_v}$ лежат в касательной плоскости $K$.
+\\
+$\overline {n} = [\overline{r_u},  \overline{r_v}] \Rightarrow \overline {n} \bot \overline{r_u}, \overline {n} \bot \overline{r_v} \Rightarrow \overline {n} \bot  K  \Rightarrow \overline {n}$ - нормальный вектор.
+\\
+$[\overline{r_u},  \overline{r_v}] =$
+$\left| 
+  \begin{array}{ccc}
+i \quad j \quad k
+\\
+x_u' \quad y_u' \quad z_u'
+\\
+x_v' \quad y_v' \quad z_v'
+  \end{array}
+\right|$
+$=(y_u'z_v' - y_v'z_u'; x_v'z_u' - x_u'z_v'; x_u'y_v' - x_v'y_u') = \overline{n} $.
+\\
+Значит, нормальная прямая будет выглядеть так:
+
+$$\frac {x-x_0}{y_u'z_v' - y_v'z_u'} = \frac {y-y_0}{x_v'z_u' - x_u'z_v'} =  \frac {z-z_0}{x_u'y_v' - x_v'y_u'}$$
+
+Если поверхность задана явно, т.е. $z = z(x,y)$, то:
+
+$$\frac {x-x_0}{z_x'} = \frac {y-y_0}{z_y'} = -(z - z_0)$$
+
+\opred
+
+Любой ненулевой вектор, коллинеарный нормальной прямой, проходящий через заданную точку поверхности называется нормаль к этой поверхности в данной точке.
+
+\opred
+
+Вектор нормали единичной длины - единичный вектор нормали.
+
+$(\overline{n_e} = \frac {\overline{n}}{|\overline{n}|}; |\overline{n_e}| = 1)$
+\\
+Если $\overline{n} = (A,B,C)$, то $\overline{r_u} \cdot \overline{r_v} = A\overline{i} + B\overline{j} + C\overline{k}$. Тогда: 
+
+$\pm \overline{n_e} = \frac {A\overline{i}}{\sqrt{A^2 + B^2 + C^2}}+ \frac {B\overline{j}}{\sqrt{A^2 + B^2 + C^2}}+\frac {C\overline{k}}{\sqrt{A^2 + B^2 + C^2}}$
+\\
+Вектор нормали может быть направлен вверх или вниз. Поэтому в формуле перед $\overline{n_e}$ стоит знак $\pm$/
+\\
+Если поверхность задана явно $z = z(x,y)$, то:
+
+$\pm \overline{n_e} = \frac {z_x'}{\sqrt{1 + (z_x')^2 +(z_y')^2}}; \frac {z_y'}{\sqrt{1 + (z_x')^2 +(z_y')^2}};\frac {1}{\sqrt{1 + (z_x')^2 +(z_y')^2}}$
+\\
+Если поверхность задана неявно т.е. $F(x,y,z) = 0$, то:
+
+$\pm \overline{n_e} = \frac {F_x'}{\sqrt{(F_x')^2 +(F_y')^2+(F_z')^2}}; \frac {F_y'}{\sqrt{(F_x')^2 +(F_y')^2+(F_z')^2}};\frac {F_z'}{\sqrt{(F_x')^2 +(F_y')^2+(F_z')^2}}$
+\\
+Пусть есть $S$ и $S_1$, причем $S$ задано представлением $\overline{r}(u,v)$, а $S_1$ - $\rho(u_1,v_1)$, где $(u,v) \in \overline{U}$, a $(u_1,v_1) \in \overline{U_1}$;
+
+$\varphi : \overline{U} \rightarrow \overline{U_1}$ - непрерывно дифференцируемый гомеоморфизм, причем:
+
+$\Upsilon = \frac {D(\varphi^1,\varphi^2)}{D(u_1,v_1)} \neq 0$.
+\\
+Поверхности тождественны $\Rightarrow$ $\rho(u_1,v_1) = r(\varphi^1(u_1,v_1),\varphi^2(u_1,v_1))$
+\\
+Продифференируем по $u_1$ и $v_1$:
+
+$\overline{\rho_{u_1}}= \overline{r_u}(\varphi_{u_1})^1 + \overline{r_v}(\varphi_{v_1})^1 $ ; $\overline{\rho_{v_1}}= \overline{r_u}(\varphi_{v_1})^1 + \overline{r_v}(\varphi_{v_2})^2 $.
+
+Любая пара векторов $(\overline{r_u},\overline{r_v})$ преобразуется в $(\overline{\rho_{u_1}},\overline{rho_{v_1}})$ c помощью матрицы
+$\left(
+  \begin{array}{ccc}
+(\varphi_{u_1})^1 \quad (\varphi_{u_1})^2
+\\
+(\varphi_{v_1})^1 \quad (\varphi_{v_1})^2
+  \end{array}
+\right)$.
+По условию $\Upsilon \neq 0 \Rightarrow A \neq 0 \Rightarrow$ переход от $(\overline{r_u},\overline{r_v})$ к $(\overline{\rho_{u_1}},\overline{rho_{v_1}})$ происходит с помощью невырожденной линейной системы $\Rightarrow$ для $(u_1,v_1)$ векторы $\rho_{u_1}$ и $\rho_{v_1}$ линейно независимы $\leftrightarrow \overline{r_u},\overline{r_v}$ - линейно независимы $\leftrightarrow \overline{r_u},\overline{r_v}$ - неколлинеарны $\Rightarrow$ точка неособая.
