@@ -1,0 +1,77 @@
+
+\subsubsection{12.1.3 Сведение криволинейных интегралов первого рода к интегралам Римана.}
+
+Пусть в $xOy$ задана непрерывная спрямляемая кривая $\Gamma$.
+Предположим, что у нее есть длинна и она параметризована: $y=y(t), x=x(t), t \in [t_0; T]$, причем $A=(x(t_0)y(t_0)), B=(x(T)y(T))$.
+Будем считать, что кривая гладкая: $x^{'} (t) и y^{'} (t)$ --- непрерывны (т.е. сами $x(t) и y(t)$ --- непрерывно дифференцируемы).
+
+Пусть есть функция $f(x,y)$, область определения которой содержит кривую $\Gamma$ или равна ей.
+
+$$ \int_\Gamma f(x,y)dl = \lim\limits_{\alpha \rightarrow 0} \sum^{n}_{i=1}{f(\zeta_i;\eta_i )}\triangle l_i $$
+
+
+Пусть AB разбита точками $A_i = (x(t_i)y(t_i))$.
+Обозначим $\zeta_i = (x(\tau_i)), \eta_i = y(\tau_i), f(\zeta_i, \eta_i) = f(x(\tau_i), (y(\tau_i)), \tau_i \in [t_{i-1}; t_i]$.
+
+$$\triangle l_i = \int_{AB}^{t_i}\sqrt{(x^{'}(t))^2 + (y^{'}(t))^{2}}dt$$.
+
+
+$x^{'}(t) и y^{'}(t)$ --- непрерывны $\Rightarrow$ по теореме о среднем($\int_{a}^{b} f(x) dx = f(M)(b-a), M \in [a;b]$):
+
+
+$$\triangle l_i = \sqrt {(x^{'}(\Theta_i))^{'} + (y^{'}(\Theta_i)^{2})} \triangle t_i , \triangle t_i = t_i - t_i-1 , \theta_i \in [t_i-1 ; t_i].$$
+
+
+Тогда $\int_\Gamma f(x,y)dl = \lim\limits_{\alpha \rightarrow 0}\sum^{n}_{i=1}
+{f(x(\tau_i), (y(\tau_i))}\sqrt {(x^{'}(\Theta_i))^{2} + (y^{'}(\Theta_i)^{2})}\triangle t_i =
+\lim\limits_{\alpha \rightarrow 0}\sum_1 = \int_{t_0}^{T} f(x (t), y(t)) \sqrt {(x^{'}(t))^{2} + (y^{'}(t)^{2})}dt$
+
+
+Мы знаем, что $\lim\limits_{\alpha \rightarrow 0}\sum^{n}_{i=1}{f(x(\tau_i),
+(y(\tau_i))}\sqrt {(x^{'}(\Theta_i))^{2} + (y^{'}(\Theta_i)^{2})}\triangle t_i = 
+\lim\limits_{\alpha \rightarrow 0}\sum_1 = 
+\int_{t_0}^{T} f(x (t), y(t)) \sqrt {(x^{'}(t))^{2} + (y^{'}(t)^{2})}dt$ --- по определению.
+Однако у нас подкоренные функции зависят от $\Theta_i$, а не от $\theta_i$.
+Пусть $f(x,y)$ --- непрерывна и $M=sup |f(x,y)|$
+Рассмотрим $ \sum^{n}_{i=1}{f(x(\tau_i), (y(\tau_i))}\sqrt {(x^{'}(\tau_i))^{2} + (y^{'}(\tau_i)^{2})}\triangle t_i - \sum^{n}_{i=1}{f(x(\tau_i), (y(\tau_i))}\sqrt {(x^{'}(\Theta_i)){^2} + (y^{'}(\Theta_i)^{2})}\triangle t_i
+\le \sum^{n}_{i=1}{f(x(\tau_i), (y(\tau_i))}((\sqrt {(x^{'}(\tau_i))^{2} + (y^{'}(\tau_i)^{2})}) - (\sqrt {(x^{'}(\Theta_i))^{2} + (y^{'}(\Theta_i)^{2})}))\triangle t_i
+\le M\sum^{n}_{i=1}{((\sqrt {(x^{'}(\tau_i))^{2} + (y^{'}(\tau_i)^{2})}) - (\sqrt {(x^{'}(\Theta_i))^{2} + (y^{'}(\Theta_i)^{2})}))\triangle t_i}$
+
+Так как $x^{'} и y^{'}$ --- непрерывны, а $\Theta и \tau_i \in [t_i-1; t_i]$ то по следствию из теоремы Кантора:
+
+$\forall (\epsilon > 0)\exists(\beta > 0)\forall(разбиения отрезка [t_0] с диаметром d)[d < \beta \Rightarrow \omega (f) < \epsilon]$ 
+
+т.е $\lim\limits_{\alpha \rightarrow 0}\omega(f)=0$.
+
+$\le M\sum^{n}_{i=1}{\omega(\sqrt {(x^p{'}(\tau_i))^{2} + (y^{'}(\tau_i)^{2})})})\triangle t \underset{\alpha\rightarrow 0}{\rightarrow} 0$.
+
+Таким образом:
+$ \mid \sum_1 - \sum_2 \mid \rightarrow 0 \Rightarrow \lim\limits_{\alpha \rightarrow 0}\sum_1 = \lim\limits_{\alpha \rightarrow 0}\sum_2
+\Rightarrow \int_\Gamma f(x,y)dl = \lim\limits{\alpha \rightarrow 0}\sum_2 = \lim\limits{\alpha \rightarrow 0}\sum_1 = \int_{t_0}^{T} f(x (t), y(t))(\sqrt {(x^{'}(\tau_i))^{2} + (y^{'}(\tau_i)^{2})}dt$ --- формула сводящая криволинейные интегралы первого рода к интегралам Римана.
+
+Заметим, что для этой формулы даже не нужно условие непрерывности функции $f(x,y)$. Достаточно лишь существования $M=\sup|f(x,y)|$.
+
+Если кривая задана явным уравнением $y=y(x), x \in [a;b], y(x)$ --- непрерывно дифференцируема, то
+$$ \int_\Gamma f(x,y)dl = \int_{a}^{b} f(x, y(x))\sqrt{1+(y^{'} (x))^{2}}dx$$
+
+В случае кусочно-гладкой кривой $\Gamma$ криволинейный интеграл по кривой определяется как сумма криволинейных интегралов по всем гладким кривым, составляющим
+$\Gamma: \int_\Gamma = \sum^{n}_{i=1} { \int_\Gamma} \Gamma = \overset{n}{\underset{i=1}{\bigcup}} \Gamma_i$
+
+Аналогично --- для пространственной $\Gamma$:
+$x=x(t), y=y(t), z=z(t), t\in [t_0, T], \Gamma = AB$,
+
+$ A = (x(t_0)), y(t_0), z(t_0)), B=(x(T), y(T), z(T))$.
+
+$$\int_\Gamma f(x,y,z)dl = \int_{t_0}^{T} f(x(t),y(t), z(t))\sqrt {(x^{'}(t))^{2} + (y^{'}(t)^{2}) + (z^{'}(t)^{2})}dt.$$
+
+Доказательство --- аналогичное двумерному случаю.
+
+Можно рассматривать обобщение криволинейного интеграла на случай кривой заданной в  параметрическом пространстве n штуками уравнений:
+$x_i=x_i(t), i=1,n$, причем $x_i(t)$ --- непрерывно дифференцируемы, $f(x_1, ... , x_n)$ - скалярная функция от n переменных, причем:
+$ A= (x_1(t_0)), ... , x_n(t_0)), B= (x_1(T), ... , x_n(T)), f:\mathbb{R}^{n} \rightarrow \mathbb{R}^1$.
+
+Если предположить, что $f(x_1, ... , x_n)$ непрерывна на $\Gamma$, то:
+
+$$\int_\Gamma f(x_1, ... , x_n)dl=\int_{t_0}^{T} f(x_1(t), ... , x_n(t))\sqrt {(x_1^{'}(t))^{2} + ... (x_n^{'}(t)^{2})}dt.$$
+
+
