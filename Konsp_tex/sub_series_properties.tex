@@ -1,0 +1,72 @@
+\begin{theorem}[О линейности разложения в степенной ряд]
+	Пусть $h(x)=f(x) + k\cdot g(x)$, $\delta_f \geq \delta_g > 0$, $k, x_0 \in \mathbb R$, $c_m=a_m + k\cdot b_m$,
+	\begin{equation}
+		f(x) = \sum_{m=0}^\infty a_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_f;x_0 + \delta_f)
+		;
+	\end{equation}
+	\begin{equation}
+		g(x) = \sum_{m=0}^\infty b_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_g;x_0 + \delta_g)
+		.
+	\end{equation}
+	Тогда
+	\begin{equation}
+		h(x) = \sum_{m=0}^\infty c_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_g;x_0 + \delta_g)
+		.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Рассмотрим частичные суммы
+	\begin{equation}
+		F_n(x) = \sum_{m=0}^\infty a_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_f;x_0 + \delta_f)
+		;
+	\end{equation}
+	\begin{equation}
+		G_n(x) = \sum_{m=0}^\infty b_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_g;x_0 + \delta_g)
+		,
+	\end{equation}
+	\begin{equation}
+		H_n(x) = \sum_{m=0}^\infty c_m (x-x_0)^m
+		\qquad
+		\mbox{ сходится на}
+		(x_0 - \delta_g;x_0 + \delta_g)
+		.
+	\end{equation}
+	Легко видеть, что
+	\begin{equation}
+		H_n(x) = F_n(x) + k G_n(x)
+		.
+	\end{equation}
+	Переходя к пределу по $n$ и полагая, что $x\in(x_0-\delta_g; x_0+\delta_g)$, получаем
+	\begin{multline*}
+		\lim_{n\to\infty} H_n(x) =
+		\lim_{n\to\infty} \left(F_n(x) + k G_n(x)\right) =
+		\\=
+		\lim_{n\to\infty} F_n(x) + k \cdot \lim_{n\to\infty} G_n(x) =
+		f(x) + k g(x) = h(x)
+		.
+	\end{multline*}
+
+
+\end{proof}
+
+%\begin{remark}
+\paragraph{Замечание.}
+	Эта теорема ничего не говорит о сходимости на концах промежутка,
+	но соответствующие условия несложно получить.
+%\end{remark}
